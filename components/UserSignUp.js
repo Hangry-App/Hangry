@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
 import { Alert, StyleSheet, Text, View, TextInput, TouchableWithoutFeedback, Button } from 'react-native';
 
-class UserLogin extends Component {
+class UserSignUp extends Component {
   constructor() {
     super();
     this.state = {
       email: '',
       password: '',
+      passwordValidate: '',
     };
     this._onPressButton = this._onPressButton.bind(this);
     this.navToWelcome = this.navToWelcome.bind(this);
@@ -14,11 +15,17 @@ class UserLogin extends Component {
 
   _onPressButton() {
     if (this.state.email && this.state.password) {
-      Alert.alert(
-        'Email: ' + this.state.email + ' ' + 'Password: ' + this.state.password
-      );
+        if (this.state.password === this.state.passwordValidate && this.state.email.includes('@', '.com')) {
+            Alert.alert(
+              'Succesful sign up'
+            );
+        } else if (!this.state.email.includes('@', '.com')) {
+            Alert.alert('Please enter a valid email');
+        } else if (this.state.password !== this.state.passwordValidate) {
+            Alert.alert('Please check password matches');
+        }
     } else {
-      Alert.alert('Please enter email and password to log in');
+        Alert.alert('Please fill out all fields');
     }
   }
   navToWelcome() {
@@ -50,6 +57,15 @@ class UserLogin extends Component {
               autoCapitalize={'none'}
               underlineColorAndroid="transparent"
               onChangeText={text => this.setState({ password: text })}
+            />
+            <Text style={styles.text}>Password Validate</Text>
+            <TextInput
+              style={styles.form}
+              placeholder={'password validate'}
+              secureTextEntry={true}
+              autoCapitalize={'none'}
+              underlineColorAndroid="transparent"
+              onChangeText={text => this.setState({ passwordValidate: text })}
             />
             <Button
               onPress={this._onPressButton}
@@ -136,4 +152,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default UserLogin;
+export default UserSignUp;
