@@ -42,7 +42,8 @@ export const interiorContainer = {
 };
 
 export const cardContainer = {
-  marginTop: 60,
+  position: 'absolute',
+  bottom: 20,
   flex: 1,
   display: 'flex',
   justifyContent: 'center',
