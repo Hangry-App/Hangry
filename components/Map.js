@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { View, StyleSheet, Text, Platform } from "react-native";
 import { Constants, Location, Permissions, MapView } from "expo";
 import * as firebase from 'firebase';
+import Main from "./Main";
 
 const Marker = MapView.Marker;
 
@@ -208,12 +209,7 @@ export class Map extends Component {
         ) : (
             <Text style={styles.paragraph}>{text}</Text>
             )}
-                      <MapView.Marker coordinate={{
-                          latitude: 41.810676, 
-                          longitude: -72.922847}}
-                          title='Lassalles Market & Deli'
-                          description='104 Main St, Collinsville, CT'
-                          />
+          <Main />
       </View>
     );
   }
