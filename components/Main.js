@@ -1,184 +1,188 @@
-import React, { Component } from "react";
-import { View, StyleSheet, Text, Platform } from "react-native";
-import { Constants, Location, Permissions, MapView } from "expo";
+import React, { Component } from 'react';
+import { View, StyleSheet, Text, Platform } from 'react-native';
+import { Constants, Location, Permissions, MapView } from 'expo';
 import * as firebase from 'firebase';
-import { Cards } from "./index";
+import { Cards } from './index';
 
 const mapStyle = [
   {
-    elementType: "labels",
+    elementType: 'labels',
     stylers: [
       {
-        visibility: "off"
-      }
-    ]
+        visibility: 'off',
+      },
+    ],
   },
   {
-    featureType: "administrative",
-    elementType: "geometry",
+    featureType: 'administrative',
+    elementType: 'geometry',
     stylers: [
       {
-        visibility: "off"
-      }
-    ]
+        visibility: 'off',
+      },
+    ],
   },
   {
-    featureType: "administrative.land_parcel",
+    featureType: 'administrative.land_parcel',
     stylers: [
       {
-        visibility: "off"
-      }
-    ]
+        visibility: 'off',
+      },
+    ],
   },
   {
-    featureType: "administrative.neighborhood",
+    featureType: 'administrative.neighborhood',
     stylers: [
       {
-        visibility: "off"
-      }
-    ]
+        visibility: 'off',
+      },
+    ],
   },
   {
-    featureType: "landscape",
+    featureType: 'landscape',
     stylers: [
       {
-        saturation: -100
+        saturation: -100,
       },
       {
-        lightness: 100
-      }
-    ]
+        lightness: 100,
+      },
+    ],
   },
   {
-    featureType: "poi",
+    featureType: 'poi',
     stylers: [
       {
-        visibility: "off"
-      }
-    ]
+        visibility: 'off',
+      },
+    ],
   },
   {
-    featureType: "road",
-    elementType: "labels.icon",
+    featureType: 'road',
+    elementType: 'labels.icon',
     stylers: [
       {
-        visibility: "off"
-      }
-    ]
+        visibility: 'off',
+      },
+    ],
   },
   {
-    featureType: "road.arterial",
-    elementType: "geometry.fill",
+    featureType: 'road.arterial',
+    elementType: 'geometry.fill',
     stylers: [
       {
-        color: "#8c8c8c"
+        color: '#8c8c8c',
       },
       {
-        lightness: 70
-      }
-    ]
+        lightness: 70,
+      },
+    ],
   },
   {
-    featureType: "road.highway",
-    elementType: "geometry.fill",
+    featureType: 'road.highway',
+    elementType: 'geometry.fill',
     stylers: [
       {
-        color: "#5f5f5f"
+        color: '#5f5f5f',
       },
       {
-        lightness: 75
-      }
-    ]
+        lightness: 75,
+      },
+    ],
   },
   {
-    featureType: "road.highway",
-    elementType: "geometry.stroke",
+    featureType: 'road.highway',
+    elementType: 'geometry.stroke',
     stylers: [
       {
-        color: "#5f5f5f"
+        color: '#5f5f5f',
       },
       {
-        lightness: 100
-      }
-    ]
+        lightness: 100,
+      },
+    ],
   },
   {
-    featureType: "road.local",
+    featureType: 'road.local',
     stylers: [
       {
-        lightness: 100
-      }
-    ]
+        lightness: 100,
+      },
+    ],
   },
   {
-    featureType: "road.local",
-    elementType: "geometry.fill",
+    featureType: 'road.local',
+    elementType: 'geometry.fill',
     stylers: [
       {
-        color: "#d2d2d2"
+        color: '#d2d2d2',
       },
       {
-        lightness: 80
-      }
-    ]
+        lightness: 80,
+      },
+    ],
   },
   {
-    featureType: "transit",
+    featureType: 'transit',
     stylers: [
       {
-        visibility: "off"
-      }
-    ]
+        visibility: 'off',
+      },
+    ],
   },
   {
-    featureType: "water",
-    elementType: "geometry.fill",
+    featureType: 'water',
+    elementType: 'geometry.fill',
     stylers: [
       {
-        color: "#10b1c1"
-      }
-    ]
-  }
+        color: '#10b1c1',
+      },
+    ],
+  },
 ];
 
 class Main extends Component {
-  state = {
-    location: null,
-    errorMessage: null,
-    markers: null,
-    currentUser: null,
-  };
+  constructor() {
+    super();
+    this.state = {
+      location: null,
+      errorMessage: null,
+      markers: null,
+      currentUser: null,
+    };
+  }
+
   async componentWillMount() {
-    if (Platform.OS === "android" && !Constants.isDevice) {
+    if (Platform.OS === 'android' && !Constants.isDevice) {
       this.setState({
-        errorMessage: "OS Error"
+        errorMessage: 'OS Error',
       });
     } else {
-      const { currentUser } = await firebase.auth()
-      this.setState({currentUser})
+      const { currentUser } = await firebase.auth();
+      this.setState({ currentUser });
       this.getLocationAsync();
     }
   }
   getLocationAsync = async () => {
     let { status } = await Permissions.askAsync(Permissions.LOCATION);
-    if (status !== "granted") {
+    if (status !== 'granted') {
       this.setState({
-        errorMessage: "Permmisions Error"
+        errorMessage: 'Permmisions Error',
       });
     }
     let location = await Location.getCurrentPositionAsync({});
     this.setState({ location: location });
   };
   genMarker = (name, address, lat, long) => {
-    return ({
-        latitute: lat,
-        longitude: long,
-        title: name,
-        subtitle: address
-    })
-  }
+    return {
+      latitute: lat,
+      longitude: long,
+      title: name,
+      subtitle: address,
+    };
+  };
   render() {
-    let text = "Waiting..";
+    let text = 'Waiting..';
     let locationFound = false;
     if (this.state.errorMessage) {
       text = this.state.errorMessage;
@@ -189,14 +193,14 @@ class Main extends Component {
     return (
       <View style={styles.container}>
         {locationFound ? (
-          <View style={{ width: "100%", height: "100%" }}>
+          <View style={{ width: '100%', height: '100%' }}>
             <MapView
-              style={{ width: "100%", height: "100%" }}
+              style={{ width: '100%', height: '100%' }}
               initialRegion={{
                 latitude: this.state.location.coords.latitude,
                 longitude: this.state.location.coords.longitude,
                 latitudeDelta: 0.0922,
-                longitudeDelta: 0.0421
+                longitudeDelta: 0.0421,
               }}
               provider={MapView.PROVIDER_GOOGLE}
               customMapStyle={mapStyle}
@@ -204,9 +208,9 @@ class Main extends Component {
             />
           </View>
         ) : (
-            <Text style={styles.paragraph}>{text}</Text>
-            )}
-          <Cards />
+          <Text style={styles.paragraph}>{text}</Text>
+        )}
+        <Cards />
       </View>
     );
   }
@@ -215,16 +219,16 @@ class Main extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: "center",
-    justifyContent: "center",
+    alignItems: 'center',
+    justifyContent: 'center',
     paddingTop: Constants.statusBarHeight,
-    backgroundColor: "#ecf0f1"
+    backgroundColor: '#ecf0f1',
   },
   paragraph: {
     margin: 24,
     fontSize: 18,
-    textAlign: "center"
-  }
+    textAlign: 'center',
+  },
 });
 
 export default Main;
