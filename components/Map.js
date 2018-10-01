@@ -201,9 +201,8 @@ export class Map extends Component {
                 longitudeDelta: 0.0421
               }}
               provider={MapView.PROVIDER_GOOGLE}
-              
+              customMapStyle={mapStyle}
               showsUserLocation
-              showsMyLocationButton
             />
           </View>
         ) : (
