@@ -43,6 +43,31 @@ const MODERATE = 2;
 const EXPENSIVE = 3;
 const VERY_EXPENSIVE = 4;
 
+//GET a venue's details, used to return rating and tier
+let getAVenuesDetails = async venueId => {
+  try {
+    const response = await axios.get(
+      `https://api.foursquare.com/v2/venues/${venueId}?&client_id=${CLIENT_ID}&client_secret=${CLIENT_SECRET}&v=${VERSION_NUMBER}`
+    );
+    return response.data;
+    //.response.venue; //attempt at parsing
+  } catch (error) {
+    console.error(error);
+  }
+};
+
+let getAVenueMenu = async venueId => {
+  try {
+    const response = await axios.get(
+      `https://api.foursquare.com/v2/venues/${venueId}/menu?&client_id=${CLIENT_ID}&client_secret=${CLIENT_SECRET}&v=${VERSION_NUMBER}`
+    );
+    return response.data;
+    //.response.menu.menus.items[0].entries.items; //attempt at parsing
+  } catch (error) {
+    console.error(error);
+  }
+};
+
 //GET all venues, returns array of venues with details sorted by distance from lat, long
 let getAllVenues = async (latLong, radius, categoryId, limit = 20) => {
   try {
@@ -80,31 +105,6 @@ let getAllVenues = async (latLong, radius, categoryId, limit = 20) => {
       //sort by distance from closest to farthest
       return a.distance - b.distance;
     });
-  } catch (error) {
-    console.error(error);
-  }
-};
-
-//GET a venue's details, used to return rating and tier
-let getAVenuesDetails = async venueId => {
-  try {
-    const response = await axios.get(
-      `https://api.foursquare.com/v2/venues/${venueId}?&client_id=${CLIENT_ID}&client_secret=${CLIENT_SECRET}&v=${VERSION_NUMBER}`
-    );
-    return response.data;
-    //.response.venue; //attempt at parsing
-  } catch (error) {
-    console.error(error);
-  }
-};
-
-let getAVenueMenu = async venueId => {
-  try {
-    const response = await axios.get(
-      `https://api.foursquare.com/v2/venues/${venueId}/menu?&client_id=${CLIENT_ID}&client_secret=${CLIENT_SECRET}&v=${VERSION_NUMBER}`
-    );
-    return response.data;
-    //.response.menu.menus.items[0].entries.items; //attempt at parsing
   } catch (error) {
     console.error(error);
   }
