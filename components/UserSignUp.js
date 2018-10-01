@@ -24,7 +24,7 @@ class UserSignUp extends Component {
                     await firebase.initializeApp(firebaseConfig);
                 }
                 await firebase.auth().createUserWithEmailAndPassword(this.state.email, this.state.password);
-                this.props.navigation.navigate('Map');
+                this.props.navigation.navigate('Main');
             } catch (err) {
                 Alert.alert(err.toString())
             }
