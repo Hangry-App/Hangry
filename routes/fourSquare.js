@@ -86,8 +86,8 @@ let getAllVenues = async (latLong, radius, categoryId, limit = 20) => {
       }
     );
     const dataPromises = response.data.response.venues.map(async venues => {
-      const venueDetails = await getAVenuesDetails(venues.id);
-      const menuItems = await getAVenueMenu(venues.id);
+      // const venueDetails = await getAVenuesDetails(venues.id);
+      // const menuItems = await getAVenueMenu(venues.id);
       return {
         restaurantId: venues.id,
         name: venues.name,
@@ -95,9 +95,10 @@ let getAllVenues = async (latLong, radius, categoryId, limit = 20) => {
         lat: venues.location.lat,
         long: venues.location.lng,
         categoryId: venues.categories[0].id,
-        categoryShortName: venues.categories[0].shortName,
-        price: venueDetails.response.venue.price,
-        rating: venueDetails.response.venue.rating
+        categoryShortName: venues.categories[0].shortName
+        // ,
+        // price: venueDetails.response.venue.price,
+        // rating: venueDetails.response.venue.rating
       };
     });
     const data = await Promise.all(dataPromises);
@@ -112,7 +113,7 @@ let getAllVenues = async (latLong, radius, categoryId, limit = 20) => {
 
 // //TEST of getting all venues
 (async () => {
-  console.log(await getAllVenues(slcLatLong, BIKE, FOOD_GENERAL, 2));
+  console.log(await getAllVenues(slcLatLong, BIKE, FOOD_GENERAL, 10));
 })();
 
 // //TEST of getting a venue
