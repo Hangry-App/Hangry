@@ -1,12 +1,13 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
-import { Map, UserLogin } from './components';
+import { Map, UserLogin, Main } from './components';
 
 export default class App extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <UserLogin />
+        {/* <UserLogin /> */}
+        <Main />
       </View>
     );
   }
