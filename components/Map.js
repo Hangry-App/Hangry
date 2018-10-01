@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { View, StyleSheet, Text, Platform } from "react-native";
 import { Constants, Location, Permissions, MapView } from "expo";
+import * as firebase from 'firebase';
 
 const Marker = MapView.Marker;
 
@@ -146,13 +147,16 @@ export class Map extends Component {
     location: null,
     errorMessage: null,
     markers: null,
+    currentUser: null,
   };
-  componentWillMount() {
+  async componentWillMount() {
     if (Platform.OS === "android" && !Constants.isDevice) {
       this.setState({
         errorMessage: "OS Error"
       });
     } else {
+      const { currentUser } = await firebase.auth()
+      this.setState({currentUser})
       this.getLocationAsync();
     }
   }

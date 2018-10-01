@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { Alert, StyleSheet, Text, View, TextInput, TouchableWithoutFeedback, Button } from 'react-native';
+import * as firebase from 'firebase';
+import { firebaseConfig } from '../secrets'
 
 class UserLogin extends Component {
   constructor() {
@@ -8,15 +10,21 @@ class UserLogin extends Component {
       email: '',
       password: '',
     };
-    this._onPressButton = this._onPressButton.bind(this);
+    this.attemptLogin = this.attemptLogin.bind(this);
     this.navToWelcome = this.navToWelcome.bind(this);
   }
 
-  _onPressButton() {
+  async attemptLogin() {
     if (this.state.email && this.state.password) {
-      Alert.alert(
-        'Email: ' + this.state.email + ' ' + 'Password: ' + this.state.password
-      );
+      try {
+        if (!firebase.apps.length) {
+            await firebase.initializeApp(firebaseConfig);
+        }
+        await firebase.auth().signInWithEmailAndPassword(this.state.email, this.state.password);
+        this.props.navigation.navigate('Map');
+    } catch (err) {
+        Alert.alert(err.toString())
+    }
     } else {
       Alert.alert('Please enter email and password to log in');
     }
@@ -52,7 +60,7 @@ class UserLogin extends Component {
               onChangeText={text => this.setState({ password: text })}
             />
             <Button
-              onPress={this._onPressButton}
+              onPress={this.attemptLogin}
               color={lightBlue}
               title="Log In"
             />

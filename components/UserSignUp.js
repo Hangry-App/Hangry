@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { Alert, StyleSheet, Text, View, TextInput, TouchableWithoutFeedback, Button } from 'react-native';
+import * as firebase from 'firebase';
+import { firebaseConfig } from '../secrets'
 
 class UserSignUp extends Component {
   constructor() {
@@ -9,16 +11,23 @@ class UserSignUp extends Component {
       password: '',
       passwordValidate: '',
     };
-    this._onPressButton = this._onPressButton.bind(this);
+    this.attemptSignUp = this.attemptSignUp.bind(this);
     this.navToWelcome = this.navToWelcome.bind(this);
   }
 
-  _onPressButton() {
+  async attemptSignUp() {
+      console.log(firebaseConfig);
     if (this.state.email && this.state.password) {
         if (this.state.password === this.state.passwordValidate && this.state.email.includes('@', '.com')) {
-            Alert.alert(
-              'Succesful sign up'
-            );
+            try {
+                if (!firebase.apps.length) {
+                    await firebase.initializeApp(firebaseConfig);
+                }
+                await firebase.auth().createUserWithEmailAndPassword(this.state.email, this.state.password);
+                this.props.navigation.navigate('Map');
+            } catch (err) {
+                Alert.alert(err.toString())
+            }
         } else if (!this.state.email.includes('@', '.com')) {
             Alert.alert('Please enter a valid email');
         } else if (this.state.password !== this.state.passwordValidate) {
@@ -68,7 +77,7 @@ class UserSignUp extends Component {
               onChangeText={text => this.setState({ passwordValidate: text })}
             />
             <Button
-              onPress={this._onPressButton}
+              onPress={this.attemptSignUp}
               color={lightBlue}
               title="Log In"
             />
