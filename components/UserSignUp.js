@@ -3,30 +3,38 @@ import { Alert, StyleSheet, Text, View, TextInput, TouchableWithoutFeedback, But
 import * as firebase from 'firebase';
 import { firebaseConfig } from '../secrets'
 
-class UserLogin extends Component {
+class UserSignUp extends Component {
   constructor() {
     super();
     this.state = {
       email: '',
       password: '',
+      passwordValidate: '',
     };
-    this.attemptLogin = this.attemptLogin.bind(this);
+    this.attemptSignUp = this.attemptSignUp.bind(this);
     this.navToWelcome = this.navToWelcome.bind(this);
   }
 
-  async attemptLogin() {
+  async attemptSignUp() {
+      console.log(firebaseConfig);
     if (this.state.email && this.state.password) {
-      try {
-        if (!firebase.apps.length) {
-            await firebase.initializeApp(firebaseConfig);
+        if (this.state.password === this.state.passwordValidate && this.state.email.includes('@', '.com')) {
+            try {
+                if (!firebase.apps.length) {
+                    await firebase.initializeApp(firebaseConfig);
+                }
+                await firebase.auth().createUserWithEmailAndPassword(this.state.email, this.state.password);
+                this.props.navigation.navigate('Map');
+            } catch (err) {
+                Alert.alert(err.toString())
+            }
+        } else if (!this.state.email.includes('@', '.com')) {
+            Alert.alert('Please enter a valid email');
+        } else if (this.state.password !== this.state.passwordValidate) {
+            Alert.alert('Please check password matches');
         }
-        await firebase.auth().signInWithEmailAndPassword(this.state.email, this.state.password);
-        this.props.navigation.navigate('Map');
-    } catch (err) {
-        Alert.alert(err.toString())
-    }
     } else {
-      Alert.alert('Please enter email and password to log in');
+        Alert.alert('Please fill out all fields');
     }
   }
   navToWelcome() {
@@ -59,8 +67,17 @@ class UserLogin extends Component {
               underlineColorAndroid="transparent"
               onChangeText={text => this.setState({ password: text })}
             />
+            <Text style={styles.text}>Password Validate</Text>
+            <TextInput
+              style={styles.form}
+              placeholder={'password validate'}
+              secureTextEntry={true}
+              autoCapitalize={'none'}
+              underlineColorAndroid="transparent"
+              onChangeText={text => this.setState({ passwordValidate: text })}
+            />
             <Button
-              onPress={this.attemptLogin}
+              onPress={this.attemptSignUp}
               color={lightBlue}
               title="Log In"
             />
@@ -144,4 +161,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default UserLogin;
+export default UserSignUp;

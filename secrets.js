@@ -5,4 +5,4 @@ export const firebaseConfig = {
     projectId: "hangry-1e919",
     storageBucket: "hangry-1e919.appspot.com",
     messagingSenderId: "910787142371"
-};
+  };

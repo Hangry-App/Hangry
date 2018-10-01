@@ -1,24 +1,15 @@
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
-import { Map, UserLogin, Main } from './components';
+import { Map, UserLogin, UserSignUp, Welcome } from './components';
+import { createSwitchNavigator } from 'react-navigation';
 
-export default class App extends React.Component {
-  render() {
-    return (
-      <View style={styles.container}>
-        {/* <UserLogin /> */}
-        <Main />
-      </View>
-    );
+const App = createSwitchNavigator(
+  {
+    Welcome,
+    UserLogin,
+    UserSignUp,
+    Map
+  }, {
+    initialRouteName: 'Welcome'
   }
-}
+)
 
-const styles = StyleSheet.create({
-  container: {
-    display: 'flex',
-    flex: 1,
-    backgroundColor: 'rgb(220, 220, 220)',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+export default App
