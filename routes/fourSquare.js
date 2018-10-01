@@ -3,6 +3,10 @@ const fourSquare = require('../secrets').fourSquareConfig;
 //Import Libraries
 const axios = require('axios');
 
+//Sample responses
+const sampleVenuesDetail = require('./venueDetailsResponse.json');
+const sampleMenuDetails = require('./menuResponse.json');
+
 //Foursquare Metadata
 const CLIENT_ID = fourSquare.clientId;
 const CLIENT_SECRET = fourSquare.clientSecret;
@@ -13,7 +17,8 @@ const slcLatLong = '40.7630,-111.9011';
 const laJollaLatLong = '32.8328,-117.2713';
 
 //Sample Restaurant IDs (for testing)
-const THAI_RESTAURANT = '4f3222d719836c91c7b9a86e';
+const THAI_RESTAURANT = '4ae20053f964a520a98921e3';
+const MEXICAN_RESTAURANT = '4adf49fff964a5201f7921e3';
 
 //Food Standards
 const FOOD_GENERAL = '4d4b7105d754a06374d81259';
@@ -38,59 +43,86 @@ const MODERATE = 2;
 const EXPENSIVE = 3;
 const VERY_EXPENSIVE = 4;
 
-//GET all venues, returns array of venues with details sorted by distance from lat, long
-let getAllVenues = async (latLong, radius, categoryId, limit = 20) => {
-  try {
-    return await axios.get(
-      `https://api.foursquare.com/v2/venues/search?ll=${latLong}&radius=${radius}&limit=${limit}&categoryId=${categoryId}&client_id=${CLIENT_ID}&client_secret=${CLIENT_SECRET}&v=${VERSION_NUMBER}`
-    );
-  } catch (error) {
-    console.error(error);
-  }
-};
-
 //GET a venue's details, used to return rating and tier
 let getAVenuesDetails = async venueId => {
   try {
-    return await axios.get(
+    const response = await axios.get(
       `https://api.foursquare.com/v2/venues/${venueId}?&client_id=${CLIENT_ID}&client_secret=${CLIENT_SECRET}&v=${VERSION_NUMBER}`
     );
+    return response.data;
+    //.response.venue; //attempt at parsing
   } catch (error) {
     console.error(error);
   }
 };
 
-const sampleGetAllVenues = getAllVenues(slcLatLong, BIKE, THAI).then(values =>
-  values.data.response.venues
-    .map(venues => ({
-      restaurantId: venues.id,
-      name: venues.name,
-      distance: venues.location.distance,
-      lat: venues.location.lat,
-      long: venues.location.lng,
-      categoryId: venues.categories[0].id,
-      categoryShortName: venues.categories[0].shortName
-      // ,
-      // price: getAVenuesDetails(venues.id)
-      //   .then(venue => venue.data.response.venue.price)
-      //   .catch(error => console.error(error)),
-      // rating: getAVenuesDetails(venues.id)
-      //   .then(venue => venue.data.response.venue.rating)
-      //   .catch(error => console.error(error))
-    }))
-    .sort(function(a, b) {
-      //sort by distance
+let getAVenueMenu = async venueId => {
+  try {
+    const response = await axios.get(
+      `https://api.foursquare.com/v2/venues/${venueId}/menu?&client_id=${CLIENT_ID}&client_secret=${CLIENT_SECRET}&v=${VERSION_NUMBER}`
+    );
+    return response.data;
+    //.response.menu.menus.items[0].entries.items; //attempt at parsing
+  } catch (error) {
+    console.error(error);
+  }
+};
+
+//GET all venues, returns array of venues with details sorted by distance from lat, long
+let getAllVenues = async (latLong, radius, categoryId, limit = 20) => {
+  try {
+    const response = await axios.get(
+      `https://api.foursquare.com/v2/venues/search`,
+      {
+        params: {
+          ll: latLong,
+          radius,
+          limit,
+          categoryId,
+          client_id: CLIENT_ID, //eslint-disable-line camelcase
+          client_secret: CLIENT_SECRET, //eslint-disable-line camelcase
+          v: VERSION_NUMBER
+        }
+      }
+    );
+    const dataPromises = response.data.response.venues.map(async venues => {
+      const venueDetails = await getAVenuesDetails(venues.id);
+      const menuItems = await getAVenueMenu(venues.id);
+      return {
+        restaurantId: venues.id,
+        name: venues.name,
+        distance: venues.location.distance,
+        lat: venues.location.lat,
+        long: venues.location.lng,
+        categoryId: venues.categories[0].id,
+        categoryShortName: venues.categories[0].shortName,
+        price: venueDetails.response.venue.price,
+        rating: venueDetails.response.venue.rating
+      };
+    });
+    const data = await Promise.all(dataPromises);
+    return data.sort(function(a, b) {
+      //sort by distance from closest to farthest
       return a.distance - b.distance;
-    })
-);
+    });
+  } catch (error) {
+    console.error(error);
+  }
+};
 
-const sampleGetAVenue = getAVenuesDetails(THAI_RESTAURANT).then(
-  values => values.data.response
-);
+// //TEST of getting all venues
+(async () => {
+  console.log(await getAllVenues(slcLatLong, BIKE, FOOD_GENERAL, 2));
+})();
 
-//TEST of getting all venues
-// sampleGetAllVenues.then(val => console.log(val));
+// //TEST of getting a venue
+// (async () => {
+//   console.log(
+//     JSON.stringify(await getAVenuesDetails(MEXICAN_RESTAURANT), null, 2)
+//   );
+// })();
 
-//TEST of getting a venue's details
-
-sampleGetAVenue.then(val => console.log(val));
+// //TEST of getting a venue menu
+// (async () => {
+//   console.log(JSON.stringify(await getAVenueMenu(MEXICAN_RESTAURANT), null, 2));
+// })();
