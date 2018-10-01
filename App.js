@@ -6,10 +6,11 @@ const App = createSwitchNavigator(
     Welcome,
     UserLogin,
     UserSignUp,
-    Main
-  }, {
-    initialRouteName: 'Welcome'
+    Main,
+  },
+  {
+    initialRouteName: 'Welcome',
   }
-)
+);
 
-export default App
+export default App;
