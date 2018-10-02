@@ -13,8 +13,9 @@ const CLIENT_SECRET = fourSquare.clientSecret;
 const VERSION_NUMBER = fourSquare.versionNumber;
 
 //Sample LatLongs (for testing)
-const slcLatLong = '40.7630,-111.9011';
-const laJollaLatLong = '32.8328,-117.2713';
+const adilLatLong = '40.7630,-111.9011';
+const johnLatLong = '43.0650,-89.3910';
+const morganLatLong = '41.8083,-72.9195';
 
 //Sample Restaurant IDs (for testing)
 const THAI_RESTAURANT = '4ae20053f964a520a98921e3';
@@ -86,8 +87,8 @@ let getAllVenues = async (latLong, radius, categoryId, limit = 20) => {
       }
     );
     const dataPromises = response.data.response.venues.map(async venues => {
-      // const venueDetails = await getAVenuesDetails(venues.id);
-      // const menuItems = await getAVenueMenu(venues.id);
+      const venueDetails = await getAVenuesDetails(venues.id);
+      const menuItems = await getAVenueMenu(venues.id);
       return {
         restaurantId: venues.id,
         name: venues.name,
@@ -95,10 +96,9 @@ let getAllVenues = async (latLong, radius, categoryId, limit = 20) => {
         lat: venues.location.lat,
         long: venues.location.lng,
         categoryId: venues.categories[0].id,
-        categoryShortName: venues.categories[0].shortName
-        // ,
-        // price: venueDetails.response.venue.price,
-        // rating: venueDetails.response.venue.rating
+        categoryShortName: venues.categories[0].shortName,
+        price: venueDetails.response.venue.price,
+        rating: venueDetails.response.venue.rating
       };
     });
     const data = await Promise.all(dataPromises);
@@ -112,9 +112,9 @@ let getAllVenues = async (latLong, radius, categoryId, limit = 20) => {
 };
 
 // //TEST of getting all venues
-(async () => {
-  console.log(await getAllVenues(slcLatLong, BIKE, FOOD_GENERAL, 10));
-})();
+// (async () => {
+//   console.log(await getAllVenues(adilLatLong, BIKE, FOOD_GENERAL, 9));
+// })();
 
 // //TEST of getting a venue
 // (async () => {
