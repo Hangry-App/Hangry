@@ -17,9 +17,7 @@ class UserLogin extends Component {
   async attemptLogin() {
     if (this.state.email && this.state.password) {
       try {
-        if (!firebase.apps.length) {
-            await firebase.initializeApp(firebaseConfig);
-        }
+        await firebase.auth().setPersistence(firebase.auth.Auth.Persistence.LOCAL);
         await firebase.auth().signInWithEmailAndPassword(this.state.email, this.state.password);
         this.props.navigation.navigate('Main');
     } catch (err) {
