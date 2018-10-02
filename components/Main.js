@@ -36,7 +36,7 @@ class Main extends Component {
     this.setState({
       restaurant: restaurant[0],
     });
-    console.log('STATE ===> ', this.state.restaurant);
+    console.log('CURRENT ===> ', this.state.restaurant.item.name);
   };
 
   async componentWillMount() {
@@ -89,11 +89,11 @@ class Main extends Component {
             >
               <Marker
                 coordinate={{
-                  latitude: this.state.restaurant.lat,
-                  longitude: this.state.restaurant.long,
+                  latitude: this.state.restaurant.item.lat,
+                  longitude: this.state.restaurant.item.long,
                 }}
-                title={this.state.restaurant.name}
-                description={this.state.restaurant.categoryShortName}
+                title={this.state.restaurant.item.name}
+                description={this.state.restaurant.item.categoryShortName}
               />
             </MapView>
           </View>
