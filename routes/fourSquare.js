@@ -18,7 +18,6 @@ const johnLatLong = '43.0650,-89.3910';
 const morganLatLong = '41.8083,-72.9195';
 
 //Sample Restaurant IDs (for testing)
-const THAI_RESTAURANT = '4ae20053f964a520a98921e3';
 const MEXICAN_RESTAURANT = '4adf49fff964a5201f7921e3';
 
 //Food Standards
@@ -62,8 +61,19 @@ let getAVenueMenu = async venueId => {
     const response = await axios.get(
       `https://api.foursquare.com/v2/venues/${venueId}/menu?&client_id=${CLIENT_ID}&client_secret=${CLIENT_SECRET}&v=${VERSION_NUMBER}`
     );
-    return response.data;
-    //.response.menu.menus.items[0].entries.items; //attempt at parsing
+    const responseData = response.data === undefined ? [] : response.data;
+    const topThreeItems = responseData.response.menu.menus.items[0].entries.items
+      .map(section => section.entries.items[0])
+      .map(menuItem => {
+        return {
+          name: menuItem.name,
+          description: menuItem.description,
+          price: menuItem.price
+        };
+      })
+      .sort((a, b) => b.price - a.price)
+      .slice(0, 3);
+    return topThreeItems;
   } catch (error) {
     console.error(error);
   }
@@ -98,7 +108,8 @@ let getAllVenues = async (latLong, radius, categoryId, limit = 20) => {
         categoryId: venues.categories[0].id,
         categoryShortName: venues.categories[0].shortName,
         price: venueDetails.response.venue.price,
-        rating: venueDetails.response.venue.rating
+        rating: venueDetails.response.venue.rating,
+        menu: menuItems
       };
     });
     const data = await Promise.all(dataPromises);
@@ -112,11 +123,17 @@ let getAllVenues = async (latLong, radius, categoryId, limit = 20) => {
 };
 
 // //TEST of getting all venues
-// (async () => {
-//   console.log(await getAllVenues(adilLatLong, BIKE, FOOD_GENERAL, 9));
-// })();
+(async () => {
+  console.log(
+    JSON.stringify(
+      await getAllVenues(johnLatLong, BIKE, FOOD_GENERAL, 6),
+      null,
+      2
+    )
+  );
+})();
 
-// //TEST of getting a venue
+// // TEST of getting a venue
 // (async () => {
 //   console.log(
 //     JSON.stringify(await getAVenuesDetails(MEXICAN_RESTAURANT), null, 2)
@@ -127,3 +144,21 @@ let getAllVenues = async (latLong, radius, categoryId, limit = 20) => {
 // (async () => {
 //   console.log(JSON.stringify(await getAVenueMenu(MEXICAN_RESTAURANT), null, 2));
 // })();
+
+// console.log(
+//   JSON.stringify(
+//     sampleMenuDetails.response.menu.menus.items[0].entries.items
+//       .map(section => section.entries.items[0])
+//       .map(menuItem => {
+//         return {
+//           name: menuItem.name,
+//           description: menuItem.description,
+//           price: menuItem.price
+//         };
+//       })
+//       .sort((a, b) => b.price - a.price)
+//       .slice(0, 3),
+//     null,
+//     2
+//   )
+// );

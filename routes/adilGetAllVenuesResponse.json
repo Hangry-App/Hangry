@@ -1,0 +1,59 @@
+[
+  {
+    "restaurantId": "4ae7198ef964a52067a821e3",
+    "name": "Squatters Pub Brewery",
+    "distance": 477,
+    "lat": 40.762552336133,
+    "long": -111.89547300338744,
+    "categoryId": "50327c8591d4c4b30a586d5d",
+    "categoryShortName": "Brewery",
+    "price": {
+      "tier": 2,
+      "message": "Moderate",
+      "currency": "$"
+    },
+    "rating": 8.6,
+    "menu": [
+      {
+        "name": "Fish & Chips",
+        "description": "American Wheat hefeweizen battered Alaskan cod with your choice of fries.",
+        "price": "13.99"
+      },
+      {
+        "name": "The Classic",
+        "description": "Niman ranch ground chuck.",
+        "price": "10.99"
+      },
+      {
+        "name": "Rustic Italian",
+        "description": "Fresh basil, mozzarella, parmesan and marinara.",
+        "price": "9.99"
+      }
+    ]
+  },
+  {
+    "restaurantId": "4ad4f28ef964a520d7fc20e3",
+    "name": "Kimpton Hotel Monaco Salt Lake City",
+    "distance": 820,
+    "lat": 40.764754,
+    "long": -111.891652,
+    "categoryId": "4bf58dd8d48988d1fa931735",
+    "categoryShortName": "Hotel",
+    "rating": 8.3
+  },
+  {
+    "restaurantId": "50659f4de4b0bd91e00b97e0",
+    "name": "Starbucks",
+    "distance": 952,
+    "lat": 40.76742,
+    "long": -111.89142,
+    "categoryId": "4bf58dd8d48988d1e0931735",
+    "categoryShortName": "Coffee Shop",
+    "price": {
+      "tier": 1,
+      "message": "Cheap",
+      "currency": "$"
+    },
+    "rating": 8.3
+  }
+]

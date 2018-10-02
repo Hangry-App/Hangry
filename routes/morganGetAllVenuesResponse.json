@@ -1,0 +1,64 @@
+[
+  {
+    "restaurantId": "4b463a75f964a520bf1a26e3",
+    "name": "LaSalle Market and Deli",
+    "distance": 379,
+    "lat": 41.81061273935046,
+    "long": -72.92285654813413,
+    "categoryId": "4bf58dd8d48988d146941735",
+    "categoryShortName": "Deli / Bodega",
+    "price": {
+      "tier": 1,
+      "message": "Cheap",
+      "currency": "$"
+    },
+    "rating": 8.4,
+    "menu": [
+      {
+        "name": "Teriyaki Wrap",
+        "description": "Chicken, flank or grilled salmon, teriyaki sauce, broccoli with sesame oil, red pepper flakes & jasmine rice",
+        "price": "8.50"
+      },
+      {
+        "name": "Grilled Meat Loaf",
+        "description": "Cheddar, spicy mustard & mayo on a grilled french round",
+        "price": "6.95"
+      },
+      {
+        "name": "Soups of the Day",
+        "description": "Three to choose from with fresh bread from new york",
+        "price": "4.95"
+      }
+    ]
+  },
+  {
+    "restaurantId": "55a5421a498e48e87c7f5640",
+    "name": "Giv Coffee",
+    "distance": 2699,
+    "lat": 41.825408788961504,
+    "long": -72.89644322182761,
+    "categoryId": "4bf58dd8d48988d1e0931735",
+    "categoryShortName": "Coffee Shop",
+    "price": {
+      "tier": 1,
+      "message": "Cheap",
+      "currency": "$"
+    },
+    "rating": 8
+  },
+  {
+    "restaurantId": "4ba8ced6f964a5209bf039e3",
+    "name": "Starbucks",
+    "distance": 4794,
+    "lat": 41.81639092,
+    "long": -72.8627379,
+    "categoryId": "4bf58dd8d48988d1e0931735",
+    "categoryShortName": "Coffee Shop",
+    "price": {
+      "tier": 2,
+      "message": "Moderate",
+      "currency": "$"
+    },
+    "rating": 8.4
+  }
+]
