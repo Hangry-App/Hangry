@@ -25,6 +25,7 @@ import {
 import Svg, { Path } from 'react-native-svg';
 import { dummyData } from '../utils/restaurantDummyData';
 
+// OB/JD: is it possible for this get out-of-sync? maybe switching orientation?
 const windowWidth = Dimensions.get('window').width;
 
 class Cards extends Component {
@@ -52,10 +53,10 @@ class Cards extends Component {
           <FlatList
             onViewableItemsChanged={this.onViewableItemsChanged}
             style={styles.containerStyle}
-            horizontal={true}
+            horizontal={true /* OB/JD: can delete =true and it will simply be set to true by default */}
             decelerationRate={0}
             snapToInterval={windowWidth}
-            snapToAlignment={'center'}
+            snapToAlignment={'center' /* OB/JD: no need for these surrounding curly braces */}
             alwaysBounceHorizontal={true}
             data={dummyData}
             keyExtractor={this._keyExtractor}

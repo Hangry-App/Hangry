@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Alert, StyleSheet, Text, View, TextInput, TouchableWithoutFeedback, Button } from 'react-native';
 import * as firebase from 'firebase';
 import { firebaseConfig } from '../secrets'
+// OB/JD: firebase config is not a secret (i.e. the apiKey) AND if this was supposed to be a secret your method here would not work (proxy server is the default alternative that could work)
 
 class UserLogin extends Component {
   constructor() {
@@ -10,6 +11,7 @@ class UserLogin extends Component {
       email: '',
       password: '',
     };
+    // OB/JD: could use arrow function class syntax instead of `.bind` (need a specific babel thing (plugin / preset))
     this.attemptLogin = this.attemptLogin.bind(this);
     this.navToWelcome = this.navToWelcome.bind(this);
   }
@@ -18,13 +20,14 @@ class UserLogin extends Component {
     if (this.state.email && this.state.password) {
       try {
         if (!firebase.apps.length) {
+            // OB/JD: a lot of logic to handle something that instead you could make sure ONLY happens once and happens before the app even loads
             await firebase.initializeApp(firebaseConfig);
         }
         await firebase.auth().signInWithEmailAndPassword(this.state.email, this.state.password);
         this.props.navigation.navigate('Main');
     } catch (err) {
         Alert.alert(err.toString())
-    }
+    } // OB/JD: weird indentation
     } else {
       Alert.alert('Please enter email and password to log in');
     }
@@ -82,13 +85,14 @@ const lightBlue = '#7FC4FD';
 const darkBlue = '#2699FB';
 const white = '#fff';
 
+// OB/JD: consider more style reuse—like wth styles.js good!
 const styles = StyleSheet.create({
   container: {
     display: 'flex',
     width: '100%',
     flex: 1,
     alignItems: 'center',
-    backgroundColor: darkBlue,
+    backgroundColor: darkBlue
   },
   header: {
     width: '100%',

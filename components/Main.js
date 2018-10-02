@@ -12,6 +12,7 @@ class Main extends Component {
     this.state = {
       location: null,
       errorMessage: '',
+      // OB/JD: dead code below
       currentUser: null,
       restaurant: {
         restaurantId: 0,
@@ -39,12 +40,15 @@ class Main extends Component {
     console.log('STATE ===> ', this.state.restaurant);
   };
 
+  // OB/JD: code documentation commments for the logic below
+  // OB/JD: componentWillMount is consider an anti-pattern: use constructor instead
   async componentWillMount() {
     if (Platform.OS === 'android' && !Constants.isDevice) {
       this.setState({
-        errorMessage: 'OS Error',
+        errorMessage: 'OS Error', // OB/JD: more meaningful user error messages
       });
     } else {
+      // OB/JD: belongs in `componentDidMount`
       const { currentUser } = await firebase.auth();
       this.setState({ currentUser });
       this.getLocationAsync();
@@ -55,9 +59,10 @@ class Main extends Component {
     let { status } = await Permissions.askAsync(Permissions.LOCATION);
     if (status !== 'granted') {
       this.setState({
-        errorMessage: 'Permmisions Error',
+        errorMessage: 'Permmisions Error', // OB/JD: more meaningful error messages
       });
     }
+    // OB/JD: bug that the location data only gets loaded once, not continuously
     let location = await Location.getCurrentPositionAsync({});
     this.setState({ location: location });
   };
@@ -78,7 +83,7 @@ class Main extends Component {
           <View style={{ width: '100%', height: '100%' }}>
             <MapView
               style={{ width: '100%', height: '100%' }}
-              initialRegion={{
+              initialRegion={/* OB/JD: might need to use region= (or something) soon so that the region can update */{
                 latitude: this.state.location.coords.latitude,
                 longitude: this.state.location.coords.longitude,
                 latitudeDelta: 0.0922,
@@ -97,7 +102,7 @@ class Main extends Component {
               />
             </MapView>
           </View>
-        ) : (
+        ) : ( // OB/JD: consider inverting the ternary so this comes first
           <Text style={styles.paragraph}>{text}</Text>
         )}
         <Cards update={this.updateCurentRestaurant} />
@@ -123,6 +128,7 @@ const styles = StyleSheet.create({
 
 export default Main;
 
+// OB/JD: dead code
 // restaurant: {
 //   restaurantId: 0,
 //   name: '',

@@ -17,6 +17,7 @@ class UserSignUp extends Component {
 
   async attemptSignUp() {
       console.log(firebaseConfig);
+    // OB/JD: consider wrappping up the validation logic into its own function that throws errors
     if (this.state.email && this.state.password) {
         if (this.state.password === this.state.passwordValidate && this.state.email.includes('@', '.com')) {
             try {

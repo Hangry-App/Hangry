@@ -83,6 +83,8 @@ const userData = {
 // 2699 * 0.002 = 5.398 ==> 10 - 5.398 = 4.602 ==> 4.602 * 0.5 = 2.301
 // 4500 * 0.002 = 9 ==> 10 - 9 = 1 ==> 1 * 0.5 = 0.5
 
+// OB/JS: "normalize" is a useful word here, this is a good spot for unit testing
+
 // Price Examples
 // 2 * 2.5 = 5 ==> 10 - 5 = 5 ==> 5 * 0.2 = 1
 // 2 * 2.5 = 5 ==> 10 - 5 = 5 ==> 5 * 0.2 = 1
