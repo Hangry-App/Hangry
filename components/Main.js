@@ -4,6 +4,118 @@ import { Constants, Location, Permissions, MapView } from 'expo';
 import * as firebase from 'firebase';
 import { Cards } from './index';
 
+const Marker = MapView.Marker;
+
+const fakeRestaurant = {
+  restaurantId: '4afcc582f964a520bc2522e3',
+  name: 'The Old Fashioned Tavern & Restaurant',
+  distance: 1382,
+  lat: 43.076153,
+  long: -89.383526,
+  categoryId: '4bf58dd8d48988d155941735',
+  categoryShortName: 'Gastropub',
+  price: {
+    tier: 2,
+    message: 'Moderate',
+    currency: '$',
+  },
+  rating: 9.1,
+};
+
+class Main extends Component {
+  constructor() {
+    super();
+    this.state = {
+      location: null,
+      errorMessage: null,
+      markers: null,
+      currentUser: null,
+      restaurant: {
+        //
+      },
+    };
+  }
+
+  async componentWillMount() {
+    if (Platform.OS === 'android' && !Constants.isDevice) {
+      this.setState({
+        errorMessage: 'OS Error',
+      });
+    } else {
+      const { currentUser } = await firebase.auth();
+      this.setState({ currentUser });
+      this.getLocationAsync();
+    }
+  }
+  getLocationAsync = async () => {
+    let { status } = await Permissions.askAsync(Permissions.LOCATION);
+    if (status !== 'granted') {
+      this.setState({
+        errorMessage: 'Permmisions Error',
+      });
+    }
+    let location = await Location.getCurrentPositionAsync({});
+    this.setState({ location: location });
+  };
+
+  render() {
+    let text = 'Waiting..';
+    let locationFound = false;
+    if (this.state.errorMessage) {
+      text = this.state.errorMessage;
+    } else if (this.state.location) {
+      locationFound = true;
+    }
+
+    return (
+      <View style={styles.container}>
+        {locationFound ? (
+          <View style={{ width: '100%', height: '100%' }}>
+            <MapView
+              style={{ width: '100%', height: '100%' }}
+              initialRegion={{
+                latitude: this.state.location.coords.latitude,
+                longitude: this.state.location.coords.longitude,
+                latitudeDelta: 0.0922,
+                longitudeDelta: 0.0421,
+              }}
+              provider={MapView.PROVIDER_GOOGLE}
+              showsUserLocation
+            >
+              <Marker
+                coordinate={{
+                  latitude: fakeRestaurant.lat,
+                  longitude: fakeRestaurant.long,
+                }}
+                title={fakeRestaurant.name}
+                description={fakeRestaurant.categoryShortName}
+              />
+            </MapView>
+          </View>
+        ) : (
+          <Text style={styles.paragraph}>{text}</Text>
+        )}
+        <Cards />
+      </View>
+    );
+  }
+}
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+    paddingTop: Constants.statusBarHeight,
+    backgroundColor: '#ecf0f1',
+  },
+  paragraph: {
+    margin: 24,
+    fontSize: 18,
+    textAlign: 'center',
+  },
+});
+
 const mapStyle = [
   {
     elementType: 'labels',
@@ -140,95 +252,5 @@ const mapStyle = [
     ],
   },
 ];
-
-class Main extends Component {
-  constructor() {
-    super();
-    this.state = {
-      location: null,
-      errorMessage: null,
-      markers: null,
-      currentUser: null,
-    };
-  }
-
-  async componentWillMount() {
-    if (Platform.OS === 'android' && !Constants.isDevice) {
-      this.setState({
-        errorMessage: 'OS Error',
-      });
-    } else {
-      const { currentUser } = await firebase.auth();
-      this.setState({ currentUser });
-      this.getLocationAsync();
-    }
-  }
-  getLocationAsync = async () => {
-    let { status } = await Permissions.askAsync(Permissions.LOCATION);
-    if (status !== 'granted') {
-      this.setState({
-        errorMessage: 'Permmisions Error',
-      });
-    }
-    let location = await Location.getCurrentPositionAsync({});
-    this.setState({ location: location });
-  };
-  genMarker = (name, address, lat, long) => {
-    return {
-      latitute: lat,
-      longitude: long,
-      title: name,
-      subtitle: address,
-    };
-  };
-  render() {
-    let text = 'Waiting..';
-    let locationFound = false;
-    if (this.state.errorMessage) {
-      text = this.state.errorMessage;
-    } else if (this.state.location) {
-      locationFound = true;
-    }
-
-    return (
-      <View style={styles.container}>
-        {locationFound ? (
-          <View style={{ width: '100%', height: '100%' }}>
-            <MapView
-              style={{ width: '100%', height: '100%' }}
-              initialRegion={{
-                latitude: this.state.location.coords.latitude,
-                longitude: this.state.location.coords.longitude,
-                latitudeDelta: 0.0922,
-                longitudeDelta: 0.0421,
-              }}
-              provider={MapView.PROVIDER_GOOGLE}
-              customMapStyle={mapStyle}
-              showsUserLocation
-            />
-          </View>
-        ) : (
-          <Text style={styles.paragraph}>{text}</Text>
-        )}
-        <Cards />
-      </View>
-    );
-  }
-}
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-    paddingTop: Constants.statusBarHeight,
-    backgroundColor: '#ecf0f1',
-  },
-  paragraph: {
-    margin: 24,
-    fontSize: 18,
-    textAlign: 'center',
-  },
-});
 
 export default Main;
