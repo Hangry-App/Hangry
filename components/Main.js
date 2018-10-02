@@ -29,7 +29,15 @@ class Main extends Component {
         rating: 0,
       },
     };
+    this.updateCurrentRestaurant = this.updateCurentRestaurant.bind(this);
   }
+
+  updateCurentRestaurant = restaurant => {
+    this.setState({
+      restaurant: restaurant[0],
+    });
+    console.log('STATE ===> ', this.state.restaurant);
+  };
 
   async componentWillMount() {
     if (Platform.OS === 'android' && !Constants.isDevice) {
@@ -81,18 +89,18 @@ class Main extends Component {
             >
               <Marker
                 coordinate={{
-                  latitude: dummyData[5].lat,
-                  longitude: dummyData[5].long,
+                  latitude: this.state.restaurant.lat,
+                  longitude: this.state.restaurant.long,
                 }}
-                title={dummyData[5].name}
-                description={dummyData[5].categoryShortName}
+                title={this.state.restaurant.name}
+                description={this.state.restaurant.categoryShortName}
               />
             </MapView>
           </View>
         ) : (
           <Text style={styles.paragraph}>{text}</Text>
         )}
-        <Cards />
+        <Cards update={this.updateCurentRestaurant} />
       </View>
     );
   }
@@ -114,3 +122,19 @@ const styles = StyleSheet.create({
 });
 
 export default Main;
+
+// restaurant: {
+//   restaurantId: 0,
+//   name: '',
+//   distance: 0,
+//   lat: 0,
+//   long: 0,
+//   categoryId: 0,
+//   categoryShortName: '',
+//   price: {
+//     tier: 0,
+//     message: '',
+//     currency: '$',
+//   },
+//   rating: 0,
+// },

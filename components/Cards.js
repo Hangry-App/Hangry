@@ -40,11 +40,17 @@ class Cards extends Component {
     </View>
   );
 
+  onViewableItemsChanged = ({ viewableItems, changed }) => {
+    // console.log('Visible items are', viewableItems);
+    this.props.update(viewableItems);
+  };
+
   render() {
     return (
       <View style={styles.container}>
         <View style={styles.cardContainer}>
           <FlatList
+            onViewableItemsChanged={this.onViewableItemsChanged}
             style={styles.containerStyle}
             horizontal={true}
             decelerationRate={0}
