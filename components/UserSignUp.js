@@ -20,9 +20,6 @@ class UserSignUp extends Component {
     if (this.state.email && this.state.password) {
         if (this.state.password === this.state.passwordValidate && this.state.email.includes('@', '.com')) {
             try {
-                if (!firebase.apps.length) {
-                    await firebase.initializeApp(firebaseConfig);
-                }
                 await firebase.auth().createUserWithEmailAndPassword(this.state.email, this.state.password);
                 this.props.navigation.navigate('Main');
             } catch (err) {

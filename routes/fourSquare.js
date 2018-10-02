@@ -101,8 +101,8 @@ let getAllVenues = async (latLong, radius, categoryId, limit = 20) => {
       }
     );
     const dataPromises = response.data.response.venues.map(async venues => {
-      const venueDetails = await getAVenuesDetails(venues.id);
-      const menuItems = await getAVenueMenu(venues.id);
+      // const venueDetails = await getAVenuesDetails(venues.id);
+      // const menuItems = await getAVenueMenu(venues.id);
       return {
         restaurantId: venues.id,
         name: venues.name,
@@ -111,9 +111,9 @@ let getAllVenues = async (latLong, radius, categoryId, limit = 20) => {
         long: venues.location.lng,
         categoryId: venues.categories[0].id,
         categoryShortName: venues.categories[0].shortName,
-        price: venueDetails.response.venue.price,
-        rating: venueDetails.response.venue.rating,
-        menu: menuItems
+        price: Math.ceil(Math.random() * 4), //venueDetails.response.venue.price.tier //TODO: Use this for actual data.
+        rating: Number((Math.random() * 10).toFixed(1)) //venueDetails.response.venue.rating, //TODO: Use this for actual data.
+        //menu: menuItems
       };
     });
     const data = await Promise.all(dataPromises);
@@ -129,7 +129,11 @@ let getAllVenues = async (latLong, radius, categoryId, limit = 20) => {
 // //TEST of getting all venues
 (async () => {
   console.log(
-    JSON.stringify(await getAllVenues(adilLatLong, DRIVE, MEXICAN, 5), null, 2)
+    JSON.stringify(
+      await getAllVenues(morganLatLong, DRIVE, FOOD_GENERAL, 50),
+      null,
+      2
+    )
   );
 })();
 
