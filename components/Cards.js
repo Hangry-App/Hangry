@@ -40,7 +40,7 @@ class Cards extends Component {
             alwaysBounceHorizontal={true}
           >
             {dummyData.map(restaurant => (
-              <View key={restaurant.foodId} style={styles.cardboard}>
+              <View key={restaurant.restaurantId} style={styles.cardboard}>
                 <TouchableOpacity>
                   <View style={styles.card}>
                     <View style={styles.cardHeader}>

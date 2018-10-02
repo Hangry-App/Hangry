@@ -3,152 +3,31 @@ import { View, StyleSheet, Text, Platform } from 'react-native';
 import { Constants, Location, Permissions, MapView } from 'expo';
 import * as firebase from 'firebase';
 import { Cards } from './index';
-
-const mapStyle = [
-  {
-    elementType: 'labels',
-    stylers: [
-      {
-        visibility: 'off',
-      },
-    ],
-  },
-  {
-    featureType: 'administrative',
-    elementType: 'geometry',
-    stylers: [
-      {
-        visibility: 'off',
-      },
-    ],
-  },
-  {
-    featureType: 'administrative.land_parcel',
-    stylers: [
-      {
-        visibility: 'off',
-      },
-    ],
-  },
-  {
-    featureType: 'administrative.neighborhood',
-    stylers: [
-      {
-        visibility: 'off',
-      },
-    ],
-  },
-  {
-    featureType: 'landscape',
-    stylers: [
-      {
-        saturation: -100,
-      },
-      {
-        lightness: 100,
-      },
-    ],
-  },
-  {
-    featureType: 'poi',
-    stylers: [
-      {
-        visibility: 'off',
-      },
-    ],
-  },
-  {
-    featureType: 'road',
-    elementType: 'labels.icon',
-    stylers: [
-      {
-        visibility: 'off',
-      },
-    ],
-  },
-  {
-    featureType: 'road.arterial',
-    elementType: 'geometry.fill',
-    stylers: [
-      {
-        color: '#8c8c8c',
-      },
-      {
-        lightness: 70,
-      },
-    ],
-  },
-  {
-    featureType: 'road.highway',
-    elementType: 'geometry.fill',
-    stylers: [
-      {
-        color: '#5f5f5f',
-      },
-      {
-        lightness: 75,
-      },
-    ],
-  },
-  {
-    featureType: 'road.highway',
-    elementType: 'geometry.stroke',
-    stylers: [
-      {
-        color: '#5f5f5f',
-      },
-      {
-        lightness: 100,
-      },
-    ],
-  },
-  {
-    featureType: 'road.local',
-    stylers: [
-      {
-        lightness: 100,
-      },
-    ],
-  },
-  {
-    featureType: 'road.local',
-    elementType: 'geometry.fill',
-    stylers: [
-      {
-        color: '#d2d2d2',
-      },
-      {
-        lightness: 80,
-      },
-    ],
-  },
-  {
-    featureType: 'transit',
-    stylers: [
-      {
-        visibility: 'off',
-      },
-    ],
-  },
-  {
-    featureType: 'water',
-    elementType: 'geometry.fill',
-    stylers: [
-      {
-        color: '#10b1c1',
-      },
-    ],
-  },
-];
+import { dummyData } from '../utils/restaurantDummyData';
+const Marker = MapView.Marker;
 
 class Main extends Component {
   constructor() {
     super();
     this.state = {
       location: null,
-      errorMessage: null,
-      markers: null,
+      errorMessage: '',
       currentUser: null,
+      restaurant: {
+        restaurantId: 0,
+        name: '',
+        distance: 0,
+        lat: 0,
+        long: 0,
+        categoryId: 0,
+        categoryShortName: '',
+        price: {
+          tier: 0,
+          message: '',
+          currency: '$',
+        },
+        rating: 0,
+      },
     };
   }
 
@@ -163,6 +42,7 @@ class Main extends Component {
       this.getLocationAsync();
     }
   }
+
   getLocationAsync = async () => {
     let { status } = await Permissions.askAsync(Permissions.LOCATION);
     if (status !== 'granted') {
@@ -173,17 +53,11 @@ class Main extends Component {
     let location = await Location.getCurrentPositionAsync({});
     this.setState({ location: location });
   };
-  genMarker = (name, address, lat, long) => {
-    return {
-      latitute: lat,
-      longitude: long,
-      title: name,
-      subtitle: address,
-    };
-  };
+
   render() {
     let text = 'Waiting..';
     let locationFound = false;
+
     if (this.state.errorMessage) {
       text = this.state.errorMessage;
     } else if (this.state.location) {
@@ -203,9 +77,17 @@ class Main extends Component {
                 longitudeDelta: 0.0421,
               }}
               provider={MapView.PROVIDER_GOOGLE}
-              customMapStyle={mapStyle}
-              showsUserLocation
-            />
+              showsUserLocation={true}
+            >
+              <Marker
+                coordinate={{
+                  latitude: dummyData[5].lat,
+                  longitude: dummyData[5].long,
+                }}
+                title={dummyData[5].name}
+                description={dummyData[5].categoryShortName}
+              />
+            </MapView>
           </View>
         ) : (
           <Text style={styles.paragraph}>{text}</Text>
