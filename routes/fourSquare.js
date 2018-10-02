@@ -4,8 +4,8 @@ const fourSquare = require('../secrets').fourSquareConfig;
 const axios = require('axios');
 
 //Sample responses
-const sampleVenuesDetail = require('./venueDetailsResponse.json');
-const sampleMenuDetails = require('./menuResponse.json');
+const sampleVenuesDetail = require('./SampleResponses/venueDetailsResponse.json');
+const sampleMenuDetails = require('./SampleResponses/menuResponse.json');
 
 //Foursquare Metadata
 const CLIENT_ID = fourSquare.clientId;
