@@ -1,0 +1,94 @@
+[
+  {
+    "restaurantId": "4adf49fff964a5201f7921e3",
+    "name": "Red Iguana",
+    "distance": 1362,
+    "lat": 40.77167732469157,
+    "long": -111.91250234444355,
+    "categoryId": "4bf58dd8d48988d1c1941735",
+    "categoryShortName": "Mexican",
+    "price": {
+      "tier": 2,
+      "message": "Moderate",
+      "currency": "$"
+    },
+    "rating": 9.3,
+    "menu": [
+      {
+        "name": "Shrimp Sonora",
+        "description": "Seven large tiger prawns sauteed in garlic and butter with lemon and a hint of pepper. served with mexican white rice, black beans, & tortillas",
+        "price": "15.75"
+      },
+      {
+        "name": "Mole Amarillo",
+        "description": "Golden raisins, yellow tomatoes, yellow zucchini, chile guajillo and dried seasonal yellow chiles, makes this mole a fiery favorite-tossed with chicken",
+        "price": "15.70"
+      },
+      {
+        "name": "Red Iguana",
+        "description": "One-cheese enchilada, a taco a la iguana, a beef flauta topped with guacamole and sour cream, a chile relleno and a beef tostada complete our special combo plate",
+        "price": "14.20"
+      }
+    ]
+  },
+  {
+    "restaurantId": "4b2bc755f964a520ccba24e3",
+    "name": "Red Iguana 2",
+    "distance": 1470,
+    "lat": 40.7697224553498,
+    "long": -111.91610829207085,
+    "categoryId": "4bf58dd8d48988d151941735",
+    "categoryShortName": "Tacos",
+    "price": {
+      "tier": 2,
+      "message": "Moderate",
+      "currency": "$"
+    },
+    "rating": 9.1
+  },
+  {
+    "restaurantId": "4d87e833d85f37046516c7db",
+    "name": "Del Taco",
+    "distance": 2806,
+    "lat": 40.76087665580478,
+    "long": -111.86793832806474,
+    "categoryId": "4bf58dd8d48988d16e941735",
+    "categoryShortName": "Fast Food",
+    "price": {
+      "tier": 1,
+      "message": "Cheap",
+      "currency": "$"
+    },
+    "rating": 6.4
+  },
+  {
+    "restaurantId": "4f8a4751e4b00a6262b29278",
+    "name": "Cafe Rio Mexican Grill",
+    "distance": 7370,
+    "lat": 40.78709644670482,
+    "long": -111.98254025686934,
+    "categoryId": "4bf58dd8d48988d1c1941735",
+    "categoryShortName": "Mexican",
+    "price": {
+      "tier": 1,
+      "message": "Cheap",
+      "currency": "$"
+    },
+    "rating": 7
+  },
+  {
+    "restaurantId": "5346e222498ef0d9bc703d79",
+    "name": "Cafe Rio Mexican Grill",
+    "distance": 8928,
+    "lat": 40.69508990082769,
+    "long": -111.95741248087383,
+    "categoryId": "4bf58dd8d48988d1c1941735",
+    "categoryShortName": "Mexican",
+    "price": {
+      "tier": 1,
+      "message": "Cheap",
+      "currency": "$"
+    },
+    "rating": 8.1
+  }
+]

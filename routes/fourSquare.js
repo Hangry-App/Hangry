@@ -4,8 +4,8 @@ const fourSquare = require('../secrets').fourSquareConfig;
 const axios = require('axios');
 
 //Sample responses
-const sampleVenuesDetail = require('./venueDetailsResponse.json');
-const sampleMenuDetails = require('./menuResponse.json');
+const sampleVenuesDetail = require('./SampleResponses/venueDetailsResponse.json');
+const sampleMenuDetails = require('./SampleResponses/menuResponse.json');
 
 //Foursquare Metadata
 const CLIENT_ID = fourSquare.clientId;
@@ -61,19 +61,23 @@ let getAVenueMenu = async venueId => {
     const response = await axios.get(
       `https://api.foursquare.com/v2/venues/${venueId}/menu?&client_id=${CLIENT_ID}&client_secret=${CLIENT_SECRET}&v=${VERSION_NUMBER}`
     );
-    const responseData = response.data === undefined ? [] : response.data;
-    const topThreeItems = responseData.response.menu.menus.items[0].entries.items
-      .map(section => section.entries.items[0])
-      .map(menuItem => {
-        return {
-          name: menuItem.name,
-          description: menuItem.description,
-          price: menuItem.price
-        };
-      })
-      .sort((a, b) => b.price - a.price)
-      .slice(0, 3);
-    return topThreeItems;
+    const responseData = response.data.response.menu.menus;
+    if (responseData.count > 0) {
+      //check if there is a menu
+      return responseData.items[0].entries.items
+        .map(section => section.entries.items[0]) //flatten the menu
+        .map(menuItem => {
+          return {
+            name: menuItem.name,
+            description: menuItem.description,
+            price: menuItem.price
+          };
+        }) //only send back the name, description, and price
+        .sort((a, b) => b.price - a.price) //sort the menus by price high to low
+        .slice(0, 3); // only send back the top three
+    } else {
+      return 'No Menu Items';
+    }
   } catch (error) {
     console.error(error);
   }
@@ -125,11 +129,7 @@ let getAllVenues = async (latLong, radius, categoryId, limit = 20) => {
 // //TEST of getting all venues
 (async () => {
   console.log(
-    JSON.stringify(
-      await getAllVenues(johnLatLong, BIKE, FOOD_GENERAL, 6),
-      null,
-      2
-    )
+    JSON.stringify(await getAllVenues(adilLatLong, DRIVE, MEXICAN, 5), null, 2)
   );
 })();
 
