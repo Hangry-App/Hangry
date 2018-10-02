@@ -12,21 +12,19 @@ class Main extends Component {
     this.state = {
       location: null,
       errorMessage: '',
-      currentUser: null,
       restaurant: {
-        restaurantId: 0,
-        name: '',
-        distance: 0,
-        lat: 0,
-        long: 0,
-        categoryId: 0,
-        categoryShortName: '',
-        price: {
-          tier: 0,
-          message: '',
-          currency: '$',
+        index: 0,
+        item: {
+          categoryId: 0,
+          categoryShortName: '',
+          distance: 0,
+          lat: 0,
+          long: 0,
+          name: '',
+          price: 0,
+          rating: 0,
+          restaurantId: 0,
         },
-        rating: 0,
       },
     };
     this.updateCurrentRestaurant = this.updateCurentRestaurant.bind(this);
@@ -36,7 +34,6 @@ class Main extends Component {
     this.setState({
       restaurant: restaurant[0],
     });
-    console.log('CURRENT ===> ', this.state.restaurant.item.name);
   };
 
   async componentWillMount() {
@@ -46,7 +43,6 @@ class Main extends Component {
       });
     } else {
       const { currentUser } = await firebase.auth();
-      this.setState({ currentUser });
       this.getLocationAsync();
     }
   }
@@ -75,9 +71,9 @@ class Main extends Component {
     return (
       <View style={styles.container}>
         {locationFound ? (
-          <View style={{ width: '100%', height: '100%' }}>
+          <View style={styles.fullscreen}>
             <MapView
-              style={{ width: '100%', height: '100%' }}
+              style={styles.fullscreen}
               initialRegion={{
                 latitude: this.state.location.coords.latitude,
                 longitude: this.state.location.coords.longitude,
@@ -100,7 +96,7 @@ class Main extends Component {
         ) : (
           <Text style={styles.paragraph}>{text}</Text>
         )}
-        <Cards update={this.updateCurentRestaurant} />
+        <Cards restaurants={dummyData} update={this.updateCurentRestaurant} />
       </View>
     );
   }
@@ -119,22 +115,10 @@ const styles = StyleSheet.create({
     fontSize: 18,
     textAlign: 'center',
   },
+  fullscreen: {
+    width: '100%',
+    height: '100%',
+  },
 });
 
 export default Main;
-
-// restaurant: {
-//   restaurantId: 0,
-//   name: '',
-//   distance: 0,
-//   lat: 0,
-//   long: 0,
-//   categoryId: 0,
-//   categoryShortName: '',
-//   price: {
-//     tier: 0,
-//     message: '',
-//     currency: '$',
-//   },
-//   rating: 0,
-// },

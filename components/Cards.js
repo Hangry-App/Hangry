@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import {
   Alert,
   StyleSheet,
-  TouchableOpacity,
+  TouchableWithoutFeedback,
   Text,
   View,
   Button,
@@ -23,7 +23,6 @@ import {
   scroll,
 } from './styles';
 import Svg, { Path } from 'react-native-svg';
-import { dummyData } from '../utils/restaurantDummyData';
 
 const windowWidth = Dimensions.get('window').width;
 
@@ -32,16 +31,15 @@ class Cards extends Component {
 
   _renderItem = ({ item }) => (
     <View style={styles.cardboard}>
-      <TouchableOpacity>
+      <TouchableWithoutFeedback>
         <View style={styles.card}>
           <Text style={styles.boldBlue}>{item.name}</Text>
         </View>
-      </TouchableOpacity>
+      </TouchableWithoutFeedback>
     </View>
   );
 
   onViewableItemsChanged = ({ viewableItems, changed }) => {
-    // console.log('Visible items are', viewableItems);
     this.props.update(viewableItems);
   };
 
@@ -57,7 +55,7 @@ class Cards extends Component {
             snapToInterval={windowWidth}
             snapToAlignment={'center'}
             alwaysBounceHorizontal={true}
-            data={dummyData}
+            data={this.props.restaurants}
             keyExtractor={this._keyExtractor}
             renderItem={this._renderItem}
           />
