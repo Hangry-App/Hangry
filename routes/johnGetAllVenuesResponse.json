@@ -1,0 +1,92 @@
+[
+  {
+    "restaurantId": "5596dacf498ef8cc220fb07f",
+    "name": "Hopcat",
+    "distance": 1121,
+    "lat": 43.075062115179996,
+    "long": -89.39157820920616,
+    "categoryId": "4bf58dd8d48988d11b941735",
+    "categoryShortName": "Pub",
+    "price": {
+      "tier": 2,
+      "message": "Moderate",
+      "currency": "$"
+    },
+    "rating": 8.7
+  },
+  {
+    "restaurantId": "55c17479498ec2a4ccb2a112",
+    "name": "Colectivo Coffee",
+    "distance": 1147,
+    "lat": 43.074743679226295,
+    "long": -89.39562416312101,
+    "categoryId": "4bf58dd8d48988d1e0931735",
+    "categoryShortName": "Coffee Shop",
+    "price": {
+      "tier": 2,
+      "message": "Moderate",
+      "currency": "$"
+    },
+    "rating": 8.7
+  },
+  {
+    "restaurantId": "4b3a7807f964a520116825e3",
+    "name": "Ian's Pizza on State",
+    "distance": 1150,
+    "lat": 43.074913,
+    "long": -89.386999,
+    "categoryId": "4bf58dd8d48988d1ca941735",
+    "categoryShortName": "Pizza",
+    "price": {
+      "tier": 1,
+      "message": "Cheap",
+      "currency": "$"
+    },
+    "rating": 9.1
+  },
+  {
+    "restaurantId": "4b665819f964a5209f1e2be3",
+    "name": "Starbucks",
+    "distance": 1196,
+    "lat": 43.07389817,
+    "long": -89.38273627,
+    "categoryId": "4bf58dd8d48988d1e0931735",
+    "categoryShortName": "Coffee Shop",
+    "price": {
+      "tier": 1,
+      "message": "Cheap",
+      "currency": "$"
+    },
+    "rating": 8
+  },
+  {
+    "restaurantId": "4d686a320a25b60c55821790",
+    "name": "Great Dane Pub & Brewing Company",
+    "distance": 1381,
+    "lat": 43.07468710955784,
+    "long": -89.3803908048707,
+    "categoryId": "50327c8591d4c4b30a586d5d",
+    "categoryShortName": "Brewery",
+    "price": {
+      "tier": 2,
+      "message": "Moderate",
+      "currency": "$"
+    },
+    "rating": 8.8
+  },
+  {
+    "restaurantId": "4afcc582f964a520bc2522e3",
+    "name": "The Old Fashioned Tavern & Restaurant",
+    "distance": 1382,
+    "lat": 43.076153,
+    "long": -89.383526,
+    "categoryId": "4bf58dd8d48988d155941735",
+    "categoryShortName": "Gastropub",
+    "price": {
+      "tier": 2,
+      "message": "Moderate",
+      "currency": "$"
+    },
+    "rating": 9.1
+  }
+]
