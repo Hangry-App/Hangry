@@ -18,6 +18,7 @@ import {
   cardHeader,
   cardContainer,
   boldWhite,
+  boldBlue,
   containerStyle,
   scroll,
 } from './styles';
@@ -27,30 +28,33 @@ import { dummyData } from '../utils/restaurantDummyData';
 const windowWidth = Dimensions.get('window').width;
 
 class Cards extends Component {
+  _keyExtractor = (item, index) => item.restaurantId;
+
+  _renderItem = ({ item }) => (
+    <View style={styles.cardboard}>
+      <TouchableOpacity>
+        <View style={styles.card}>
+          <Text style={styles.boldBlue}>{item.name}</Text>
+        </View>
+      </TouchableOpacity>
+    </View>
+  );
+
   render() {
     return (
       <View style={styles.container}>
         <View style={styles.cardContainer}>
-          <ScrollView
+          <FlatList
             style={styles.containerStyle}
             horizontal={true}
             decelerationRate={0}
             snapToInterval={windowWidth}
             snapToAlignment={'center'}
             alwaysBounceHorizontal={true}
-          >
-            {dummyData.map(restaurant => (
-              <View key={restaurant.restaurantId} style={styles.cardboard}>
-                <TouchableOpacity>
-                  <View style={styles.card}>
-                    <View style={styles.cardHeader}>
-                      <Text style={styles.boldWhite}>{restaurant.name}</Text>
-                    </View>
-                  </View>
-                </TouchableOpacity>
-              </View>
-            ))}
-          </ScrollView>
+            data={dummyData}
+            keyExtractor={this._keyExtractor}
+            renderItem={this._renderItem}
+          />
         </View>
       </View>
     );
@@ -63,7 +67,7 @@ const styles = StyleSheet.create({
   container: container,
   interiorContainer: interiorContainer,
   cardContainer: cardContainer,
-  boldWhite: boldWhite,
+  boldBlue: boldBlue,
   cardboard: {
     width: windowWidth,
     paddingHorizontal: 10,

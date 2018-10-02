@@ -30,6 +30,13 @@ export const boldWhite = {
   paddingVertical: 15,
 };
 
+export const boldBlue = {
+  fontWeight: 'bold',
+  color: colors.darkBlue,
+  textAlign: 'center',
+  paddingVertical: 15,
+};
+
 export const container = {
   display: 'flex',
   alignItems: 'center',
