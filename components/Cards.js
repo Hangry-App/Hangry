@@ -11,7 +11,9 @@ import {
 import {
   container,
   interiorContainer,
-  card,
+  horizontalCardStrip,
+  restaurantCard,
+  row,
   foodCard,
   cardHeader,
   cardBody,
@@ -43,7 +45,6 @@ class Cards extends Component {
 
   _renderItem = ({ item }) => (
     <View style={styles.padCard}>
-      {/*<TouchableWithoutFeedback>*/}
       <GestureRecognizer
         onSwipeUp={state => this.onSwipeUp(state)}
         onSwipeDown={state => this.onSwipeDown(state)}
@@ -53,10 +54,32 @@ class Cards extends Component {
         }}
       >
         <View style={styles.restaurantCard}>
+          {/*Top of card - rest name, ratings, etc.*/}
           <View style={styles.cardHeader}>
             <Text style={styles.boldWhite}>{item.name}</Text>
+            <View style={styles.row}>
+              <Text
+                style={{
+                  color: 'white',
+                  fontWeight: 'bold',
+                  textAlign: 'center',
+                }}
+              >
+                *****
+              </Text>
+              <Text
+                style={{
+                  color: 'white',
+                  fontWeight: 'bold',
+                  textAlign: 'center',
+                }}
+              >
+                $$$
+              </Text>
+            </View>
           </View>
           <View style={styles.cardBody}>
+            {/* Check if there's a menu key on the restaurant object, and make sure it's an array*/}
             {Array.isArray(item.menu) ? (
               <View style={styles.foodCard}>
                 <Text style={styles.foodTitle}>{item.menu[0].name}</Text>
@@ -66,14 +89,11 @@ class Cards extends Component {
                 </View>
               </View>
             ) : (
-              <View style={styles.foodCard}>
-                <Text>Menu not available</Text>
-              </View>
+              <Text>Menu not available</Text>
             )}
           </View>
         </View>
       </GestureRecognizer>
-      {/*</TouchableWithoutFeedback>*/}
     </View>
   );
 
@@ -97,28 +117,13 @@ class Cards extends Component {
 }
 
 const styles = StyleSheet.create({
-  restaurantCard: {
-    display: 'flex',
-    backgroundColor: '#fff',
-    borderRadius: 4,
-    height: 200,
-    // height: 400,
-    width: '100%',
-    marginVertical: 15,
-    alignItems: 'center',
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 2 },
-    shadowRadius: 4,
-    shadowOpacity: 0.4,
-  },
-  horizontalCardStrip: {
-    position: 'absolute',
-    bottom: 20,
-  },
+  restaurantCard: restaurantCard,
+  horizontalCardStrip: horizontalCardStrip,
   padCard: {
     width: windowWidth,
     paddingHorizontal: 10,
   },
+  row: row,
   cardHeader: cardHeader,
   container: container,
   interiorContainer: interiorContainer,

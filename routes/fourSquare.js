@@ -1,11 +1,10 @@
 //Import Secrets
 const fourSquare = require('../secrets').fourSquareConfig;
+//Import Utility
+const { waitASec } = require('../utils/waitASec');
 //Import Libraries
 const axios = require('axios');
-
-//Sample responses
-const sampleVenuesDetail = require('./SampleResponses/venueDetailsResponse.json');
-const sampleMenuDetails = require('./SampleResponses/menuResponse.json');
+const flatten = require('lodash/flatten');
 
 //Foursquare Metadata
 const CLIENT_ID = fourSquare.clientId;
@@ -19,6 +18,7 @@ const morganLatLong = '41.8083,-72.9195';
 
 //Sample Restaurant IDs (for testing)
 const MEXICAN_RESTAURANT = '4adf49fff964a5201f7921e3';
+const PUB_RESTAURANT = '4ae7198ef964a52067a821e3';
 
 //Food Standards
 const FOOD_GENERAL = '4d4b7105d754a06374d81259';
@@ -64,19 +64,22 @@ let getAVenueMenu = async venueId => {
     const responseData = response.data.response.menu.menus;
     if (responseData.count > 0) {
       //check if there is a menu
-      return responseData.items[0].entries.items
-        .map(section => section.entries.items[0]) //flatten the menu
+      return flatten(
+        responseData.items[0].entries.items.map(
+          section => section.entries.items
+        )
+      )
         .map(menuItem => {
           return {
-            name: menuItem.name,
-            description: menuItem.description,
-            price: menuItem.price
+            name: menuItem.name || false,
+            description: menuItem.description || false,
+            price: menuItem.price || false
           };
-        }) //only send back the name, description, and price
-        .sort((a, b) => b.price - a.price) //sort the menus by price high to low
-        .slice(0, 3); // only send back the top three
+        })
+        .sort((a, b) => b.price - a.price)
+        .slice(0, 5); // only send back the top three
     } else {
-      return 'No Menu Items';
+      return false;
     }
   } catch (error) {
     console.error(error);
@@ -84,7 +87,7 @@ let getAVenueMenu = async venueId => {
 };
 
 //GET all venues, returns array of venues with details sorted by distance from lat, long
-let getAllVenues = async (latLong, radius, categoryId, limit = 20) => {
+let getAllVenues = async (latLong, radius, categoryId, limit = 10) => {
   try {
     const response = await axios.get(
       `https://api.foursquare.com/v2/venues/search`,
@@ -101,8 +104,10 @@ let getAllVenues = async (latLong, radius, categoryId, limit = 20) => {
       }
     );
     const dataPromises = response.data.response.venues.map(async venues => {
-      // const venueDetails = await getAVenuesDetails(venues.id);
-      // const menuItems = await getAVenueMenu(venues.id);
+      const venueDetails = await getAVenuesDetails(venues.id);
+      await waitASec();
+      const menuItems = await getAVenueMenu(venues.id);
+      await waitASec();
       return {
         restaurantId: venues.id,
         name: venues.name,
@@ -111,9 +116,10 @@ let getAllVenues = async (latLong, radius, categoryId, limit = 20) => {
         long: venues.location.lng,
         categoryId: venues.categories[0].id,
         categoryShortName: venues.categories[0].shortName,
-        price: Math.ceil(Math.random() * 4), //venueDetails.response.venue.price.tier //TODO: Use this for actual data.
-        rating: Number((Math.random() * 10).toFixed(1)) //venueDetails.response.venue.rating, //TODO: Use this for actual data.
-        //menu: menuItems
+        price: venueDetails.response.venue.price || 0,
+        rating: venueDetails.response.venue.rating || 0,
+        phone: venueDetails.response.venue.contact.phone,
+        menu: menuItems || false
       };
     });
     const data = await Promise.all(dataPromises);
@@ -126,11 +132,11 @@ let getAllVenues = async (latLong, radius, categoryId, limit = 20) => {
   }
 };
 
-// //TEST of getting all venues
+//TEST of getting all venues
 (async () => {
   console.log(
     JSON.stringify(
-      await getAllVenues(morganLatLong, DRIVE, FOOD_GENERAL, 50),
+      await getAllVenues(johnLatLong, DRIVE, FOOD_GENERAL, 20),
       null,
       2
     )
@@ -146,23 +152,5 @@ let getAllVenues = async (latLong, radius, categoryId, limit = 20) => {
 
 // //TEST of getting a venue menu
 // (async () => {
-//   console.log(JSON.stringify(await getAVenueMenu(MEXICAN_RESTAURANT), null, 2));
+//   console.log(JSON.stringify(await getAVenueMenu(PUB_RESTAURANT), null, 2));
 // })();
-
-// console.log(
-//   JSON.stringify(
-//     sampleMenuDetails.response.menu.menus.items[0].entries.items
-//       .map(section => section.entries.items[0])
-//       .map(menuItem => {
-//         return {
-//           name: menuItem.name,
-//           description: menuItem.description,
-//           price: menuItem.price
-//         };
-//       })
-//       .sort((a, b) => b.price - a.price)
-//       .slice(0, 3),
-//     null,
-//     2
-//   )
-// );
