@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Alert, StyleSheet, Text, View, TextInput, Button } from 'react-native';
 import * as firebase from 'firebase';
-import { firebaseConfig } from '../secrets'
+import { firebaseConfig } from '../secrets';
 
 class Welcome extends Component {
   constructor() {
@@ -19,16 +19,15 @@ class Welcome extends Component {
     }
     firebase.auth().onAuthStateChanged(user => {
       if (user) {
-        console.log(user);
         this.props.navigation.navigate('Main');
       }
     });
   }
   _onPressButton(direct) {
     if (direct === 'signup') {
-        this.props.navigation.navigate('UserSignUp');
+      this.props.navigation.navigate('UserSignUp');
     } else {
-        this.props.navigation.navigate('UserLogin');
+      this.props.navigation.navigate('UserLogin');
     }
   }
 
@@ -37,14 +36,16 @@ class Welcome extends Component {
       <View style={styles.container}>
         <Text style={styles.text}>HANGRY</Text>
         <View style={styles.buttonContainer}>
-            <Button 
-                onPress={() => this._onPressButton('login')}
-                color={lightBlue}
-                title="Log In"/>
-            <Button 
-                onPress={() => this._onPressButton('signup')}
-                color={lightBlue}
-                title="Sign Up"/>
+          <Button
+            onPress={() => this._onPressButton('login')}
+            color={lightBlue}
+            title="Log In"
+          />
+          <Button
+            onPress={() => this._onPressButton('signup')}
+            color={lightBlue}
+            title="Sign Up"
+          />
         </View>
       </View>
     );
@@ -70,9 +71,9 @@ const styles = StyleSheet.create({
     textAlign: 'left',
   },
   buttonContainer: {
-      position: 'absolute',
-      bottom: 50,
-  }
+    position: 'absolute',
+    bottom: 50,
+  },
 });
 
 export default Welcome;
