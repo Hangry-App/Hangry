@@ -10,6 +10,7 @@ export const card = {
   borderRadius: 4,
   height: 200,
   width: '100%',
+  alignItems: 'center',
   shadowColor: '#000',
   shadowOffset: { width: 0, height: 2 },
   shadowRadius: 4,
@@ -20,7 +21,8 @@ export const cardHeader = {
   backgroundColor: colors.lightBlue,
   borderTopLeftRadius: 4,
   borderTopRightRadius: 4,
-  height: '25%',
+  width: '100%',
+  height: 50,
 };
 
 export const boldWhite = {
@@ -53,6 +55,30 @@ export const cardContainer = {
   height: 220,
   bottom: 20,
   flex: 1,
+  display: 'flex',
+  justifyContent: 'center',
+  alignItems: 'center',
+};
+
+export const foodCard = {
+  backgroundColor: '#fff',
+  borderRadius: 4,
+  marginVertical: 3,
+  padding: 10,
+  width: '95%',
+  shadowColor: '#000',
+  shadowOffset: { width: 0, height: 2 },
+  shadowRadius: 4,
+  shadowOpacity: 0.2,
+};
+
+export const foodTitle = {
+  color: colors.darkBlue,
+  fontWeight: 'bold',
+  fontSize: 15,
+};
+
+export const cardBody = {
   display: 'flex',
   justifyContent: 'center',
   alignItems: 'center',

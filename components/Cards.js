@@ -1,81 +1,133 @@
 import React, { Component } from 'react';
+import GestureRecognizer from 'react-native-swipe-gestures';
 import {
-  Alert,
   StyleSheet,
   TouchableWithoutFeedback,
   Text,
   View,
-  Button,
   FlatList,
-  ScrollView,
   Dimensions,
 } from 'react-native';
 import {
   container,
   interiorContainer,
-  colors,
   card,
+  foodCard,
   cardHeader,
+  cardBody,
   cardContainer,
   boldWhite,
   boldBlue,
-  containerStyle,
-  scroll,
+  foodTitle,
 } from './styles';
-import Svg, { Path } from 'react-native-svg';
 
 const windowWidth = Dimensions.get('window').width;
 
 class Cards extends Component {
-  _keyExtractor = (item, index) => item.restaurantId;
+  constructor() {
+    super();
+    this.state = {
+      cardHeight: 200,
+    };
+  }
+
+  onSwipeUp(gestureState) {
+    this.setState({ cardHeight: 400 });
+  }
+
+  onSwipeDown(gestureState) {
+    this.setState({ cardHeight: 200 });
+  }
+
+  _keyExtractor = item => item.restaurantId;
 
   _renderItem = ({ item }) => (
-    <View style={styles.cardboard}>
-      <TouchableWithoutFeedback>
-        <View style={styles.card}>
-          <Text style={styles.boldBlue}>{item.name}</Text>
+    <View style={styles.padCard}>
+      {/*<TouchableWithoutFeedback>*/}
+      <GestureRecognizer
+        onSwipeUp={state => this.onSwipeUp(state)}
+        onSwipeDown={state => this.onSwipeDown(state)}
+        config={{
+          velocityThreshold: 0.3,
+          directionalOffsetThreshold: 80,
+        }}
+      >
+        <View style={styles.restaurantCard}>
+          <View style={styles.cardHeader}>
+            <Text style={styles.boldWhite}>{item.name}</Text>
+          </View>
+          <View style={styles.cardBody}>
+            {Array.isArray(item.menu) ? (
+              <View style={styles.foodCard}>
+                <Text style={styles.foodTitle}>{item.menu[0].name}</Text>
+                <View>
+                  <Text>{item.menu[0].description}</Text>
+                  <Text>{item.menu[0].price}</Text>
+                </View>
+              </View>
+            ) : (
+              <View style={styles.foodCard}>
+                <Text>Menu not available</Text>
+              </View>
+            )}
+          </View>
         </View>
-      </TouchableWithoutFeedback>
+      </GestureRecognizer>
+      {/*</TouchableWithoutFeedback>*/}
     </View>
   );
 
-  onViewableItemsChanged = ({ viewableItems, changed }) => {
-    this.props.update(viewableItems);
-  };
-
   render() {
+    console.log('STATE: ', this.state);
     return (
-      <View style={styles.container}>
-        <View style={styles.cardContainer}>
-          <FlatList
-            onViewableItemsChanged={this.onViewableItemsChanged}
-            style={styles.containerStyle}
-            horizontal={true}
-            decelerationRate={0}
-            snapToInterval={windowWidth}
-            snapToAlignment="center"
-            alwaysBounceHorizontal={true}
-            data={this.props.restaurants}
-            keyExtractor={this._keyExtractor}
-            renderItem={this._renderItem}
-          />
-        </View>
+      <View style={styles.horizontalCardStrip}>
+        <FlatList
+          horizontal
+          decelerationRate={0}
+          snapToInterval={windowWidth}
+          snapToAlignment="center"
+          alwaysBounceHorizontal
+          data={this.props.restaurants}
+          keyExtractor={this._keyExtractor}
+          renderItem={this._renderItem}
+        />
       </View>
     );
   }
 }
 
 const styles = StyleSheet.create({
-  card: card,
+  restaurantCard: {
+    display: 'flex',
+    backgroundColor: '#fff',
+    borderRadius: 4,
+    height: 200,
+    // height: 400,
+    width: '100%',
+    marginVertical: 15,
+    alignItems: 'center',
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowRadius: 4,
+    shadowOpacity: 0.4,
+  },
+  horizontalCardStrip: {
+    position: 'absolute',
+    bottom: 20,
+  },
+  padCard: {
+    width: windowWidth,
+    paddingHorizontal: 10,
+  },
   cardHeader: cardHeader,
   container: container,
   interiorContainer: interiorContainer,
   cardContainer: cardContainer,
   boldBlue: boldBlue,
-  cardboard: {
-    width: windowWidth,
-    paddingHorizontal: 10,
-  },
+  boldWhite: boldWhite,
+  foodCard: foodCard,
+  foodTitle: foodTitle,
+  cardBody: cardBody,
 });
 
 export default Cards;

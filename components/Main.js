@@ -3,9 +3,7 @@ import { View, StyleSheet, Text, Platform } from 'react-native';
 import { Constants, Location, Permissions, MapView } from 'expo';
 import * as firebase from 'firebase';
 import { Cards } from './index';
-//import { dummyData } from '../utils/restaurantDummyData';
-import { name } from '../secrets';
-import * as dummyData from '../routes/johnTestData.json';
+const dummyData = require('../routes/testData');
 const Marker = MapView.Marker;
 
 class Main extends Component {
@@ -31,9 +29,10 @@ class Main extends Component {
           name: '',
           price: 0,
           rating: 0,
-          restaurantId: 0
-        }
-      }
+          restaurantId: 0,
+          menu: [],
+        },
+      },
     };
 
     this.updateCurrentRestaurant = this.updateCurentRestaurant.bind(this);
@@ -41,7 +40,7 @@ class Main extends Component {
 
   updateCurentRestaurant = restaurant => {
     this.setState({
-      restaurant: restaurant[0]
+      restaurant: restaurant[0],
     });
   };
 
@@ -53,7 +52,7 @@ class Main extends Component {
     let { status } = await Permissions.askAsync(Permissions.LOCATION);
     if (status !== 'granted') {
       this.setState({
-        errorMessage: 'Cannot show location without GPS'
+        errorMessage: 'Cannot show location without GPS',
       });
     }
     let location = await Location.getCurrentPositionAsync({});
@@ -61,7 +60,7 @@ class Main extends Component {
   };
 
   render() {
-    let text = 'Waiting..';
+    let text = 'Waiting...';
     let locationFound = false;
 
     if (this.state.errorMessage()) {
@@ -82,15 +81,15 @@ class Main extends Component {
                 latitude: this.state.location.coords.latitude,
                 longitude: this.state.location.coords.longitude,
                 latitudeDelta: 0.0922,
-                longitudeDelta: 0.0421
+                longitudeDelta: 0.0421,
               }}
               provider={MapView.PROVIDER_GOOGLE}
-              showsUserLocation={true}
+              showsUserLocation
             >
               <Marker
                 coordinate={{
                   latitude: this.state.restaurant.item.lat,
-                  longitude: this.state.restaurant.item.long
+                  longitude: this.state.restaurant.item.long,
                 }}
                 title={this.state.restaurant.item.name}
                 description={this.state.restaurant.item.categoryShortName}
@@ -110,17 +109,17 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     paddingTop: Constants.statusBarHeight,
-    backgroundColor: '#ecf0f1'
+    backgroundColor: '#ecf0f1',
   },
   paragraph: {
     margin: 24,
     fontSize: 18,
-    textAlign: 'center'
+    textAlign: 'center',
   },
   fullscreen: {
     width: '100%',
-    height: '100%'
-  }
+    height: '100%',
+  },
 });
 
 export default Main;
