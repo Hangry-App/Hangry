@@ -11,7 +11,13 @@ class Main extends Component {
     super();
     this.state = {
       location: null,
-      errorMessage: '',
+      errorMessage: () => {
+        if (Platform.OS === 'android' && !Constants.isDevice) {
+          return 'Cannot get GPS data on Android emulator';
+        } else {
+          return null;
+        }
+      },
       restaurant: {
         index: 0,
         item: {
@@ -27,6 +33,7 @@ class Main extends Component {
         },
       },
     };
+
     this.updateCurrentRestaurant = this.updateCurentRestaurant.bind(this);
   }
 
@@ -36,15 +43,8 @@ class Main extends Component {
     });
   };
 
-  async componentWillMount() {
-    if (Platform.OS === 'android' && !Constants.isDevice) {
-      this.setState({
-        errorMessage: 'Cannot get GPS data on Android emulator',
-      });
-    } else {
-      const { currentUser } = await firebase.auth();
-      this.getLocationAsync();
-    }
+  componentDidMount() {
+    this.getLocationAsync();
   }
 
   getLocationAsync = async () => {
@@ -62,8 +62,8 @@ class Main extends Component {
     let text = 'Waiting..';
     let locationFound = false;
 
-    if (this.state.errorMessage) {
-      text = this.state.errorMessage;
+    if (this.state.errorMessage()) {
+      text = this.state.errorMessage();
     } else if (this.state.location) {
       locationFound = true;
     }
