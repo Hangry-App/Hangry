@@ -53,7 +53,7 @@ class Cards extends Component {
             horizontal={true}
             decelerationRate={0}
             snapToInterval={windowWidth}
-            snapToAlignment={'center'}
+            snapToAlignment="center"
             alwaysBounceHorizontal={true}
             data={this.props.restaurants}
             keyExtractor={this._keyExtractor}

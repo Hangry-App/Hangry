@@ -39,7 +39,7 @@ class Main extends Component {
   async componentWillMount() {
     if (Platform.OS === 'android' && !Constants.isDevice) {
       this.setState({
-        errorMessage: 'OS Error',
+        errorMessage: 'Cannot get GPS data on Android emulator',
       });
     } else {
       const { currentUser } = await firebase.auth();
@@ -51,7 +51,7 @@ class Main extends Component {
     let { status } = await Permissions.askAsync(Permissions.LOCATION);
     if (status !== 'granted') {
       this.setState({
-        errorMessage: 'Permmisions Error',
+        errorMessage: 'Cannot show location without GPS',
       });
     }
     let location = await Location.getCurrentPositionAsync({});
@@ -70,7 +70,9 @@ class Main extends Component {
 
     return (
       <View style={styles.container}>
-        {locationFound ? (
+        {!locationFound ? (
+          <Text style={styles.paragraph}>{text}</Text>
+        ) : (
           <View style={styles.fullscreen}>
             <MapView
               style={styles.fullscreen}
@@ -93,8 +95,6 @@ class Main extends Component {
               />
             </MapView>
           </View>
-        ) : (
-          <Text style={styles.paragraph}>{text}</Text>
         )}
         <Cards restaurants={dummyData} update={this.updateCurentRestaurant} />
       </View>
