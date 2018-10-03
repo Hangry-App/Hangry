@@ -17,12 +17,12 @@ class Welcome extends Component {
     if (!firebase.apps.length) {
       await firebase.initializeApp(firebaseConfig);
     }
-    firebase.auth().onAuthStateChanged(user => {
-      if (user) {
-        console.log(user);
-        this.props.navigation.navigate('Main');
-      }
-    });
+    // firebase.auth().onAuthStateChanged(user => {
+    //   if (user) {
+    //     console.log(user);
+    //     this.props.navigation.navigate('Main');
+    //   }
+    // });
   }
   _onPressButton(direct) {
     if (direct === 'signup') {
