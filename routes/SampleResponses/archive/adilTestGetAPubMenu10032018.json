@@ -1,0 +1,177 @@
+[
+  {
+    "name": "Ahi Spring Roll",
+    "description": "Orca Bay yellowfin tuna spring rolls, flash-fried and served over shredded red cabbage and arugula with pickled ginger, wasabi aioli and soy-ginger vinaigrette.",
+    "price": "14.99"
+  },
+  {
+    "name": "Buffalo",
+    "description": "100% fresh ground bison with Polygamy Porter BBQ sauce, cheddar and onion straws.",
+    "price": "14.99"
+  },
+  {
+    "name": "Fish & Chips",
+    "description": "American Wheat hefeweizen battered Alaskan cod with your choice of fries.",
+    "price": "13.99"
+  },
+  {
+    "name": "Locals Only",
+    "description": "All local Creminelli calabrese salami, Mountain view mushrooms, Beehive cheese fresh mozzarella, big j flour and house-made marinara.",
+    "price": "13.99"
+  },
+  {
+    "name": "Black and Blue",
+    "description": "Cajun spiced Niman ranch ground chuck, blue cheese and Daily's bacon.",
+    "price": "12.99"
+  },
+  {
+    "name": "Cobb",
+    "description": "Grilled chicken breast, crumbled blue cheese, Daily's bacon, avocado, hard-boiled egg and diced tomatoes over romaine with choice of dressing.",
+    "price": "12.99"
+  },
+  {
+    "name": "Pub Reuben",
+    "description": "Niman Ranch peppered pastrami and sauer kraut on marbled rye with Cajun remoulade and Swiss.",
+    "price": "12.99"
+  },
+  {
+    "name": "Mesquite Chicken",
+    "description": "Romaine, black beans, hard-boiled egg, corn, avocado, tomato, bacon, jack and cheddar with chipotle ranch over Navajo fry bread.",
+    "price": "12.99"
+  },
+  {
+    "name": "Calamari",
+    "description": "With lemon herb aioli and cocktail sauce.",
+    "price": "11.99"
+  },
+  {
+    "name": "Sampler",
+    "description": "Buffalo wings, onion rings, fried pickles, cheese curds and Cajun fries with chipotle ranch and blue cheese.",
+    "price": "11.99"
+  },
+  {
+    "name": "Prosciutto and Arugula",
+    "description": "With roasted tomatoes and fresh mozzarella, topped with balsamic reduction.",
+    "price": "11.99"
+  },
+  {
+    "name": "Squatters Bourbon",
+    "description": "Our classic burger topped with cheddar and bourbon-garlic caramelized onions.",
+    "price": "11.99"
+  },
+  {
+    "name": "Tatonka Chicken",
+    "description": "Grilled chicken breast with spicy buffalo sauce, cheddar and Daily's bacon.",
+    "price": "10.99"
+  },
+  {
+    "name": "Roadhouse Nachos",
+    "description": "Refried black beans, jack and cheddar, jalapenos, tomatoes, black olives, sour cream, salsa and guacamole.",
+    "price": "10.99"
+  },
+  {
+    "name": "Turkey Mushroom",
+    "description": "Ground turkey, jack cheese, sauteed mushrooms and chipotle aioli.",
+    "price": "10.99"
+  },
+  {
+    "name": "Deep Blue",
+    "description": "Spinach, arugula, blueberries, blue cheese crumbles, candied almonds and balsamic reduction.",
+    "price": "10.99"
+  },
+  {
+    "name": "Squatters Club",
+    "description": "Roast turkey, Daily's bacon, jack and cheddar, lettuce, tomato, cucumber and mayo on ciabatta.",
+    "price": "10.99"
+  },
+  {
+    "name": "Squatters Legendary Buffalo Wings",
+    "description": "With blue cheese, carrots and celery.",
+    "price": "10.99"
+  },
+  {
+    "name": "The Classic",
+    "description": "Niman ranch ground chuck.",
+    "price": "10.99"
+  },
+  {
+    "name": "Mediterranean",
+    "description": "Roasted chicken, slow roasted tomatoes, artichoke hearts and asiago cream cheese.",
+    "price": "10.99"
+  },
+  {
+    "name": "Pepperoni",
+    "description": "With marinara and mozzarella.",
+    "price": "10.99"
+  },
+  {
+    "name": "Stout Bbq Chicken",
+    "description": "With Polygamy PorterBBQ sauce, caramelized onions and mozzarella.",
+    "price": "10.99"
+  },
+  {
+    "name": "Brewhouse Hummus",
+    "description": "Roasted eggplant, garbanzo beans, tahini, lemon juice, olive oil and Italian parsley, with roasted tomatoes, kalamata olives, feta and grilled flat bread.",
+    "price": "9.99"
+  },
+  {
+    "name": "Rustic Italian",
+    "description": "Fresh basil, mozzarella, parmesan and marinara.",
+    "price": "9.99"
+  },
+  {
+    "name": "Turkey and Avocado",
+    "description": "With lettuce, tomato, red onion, balsamic vinaigrette and mayo on ciabatta.",
+    "price": "9.99"
+  },
+  {
+    "name": "Artichoke Cheese Dip",
+    "description": "Baked asiago and artichoke cream cheese with piadini bread.",
+    "price": "9.99"
+  },
+  {
+    "name": "Squatters Wrap",
+    "description": "Diced chicken breast, asiago and artichoke cream cheese, cucumber, tomato, red onion and mixed greens in a whole-wheat tortilla.",
+    "price": "9.99"
+  },
+  {
+    "name": "Chef's Veggie",
+    "description": "Organic quinoa, roasted veggies, garbanzo beans, rice and oats, with avocado and hummus.",
+    "price": "9.99"
+  },
+  {
+    "name": "Greek",
+    "description": "Romaine, kalamata olives, roasted tomatoes, red onion, feta and pepperoncinis with cilantro-lime vinaigrette.",
+    "price": "9.99"
+  },
+  {
+    "name": "Fried Pickles",
+    "description": "Kosher dill slices with chipotle ranch",
+    "price": "8.99"
+  },
+  {
+    "name": "Fried Cheese Curds",
+    "description": "With marinara.",
+    "price": "8.99"
+  },
+  {
+    "name": "House",
+    "description": "Mixed greens, tomatoes, cucumbers, carrots, red onions, croutons, choice of dressing.",
+    "price": "6.99"
+  },
+  {
+    "name": "Chips, Salsas and Refritos",
+    "description": "With Guacamole 8.99",
+    "price": "6.99"
+  },
+  {
+    "name": "Edamame",
+    "description": "Steamed soybeans with ponzu sauce, chili flakes and sesame seeds.",
+    "price": "5.99"
+  },
+  {
+    "name": "Pub Pretzel",
+    "description": "With Full Suspension pale ale mustard and three cheese sauce.",
+    "price": "5.99"
+  }
+]
