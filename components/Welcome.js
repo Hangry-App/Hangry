@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Alert, StyleSheet, Text, View, TextInput, Button } from 'react-native';
+import { StyleSheet, Text, View, Button } from 'react-native';
 import * as firebase from 'firebase';
 import { firebaseConfig } from '../secrets'
 
@@ -17,12 +17,11 @@ class Welcome extends Component {
     if (!firebase.apps.length) {
       await firebase.initializeApp(firebaseConfig);
     }
-    // firebase.auth().onAuthStateChanged(user => {
-    //   if (user) {
-    //     console.log(user);
-    //     this.props.navigation.navigate('Main');
-    //   }
-    // });
+    firebase.auth().onAuthStateChanged(user => {
+      if (user) {
+        this.props.navigation.navigate('Main');
+      }
+    });
   }
   _onPressButton(direct) {
     if (direct === 'signup') {

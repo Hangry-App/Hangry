@@ -21,8 +21,8 @@ class UserSignUp extends Component {
         if (this.state.password === this.state.passwordValidate && this.state.email.includes('@', '.com')) {
             try {
                 await firebase.auth().createUserWithEmailAndPassword(this.state.email, this.state.password);
-                this.props.navigation.navigate('Main');
-            } catch (err) {
+                this.props.navigation.navigate('UserPref');
+            } catch (err) { 
                 Alert.alert(err.toString())
             }
         } else if (!this.state.email.includes('@', '.com')) {

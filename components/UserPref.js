@@ -7,6 +7,7 @@ import {
   ScrollView,
   Slider
 } from 'react-native';
+import * as firebase from 'firebase';
 
 const lightBlue = '#7FC4FD';
 const darkBlue = '#2699FB';
@@ -119,8 +120,14 @@ class UserPref extends Component {
       '4d4b7105d754a06374d81259': true, //this is the food general category in foursquare -- setting as initial state in case there are no food preferences
       distancePreference: 1000,
       sliderPriceTier: 3,
-      sliderRating: 7
+      sliderRatingPref: 7
     };
+  }
+  async savePrefs() {
+    const db = firebase.database();
+    const user = await firebase.auth();
+    const userId = user.currentUser.uid;
+    db.ref('userPrefs/' + userId).set(this.state)
   }
   checkAndAffect = (value, toChange) => {
     const newState = this.state;
@@ -279,7 +286,7 @@ class UserPref extends Component {
               styles.submitButton = {
                 marginTop: 20,
                 width: '100%',
-                height: 50,
+                height: 50, 
                 backgroundColor: '#33658E',
                 borderRadius: 5,
                 display: 'flex',
@@ -288,10 +295,10 @@ class UserPref extends Component {
               };
               this.setState(this.state);
               console.log('=============CURRENT STATE=============');
-              console.log(this.state);
+              console.log(firebase.auth());
               console.log('=======================================');
             }}
-            onPressOut={() => {
+            onPressOut={async () => {
               styles.submitButton = {
                 marginTop: 20,
                 width: '100%',
@@ -302,7 +309,9 @@ class UserPref extends Component {
                 flexDirection: 'column',
                 justifyContent: 'center'
               };
-              this.setState(this.state);
+              this.setState(this.state); 
+              await this.savePrefs();
+              this.props.navigation.navigate('Main');
             }}
           >
             <View style={styles.submitButton}>
