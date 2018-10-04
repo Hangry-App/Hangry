@@ -120,7 +120,7 @@ class UserPref extends Component {
       '4d4b7105d754a06374d81259': true, //this is the food general category in foursquare -- setting as initial state in case there are no food preferences
       distancePreference: 1000,
       sliderPriceTier: 3,
-      sliderRatingPref: 7
+      sliderRatingPref: 7,
     };
   }
   async savePrefs() {
