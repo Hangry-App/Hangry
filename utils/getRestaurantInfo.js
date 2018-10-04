@@ -25,3 +25,7 @@ export const formatPhoneNumber = item => {
   arr.splice(8, 0, '-');
   return arr.join('');
 };
+
+export const threeMenuItems = menu => {
+  return menu.slice(0, 3);
+};

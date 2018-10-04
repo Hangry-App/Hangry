@@ -4,16 +4,14 @@ import { foodCard, foodTitle, price } from './styles';
 import formatPhoneNumber from '../utils/getRestaurantInfo';
 
 const MenuItem = props => {
-  const { restaurant } = props;
+  const { food } = props;
   return (
     <View style={styles.foodCard}>
-      <Text style={styles.foodTitle}>{restaurant.menu[0].name}</Text>
-      {restaurant.menu[0].description ? (
-        <Text>{restaurant.menu[0].description}</Text>
-      ) : null}
+      <Text style={styles.foodTitle}>{food.name}</Text>
+      {food.description ? <Text>{food.description}</Text> : null}
 
-      {restaurant.menu[0].description && restaurant.menu[0].price ? (
-        <Text style={styles.price}>${restaurant.menu[0].price}</Text>
+      {food.description && food.price ? (
+        <Text style={styles.price}>${food.price}</Text>
       ) : null}
     </View>
   );

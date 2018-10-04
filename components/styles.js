@@ -29,7 +29,10 @@ export const cardHeader = {
 };
 
 export const boldWhite = {
+  fontSize: 18,
   fontWeight: 'bold',
+  marginVertical: 0,
+  paddingVertical: 0,
   color: colors.white,
   textAlign: 'center',
 };
@@ -82,8 +85,9 @@ export const foodTitle = {
 export const cardBody = {
   display: 'flex',
   flex: 1,
-  justifyContent: 'center',
+  justifyContent: 'flex-start',
   alignItems: 'center',
+  overflow: 'hidden',
 };
 
 export const restaurantCard = {

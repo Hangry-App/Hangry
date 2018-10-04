@@ -28,6 +28,7 @@ import {
   generateRating,
   generatePrice,
   formatPhoneNumber,
+  threeMenuItems,
 } from '../utils/getRestaurantInfo';
 // MenuItem component import
 import { MenuItem } from './index';
@@ -92,7 +93,9 @@ class Cards extends Component {
             <View style={styles.cardBody}>
               {/* Check if there's a menu key on the restaurant object, and make sure it's an array*/}
               {item.menu && Array.isArray(item.menu) && item.menu[0] ? (
-                <MenuItem restaurant={item} />
+                threeMenuItems(item.menu).map(menuItem => (
+                  <MenuItem key={menuItem.name} food={menuItem} />
+                ))
               ) : (
                 <View>
                   <Text>Menu not available</Text>
@@ -144,8 +147,13 @@ const styles = StyleSheet.create({
   price: price,
   rating: {
     color: 'white',
+    marginVertical: 0,
+    paddingVertical: 0,
     fontWeight: 'bold',
     textAlign: 'center',
+  },
+  flexStart: {
+    justifyContent: 'flex-start',
   },
 });
 
