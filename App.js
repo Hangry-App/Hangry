@@ -7,10 +7,10 @@ const App = createSwitchNavigator(
     UserLogin,
     UserSignUp,
     UserPref,
-    Main,
+    Main
   },
   {
-    initialRouteName: 'Welcome',
+    initialRouteName: 'UserPref'
   }
 );
 
