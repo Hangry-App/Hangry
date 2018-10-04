@@ -64,11 +64,13 @@ const styles = StyleSheet.create({
         display: 'flex',
         flexDirection: 'row',
         flexWrap: 'wrap',
-        justifyContent: 'flex-start',
+        justifyContent: 'space-around',
     },
     category:{
-        width: '25%',
-        height: 100,
+        backgroundColor: 'red',
+        width: 125,
+        height: 125,
+        margin: 5
     }
 });
 
@@ -155,6 +157,9 @@ class UserPref extends Component {
                     </View>
                     </View>
                     <View style={styles.categories}>
+                        <View style={styles.category}>
+                            <Text>Test Category</Text>
+                        </View>
                         <View style={styles.category}>
                             <Text>Test Category</Text>
                         </View>
