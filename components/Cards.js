@@ -1,33 +1,36 @@
 import React, { Component } from 'react';
 import GestureRecognizer from 'react-native-swipe-gestures';
+// react-native imports
 import {
   StyleSheet,
+  Animated,
+  Easing,
   TouchableWithoutFeedback,
   Text,
   View,
   FlatList,
   Dimensions,
 } from 'react-native';
+// style imports
 import {
-  container,
-  interiorContainer,
   horizontalCardStrip,
   restaurantCard,
   row,
   foodCard,
   cardHeader,
   cardBody,
-  cardContainer,
   boldWhite,
-  boldBlue,
   foodTitle,
   price,
 } from './styles';
+// utility function imports
 import {
   generateRating,
   generatePrice,
   formatPhoneNumber,
 } from '../utils/getRestaurantInfo';
+// MenuItem component import
+import { MenuItem } from './index';
 
 const windowWidth = Dimensions.get('window').width;
 
@@ -82,43 +85,14 @@ class Cards extends Component {
             <View style={styles.cardHeader}>
               <Text style={styles.boldWhite}>{item.name}</Text>
               <View style={styles.row}>
-                <Text
-                  style={{
-                    color: 'white',
-                    fontWeight: 'bold',
-                    textAlign: 'center',
-                  }}
-                >
-                  {generateRating(item)}
-                </Text>
-                <Text
-                  style={{
-                    color: 'white',
-                    fontWeight: 'bold',
-                    textAlign: 'center',
-                  }}
-                >
-                  {generatePrice(item)}
-                </Text>
+                <Text style={styles.rating}>{generateRating(item)}</Text>
+                <Text style={styles.rating}>{generatePrice(item)}</Text>
               </View>
             </View>
             <View style={styles.cardBody}>
               {/* Check if there's a menu key on the restaurant object, and make sure it's an array*/}
               {item.menu && Array.isArray(item.menu) && item.menu[0] ? (
-                <View style={styles.foodCard}>
-                  <Text style={styles.foodTitle}>{item.menu[0].name}</Text>
-                  {item.menu[0].description ? (
-                    <Text>{item.menu[0].description}</Text>
-                  ) : (
-                    <Text />
-                  )}
-
-                  {item.menu[0].description && item.menu[0].price ? (
-                    <Text style={styles.price}>${item.menu[0].price}</Text>
-                  ) : (
-                    <Text />
-                  )}
-                </View>
+                <MenuItem restaurant={item} />
               ) : (
                 <View>
                   <Text>Menu not available</Text>
@@ -163,15 +137,16 @@ const styles = StyleSheet.create({
   },
   row: row,
   cardHeader: cardHeader,
-  container: container,
-  interiorContainer: interiorContainer,
-  cardContainer: cardContainer,
-  boldBlue: boldBlue,
   boldWhite: boldWhite,
   foodCard: foodCard,
   foodTitle: foodTitle,
   cardBody: cardBody,
   price: price,
+  rating: {
+    color: 'white',
+    fontWeight: 'bold',
+    textAlign: 'center',
+  },
 });
 
 export default Cards;
