@@ -294,7 +294,7 @@ class UserPref extends Component {
                 flexDirection: 'column',
                 justifyContent: 'center'
               };
-              this.setState(this.state);
+              this.setState(prevState => prevState);
             }}
             onPressOut={async () => {
               styles.submitButton = {
@@ -307,7 +307,7 @@ class UserPref extends Component {
                 flexDirection: 'column',
                 justifyContent: 'center'
               };
-              this.setState(this.state);
+              this.setState(prevState => prevState);
               await this.savePreferences();
               this.props.navigation.navigate('Main');
             }}
