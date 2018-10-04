@@ -27,17 +27,20 @@ const dummyData = [
       },
       {
         name: 'Portabella Sandwich',
-        description: 'Marinated portabellas, grilled onions, grilled red peppers with melted provolone on a grilled french stick',
+        description:
+          'Marinated portabellas, grilled onions, grilled red peppers with melted provolone on a grilled french stick',
         price: '8.50'
       },
       {
         name: 'Fajita',
-        description: 'Marinated & grilled flank or chicken, red and green bell peppers, onions, cheddar, lettuce and tomato',
+        description:
+          'Marinated & grilled flank or chicken, red and green bell peppers, onions, cheddar, lettuce and tomato',
         price: '8.50'
       },
       {
         name: 'Teriyaki Wrap',
-        description: 'Chicken, flank or grilled salmon, teriyaki sauce, broccoli with sesame oil, red pepper flakes & jasmine rice',
+        description:
+          'Chicken, flank or grilled salmon, teriyaki sauce, broccoli with sesame oil, red pepper flakes & jasmine rice',
         price: '8.50'
       }
     ]
@@ -93,27 +96,32 @@ const dummyData = [
     menu: [
       {
         name: 'Hot Caramel Sundae',
-        description: 'Cool and creamy vanilla soft serve meets warm, rich, buttery caramel. *Nuts optional',
+        description:
+          'Cool and creamy vanilla soft serve meets warm, rich, buttery caramel. *Nuts optional',
         price: false
       },
       {
         name: 'Big Mac®',
-        description: 'Mouthwatering perfection starts with two sear-sizzled 100% pure beef patties and Big Mac® sauce, sandwiched between a sesame seed bun. American cheese, shredded lettuce, onions and pickles top it off.',
+        description:
+          'Mouthwatering perfection starts with two sear-sizzled 100% pure beef patties and Big Mac® sauce, sandwiched between a sesame seed bun. American cheese, shredded lettuce, onions and pickles top it off.',
         price: false
       },
       {
         name: 'Double Cheeseburger',
-        description: 'Double Cheeseburger features two 100% pure beef patties with absolutely no fillers, additives or preservatives, seasoned with a pinch of salt and pepper, and topped with tangy pickles, chopped onions, ketchup, mustard and two slices of melty American cheese.* <br><br> *Available at participating restaurants.',
+        description:
+          'Double Cheeseburger features two 100% pure beef patties with absolutely no fillers, additives or preservatives, seasoned with a pinch of salt and pepper, and topped with tangy pickles, chopped onions, ketchup, mustard and two slices of melty American cheese.* <br><br> *Available at participating restaurants.',
         price: false
       },
       {
         name: 'Hamburger',
-        description: 'A juicy, 100% pure beef patty with absolutely no fillers, additives or preservatives, seasoned with a pinch of salt and pepper, and topped with a tangy pickle, chopped onions, ketchup and mustard.',
+        description:
+          'A juicy, 100% pure beef patty with absolutely no fillers, additives or preservatives, seasoned with a pinch of salt and pepper, and topped with a tangy pickle, chopped onions, ketchup and mustard.',
         price: false
       },
       {
         name: 'Quarter Pounder® Hamburger',
-        description: 'A ¼ pound 100% beef patty, slivered onions, ketchup, mustard on a toasted sesame seed bun.',
+        description:
+          'A ¼ pound 100% beef patty, slivered onions, ketchup, mustard on a toasted sesame seed bun.',
         price: false
       }
     ]
@@ -262,27 +270,32 @@ const dummyData = [
     menu: [
       {
         name: 'Lobster',
-        description: 'Hand picked lobster, wood roasted corn, toybox tomatoes, mozzarella, truffle-garlic cream',
+        description:
+          'Hand picked lobster, wood roasted corn, toybox tomatoes, mozzarella, truffle-garlic cream',
         price: '18.95'
       },
       {
         name: 'Hanger Steak*',
-        description: 'Oak grilled hanger steak, farm fresh eggs, bacon onion hash, hollandaise',
+        description:
+          'Oak grilled hanger steak, farm fresh eggs, bacon onion hash, hollandaise',
         price: '16.95'
       },
       {
         name: 'Oak Grilled Salmon*',
-        description: 'Warm quinoa salad, pancetta, brussels sprout leaves, white acacia truffle honey vinaigrette, shaved fennel',
+        description:
+          'Warm quinoa salad, pancetta, brussels sprout leaves, white acacia truffle honey vinaigrette, shaved fennel',
         price: '15.95'
       },
       {
         name: 'Fig',
-        description: 'Fresh figs, smoked prosciutto, gorgonzola mountain, shaved kale, vincotto',
+        description:
+          'Fresh figs, smoked prosciutto, gorgonzola mountain, shaved kale, vincotto',
         price: '15.95'
       },
       {
         name: 'Polpetti*',
-        description: 'Fontina, ricotta, veal & pork meatballs, roasted red and yellow peppers, plum tomato sauce',
+        description:
+          'Fontina, ricotta, veal & pork meatballs, roasted red and yellow peppers, plum tomato sauce',
         price: '14.95'
       }
     ]
@@ -305,7 +318,8 @@ const dummyData = [
     menu: [
       {
         name: 'Bison Bites - (Cooked to Order)',
-        description: 'Mini bison burgers with a touch of chipotle pepper, American cheese, avocado aioli, & onion strings.',
+        description:
+          'Mini bison burgers with a touch of chipotle pepper, American cheese, avocado aioli, & onion strings.',
         price: '76.00'
       },
       {
@@ -315,12 +329,14 @@ const dummyData = [
       },
       {
         name: 'Scallops Wrapped in Bacon',
-        description: 'Large sea scallops with smoky bacon and a dijon dipping sauce.',
+        description:
+          'Large sea scallops with smoky bacon and a dijon dipping sauce.',
         price: '75.00'
       },
       {
         name: 'Smoked Bbq Ribs',
-        description: "Finger-food sized, served with Uncle Fred's Secret Sauce.",
+        description:
+          "Finger-food sized, served with Uncle Fred's Secret Sauce.",
         price: '68.00'
       },
       {
@@ -365,7 +381,8 @@ const dummyData = [
     menu: [
       {
         name: 'Breakfast Sandwiches',
-        description: 'Smoked cherry wood bacon, egg white omelets, aged cheddar cheese, a freshly baked croissant, a hearty bagel, english muffin, crispy flatbreadwed go on, but we know youre already drooling. luckily, you can head to your local dd anytime to satisfy your hunger.',
+        description:
+          'Smoked cherry wood bacon, egg white omelets, aged cheddar cheese, a freshly baked croissant, a hearty bagel, english muffin, crispy flatbreadwed go on, but we know youre already drooling. luckily, you can head to your local dd anytime to satisfy your hunger.',
         price: false
       },
       {
@@ -375,17 +392,20 @@ const dummyData = [
       },
       {
         name: 'Texas Toast Grilled Cheese',
-        description: "We've raised the bar on the basic grilled cheese you ate as a kid. melted american and white cheddar cheese between two pieces of thick texas toast. yes, it's as good as it sounds.",
+        description:
+          "We've raised the bar on the basic grilled cheese you ate as a kid. melted american and white cheddar cheese between two pieces of thick texas toast. yes, it's as good as it sounds.",
         price: false
       },
       {
         name: 'Tuna Sandwiches',
-        description: 'Our tasty tuna sandwich is blended with mayonnaise, celery, herbs and spices all on a toasted plain bagel. or, try our oven-toasted tuna melt, featuring the same tasty ingredients and topped with a slice of cheddar cheese on a croissant. both will hit the spot and keep you runnin.',
+        description:
+          'Our tasty tuna sandwich is blended with mayonnaise, celery, herbs and spices all on a toasted plain bagel. or, try our oven-toasted tuna melt, featuring the same tasty ingredients and topped with a slice of cheddar cheese on a croissant. both will hit the spot and keep you runnin.',
         price: false
       },
       {
         name: 'Turkey, Cheddar & Bacon',
-        description: "Freshly sliced turkey topped with cherrywood smoked bacon and white cheddar cheese. it's a great way to brighten up your afternoon. your appetite - and your busy schedule - will thank you.",
+        description:
+          "Freshly sliced turkey topped with cherrywood smoked bacon and white cheddar cheese. it's a great way to brighten up your afternoon. your appetite - and your busy schedule - will thank you.",
         price: false
       }
     ]
@@ -442,22 +462,26 @@ const dummyData = [
     menu: [
       {
         name: 'Wheat Spinach Savory Foldover',
-        description: 'Layers of wheat croissant with flax seed envelop a savory medley of spinach, shallots, white wine & béchamel sauce.',
+        description:
+          'Layers of wheat croissant with flax seed envelop a savory medley of spinach, shallots, white wine & béchamel sauce.',
         price: false
       },
       {
         name: 'Chonga Bagel',
-        description: 'A bagel topped with Cheddar cheese, poppy seeds, sesame seeds, onion and garlic.',
+        description:
+          'A bagel topped with Cheddar cheese, poppy seeds, sesame seeds, onion and garlic.',
         price: false
       },
       {
         name: 'Almond Croissant Blossom',
-        description: 'Flaky croissant dough topped with almond filling and toasted sliced almonds.',
+        description:
+          'Flaky croissant dough topped with almond filling and toasted sliced almonds.',
         price: false
       },
       {
         name: 'Banana Nut Bread',
-        description: 'Bananas, walnuts and pecans in moist, nutty, classic banana bread.',
+        description:
+          'Bananas, walnuts and pecans in moist, nutty, classic banana bread.',
         price: false
       },
       {
@@ -480,7 +504,7 @@ const dummyData = [
     phone: '8606741028',
     menu: false
   }
-]
+];
 
 const FOOD_GENERAL = '4d4b7105d754a06374d81259';
 const PIZZA = '4bf58dd8d48988d1ca941735';
@@ -503,58 +527,58 @@ const dummyUserData = {
   categories: {
     '4bf58dd8d48988d1d2941735': 0.7,
     '4bf58dd8d48988d1e0931735': 0.7,
-    '4bf58dd8d48988d1ca941735': 0.4,
+    '4bf58dd8d48988d1ca941735': 0.4
   },
   priceTier: 2,
   rating: 2,
   distance: 5000
-}
+};
 
 const calcCategoryWeighted = (venue, userData) => {
   if (userData.categories[venue.categoryId]) {
-    const preferedOutOfTen = userData.categories[venue.categoryId] * 10
-    const weightedTotal = preferedOutOfTen * userData.weights.categories
-    return weightedTotal
+    const preferredOutOfTen = userData.categories[venue.categoryId] * 10;
+    const weightedTotal = preferredOutOfTen * userData.weights.categories;
+    return weightedTotal;
   } else {
-    return 0
+    return 0;
   }
-}
+};
 const calcPriceWeighted = (venue, userData) => {
-  const venuePriceOutOfTen = 10 - venue.price.tier * 2.5
-  const preferedPriceOutOfTen = 10 - userData.priceTier * 2.5
-  const diffrence = Math.abs(venuePriceOutOfTen - preferedPriceOutOfTen)
-  const diffrenceOutOfTen = 10 - diffrence
-  const weightedTotal = diffrenceOutOfTen * userData.weights.priceRange
-  return weightedTotal
-}
+  const venuePriceOutOfTen = 10 - venue.price.tier * 2.5;
+  const preferredPriceOutOfTen = 10 - userData.priceTier * 2.5;
+  const difference = Math.abs(venuePriceOutOfTen - preferredPriceOutOfTen);
+  const differenceOutOfTen = 10 - difference;
+  const weightedTotal = differenceOutOfTen * userData.weights.priceRange;
+  return weightedTotal;
+};
 const calcRangeWeighted = (venue, userData, searchRange) => {
-  const tensInt = 10 / searchRange
-  const rangeOutOfTen = 10 - venue.distance * tensInt
-  const weightedTotal = Math.ceil(rangeOutOfTen) * userData.weights.range
-  return weightedTotal
-}
+  const tensInt = 10 / searchRange;
+  const rangeOutOfTen = 10 - venue.distance * tensInt;
+  const weightedTotal = Math.ceil(rangeOutOfTen) * userData.weights.range;
+  return weightedTotal;
+};
 const calcRatingWeighted = (venue, userData) => {
-  const diffrence = Math.abs(venue.rating - userData.rating)
-  const diffrenceOutOfTen = 10 - diffrence
-  const weightedTotal = diffrenceOutOfTen * userData.weights.rating
-  return weightedTotal
-}
+  const difference = Math.abs(venue.rating - userData.rating);
+  const differenceOutOfTen = 10 - difference;
+  const weightedTotal = differenceOutOfTen * userData.weights.rating;
+  return weightedTotal;
+};
 const calcSavor = (venue, userData) => {
-  const cat = calcCategoryWeighted(venue, userData)
-  const prc = calcPriceWeighted(venue, userData)
-  const rng = calcRangeWeighted(venue, userData, 5000)
-  const rtg = calcRatingWeighted(venue, userData)
-  return cat + prc + rng + rtg
-}
-const rateVenu = (venues, userData) => {
-  const keyedVenues = {}
-  const ratings = []
+  const cat = calcCategoryWeighted(venue, userData);
+  const prc = calcPriceWeighted(venue, userData);
+  const rng = calcRangeWeighted(venue, userData, 5000);
+  const rtg = calcRatingWeighted(venue, userData);
+  return cat + prc + rng + rtg;
+};
+const rateVenue = (venues, userData) => {
+  const keyedVenues = {};
+  const ratings = [];
   venues.forEach(venue => {
-    keyedVenues[venue.restaurantId] = venue
-    keyedVenues[venue.restaurantId].savor = calcSavor(venue, userData)
-    ratings.push(calcSavor(venue, userData))
-  })
-  console.log(ratings.sort())
-}
+    keyedVenues[venue.restaurantId] = venue;
+    keyedVenues[venue.restaurantId].savor = calcSavor(venue, userData);
+    ratings.push(calcSavor(venue, userData));
+  });
+  console.log(ratings.sort());
+};
 //const adjustCatWeights = (catSelected, userData) => {}
-rateVenu(dummyData, dummyUserData)
+rateVenue(dummyData, dummyUserData);
