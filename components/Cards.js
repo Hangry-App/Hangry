@@ -88,8 +88,17 @@ class Cards extends Component {
             {item.menu && Array.isArray(item.menu) && item.menu[0] ? (
               <View style={styles.foodCard}>
                 <Text style={styles.foodTitle}>{item.menu[0].name}</Text>
-                <Text>{item.menu[0].description}</Text>
-                <Text style={styles.price}>${item.menu[0].price}</Text>
+                {item.menu[0].description ? (
+                  <Text>{item.menu[0].description}</Text>
+                ) : (
+                  <Text />
+                )}
+
+                {item.menu[0].description && item.menu[0].price ? (
+                  <Text style={styles.price}>${item.menu[0].price}</Text>
+                ) : (
+                  <Text />
+                )}
               </View>
             ) : (
               <Text>Menu not available</Text>
