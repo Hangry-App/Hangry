@@ -18,6 +18,7 @@ class Main extends Component {
           return null;
         }
       },
+
       restaurant: {
         index: 0,
         item: {
@@ -82,6 +83,12 @@ class Main extends Component {
                 longitude: this.state.location.coords.longitude,
                 latitudeDelta: 0.0922,
                 longitudeDelta: 0.0421,
+              }}
+              region={{
+                latitude: this.state.restaurant.item.lat,
+                longitude: this.state.restaurant.item.long,
+                latitudeDelta: 0.09,
+                longitudeDelta: 0.05,
               }}
               provider={MapView.PROVIDER_GOOGLE}
               showsUserLocation
