@@ -1,16 +1,7 @@
 import React, { Component } from 'react';
 import GestureRecognizer from 'react-native-swipe-gestures';
 // react-native imports
-import {
-  StyleSheet,
-  Animated,
-  Easing,
-  TouchableWithoutFeedback,
-  Text,
-  View,
-  FlatList,
-  Dimensions,
-} from 'react-native';
+import { StyleSheet, Text, View, FlatList, Dimensions } from 'react-native';
 // style imports
 import {
   horizontalCardStrip,
@@ -43,11 +34,11 @@ class Cards extends Component {
     };
   }
 
-  onSwipeUp(gestureState) {
+  onSwipeUp() {
     this.setState({ cardHeight: 400 });
   }
 
-  onSwipeDown(gestureState) {
+  onSwipeDown() {
     this.setState({ cardHeight: 200 });
   }
 
