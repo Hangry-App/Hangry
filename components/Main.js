@@ -60,6 +60,7 @@ class Main extends Component {
   };
 
   render() {
+    console.log(this.state.restaurant);
     let text = 'Waiting...';
     let locationFound = false;
 

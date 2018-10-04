@@ -41,6 +41,10 @@ class Cards extends Component {
     this.setState({ cardHeight: 200 });
   }
 
+  onViewableItemsChanged = ({ viewableItems }) => {
+    this.props.update(viewableItems);
+  };
+
   _keyExtractor = item => item.restaurantId;
 
   _renderItem = ({ item }) => (
@@ -80,12 +84,12 @@ class Cards extends Component {
           </View>
           <View style={styles.cardBody}>
             {/* Check if there's a menu key on the restaurant object, and make sure it's an array*/}
-            {Array.isArray(item.menu) ? (
+            {item.menu ? (
               <View style={styles.foodCard}>
-                <Text style={styles.foodTitle}>{item.menu[0].name}</Text>
+                <Text style={styles.foodTitle}>{item.lat}</Text>
                 <View>
-                  <Text>{item.menu[0].description}</Text>
-                  <Text>{item.menu[0].price}</Text>
+                  <Text>{'FOOD_DESCRIPTION'}</Text>
+                  <Text>{'FOOD_PRICE'}</Text>
                 </View>
               </View>
             ) : (
@@ -98,7 +102,8 @@ class Cards extends Component {
   );
 
   render() {
-    console.log('STATE: ', this.state);
+    console.log(this.props.restaurants[1].menu[0].description);
+    // console.log('STATE: ', this.state);
     return (
       <View style={styles.horizontalCardStrip}>
         <FlatList
@@ -107,6 +112,7 @@ class Cards extends Component {
           snapToInterval={windowWidth}
           snapToAlignment="center"
           alwaysBounceHorizontal
+          onViewableItemsChanged={this.onViewableItemsChanged}
           data={this.props.restaurants}
           keyExtractor={this._keyExtractor}
           renderItem={this._renderItem}
