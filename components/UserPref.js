@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
 import {
   StyleSheet,
   Text,
@@ -6,12 +6,12 @@ import {
   TouchableWithoutFeedback,
   ScrollView,
   Slider
-} from 'react-native';
-import * as firebase from 'firebase';
+} from 'react-native'
+import * as firebase from 'firebase'
 
-const lightBlue = '#7FC4FD';
-const darkBlue = '#2699FB';
-const white = '#fff';
+const lightBlue = '#7FC4FD'
+const darkBlue = '#2699FB'
+const white = '#fff'
 
 const foodTypes = [
   ['PIZZA', '4bf58dd8d48988d1ca941735'],
@@ -23,7 +23,7 @@ const foodTypes = [
   ['INDIAN', '4bf58dd8d48988d10f941735'],
   ['PERUVIAN', '4eb1bfa43b7b52c0e1adc2e8'],
   ['THAI', '4bf58dd8d48988d149941735']
-];
+]
 
 const styles = StyleSheet.create({
   body: {
@@ -107,34 +107,34 @@ const styles = StyleSheet.create({
     flexDirection: 'column',
     justifyContent: 'space-around'
   }
-});
+})
 
 class UserPref extends Component {
-  constructor() {
-    super();
+  constructor () {
+    super()
     this.state = {
       sliderCategories: 0.25,
       sliderPriceRange: 0.25,
       sliderRating: 0.25,
       sliderRange: 0.25,
-      '4d4b7105d754a06374d81259': true, //this is the food general category in foursquare -- setting as initial state in case there are no food preferences
+      '4d4b7105d754a06374d81259': true, // this is the food general category in foursquare -- setting as initial state in case there are no food preferences
       distancePreference: 1000,
       sliderPriceTier: 3,
-      sliderRatingPref: 7,
-    };
+      sliderRatingPref: 7
+    }
   }
-  async savePrefs() {
-    const db = firebase.database();
-    const user = await firebase.auth();
-    const userId = user.currentUser.uid;
+  async savePrefs () {
+    const db = firebase.database()
+    const user = await firebase.auth()
+    const userId = user.currentUser.uid
     db.ref('userPrefs/' + userId).set(this.state)
   }
   checkAndAffect = (value, toChange) => {
-    const newState = this.state;
-    newState[toChange] = value;
-    this.setState(newState);
-  };
-  render() {
+    const newState = this.state
+    newState[toChange] = value
+    this.setState(newState)
+  }
+  render () {
     return (
       <View style={styles.body}>
         <ScrollView contentContainerStyle={styles.container}>
@@ -150,7 +150,7 @@ class UserPref extends Component {
                 value={2.5}
                 step={0.5}
                 onValueChange={value => {
-                  this.checkAndAffect(value, 'sliderCategories');
+                  this.checkAndAffect(value, 'sliderCategories')
                 }}
                 style={styles.slideSlider}
               />
@@ -165,7 +165,7 @@ class UserPref extends Component {
                 value={2.5}
                 step={0.5}
                 onValueChange={value => {
-                  this.checkAndAffect(value, 'sliderPriceRange');
+                  this.checkAndAffect(value, 'sliderPriceRange')
                 }}
                 style={styles.slideSlider}
               />
@@ -180,7 +180,7 @@ class UserPref extends Component {
                 value={2.5}
                 step={0.5}
                 onValueChange={value => {
-                  this.checkAndAffect(value, 'sliderRating');
+                  this.checkAndAffect(value, 'sliderRating')
                 }}
                 style={styles.slideSlider}
               />
@@ -195,7 +195,7 @@ class UserPref extends Component {
                 value={2.5}
                 step={0.5}
                 onValueChange={value => {
-                  this.checkAndAffect(value, 'sliderRange');
+                  this.checkAndAffect(value, 'sliderRange')
                 }}
                 style={styles.slideSlider}
               />
@@ -239,7 +239,7 @@ class UserPref extends Component {
                   value={3}
                   step={1}
                   onValueChange={value => {
-                    this.checkAndAffect(value, 'sliderPriceTier');
+                    this.checkAndAffect(value, 'sliderPriceTier')
                   }}
                   style={styles.slideSlider}
                 />
@@ -255,7 +255,7 @@ class UserPref extends Component {
                 value={7}
                 step={0.5}
                 onValueChange={value => {
-                  this.checkAndAffect(value, 'sliderRating');
+                  this.checkAndAffect(value, 'sliderRating')
                 }}
                 style={styles.slideSlider}
               />
@@ -267,18 +267,18 @@ class UserPref extends Component {
                 <TouchableWithoutFeedback
                   key={foodType[1]}
                   onPressIn={() => {
-                    let currentState = this.state;
+                    let currentState = this.state
                     currentState[foodType[1]]
                       ? (currentState[foodType[1]] = false)
-                      : (currentState[foodType[1]] = true);
-                    this.setState(currentState);
+                      : (currentState[foodType[1]] = true)
+                    this.setState(currentState)
                   }}
                 >
                   <View style={styles.category}>
                     <Text>{foodType[0]}</Text>
                   </View>
                 </TouchableWithoutFeedback>
-              );
+              )
             })}
           </View>
           <TouchableWithoutFeedback
@@ -286,17 +286,14 @@ class UserPref extends Component {
               styles.submitButton = {
                 marginTop: 20,
                 width: '100%',
-                height: 50, 
+                height: 50,
                 backgroundColor: '#33658E',
                 borderRadius: 5,
                 display: 'flex',
                 flexDirection: 'column',
                 justifyContent: 'center'
-              };
-              this.setState(this.state);
-              console.log('=============CURRENT STATE=============');
-              console.log(firebase.auth());
-              console.log('=======================================');
+              }
+              this.setState(this.state)
             }}
             onPressOut={async () => {
               styles.submitButton = {
@@ -308,10 +305,10 @@ class UserPref extends Component {
                 display: 'flex',
                 flexDirection: 'column',
                 justifyContent: 'center'
-              };
-              this.setState(this.state); 
-              await this.savePrefs();
-              this.props.navigation.navigate('Main');
+              }
+              this.setState(this.state)
+              await this.savePrefs()
+              this.props.navigation.navigate('Main')
             }}
           >
             <View style={styles.submitButton}>
@@ -320,8 +317,8 @@ class UserPref extends Component {
           </TouchableWithoutFeedback>
         </ScrollView>
       </View>
-    );
+    )
   }
 }
 
-export default UserPref;
+export default UserPref
