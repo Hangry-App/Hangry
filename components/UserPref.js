@@ -113,33 +113,19 @@ const styles = StyleSheet.create({
 class UserPref extends Component {
   constructor() {
     super();
-    // this.state = {
-    //   weights: {
-    //     categories: 0.1,
-    //     priceRange: 0.4,
-    //     rating: 0.3,
-    //     range: 0.2
-    //   },
-    //   categories: {
-    //     '4bf58dd8d48988d1d2941735': 0.7,
-    //     '4bf58dd8d48988d1e0931735': 0.7,
-    //     '4bf58dd8d48988d1ca941735': 0.4
-    //   },
-    //   priceTier: 2,
-    //   rating: 2,
-    //   distance: 5000
-    // };
     this.state = {
       weights: {
-        sliderCategories: 0.25,
-        sliderPriceRange: 0.25,
-        sliderRating: 0.25,
-        sliderRange: 0.25
+        categories: 5,
+        priceRange: 5,
+        rating: 5,
+        range: 5
       },
-      '4d4b7105d754a06374d81259': true, // this is the food general category in foursquare -- setting as initial state in case there are no food preferences
-      distancePreference: 1000,
-      sliderPriceTier: 3,
-      sliderRatingPref: 7
+      categories: {
+        '4d4b7105d754a06374d81259': true // this is the food general category in foursquare -- setting as initial state in case there are no food preferences
+      },
+      priceTier: 2,
+      rating: 4,
+      distance: 5000
     };
   }
   async savePreferences() {
@@ -147,13 +133,8 @@ class UserPref extends Component {
     const user = await firebase.auth();
     const userId = user.currentUser.uid;
     console.log('userId: ', userId);
-    db.ref('userPrefs/' + userId).set(this.state);
+    db.ref('userPreferences/' + userId).set(this.state);
   }
-  checkAndAffect = (value, toChange) => {
-    const newState = this.state;
-    newState[toChange] = value;
-    this.setState(newState);
-  }; //TODO: Replace with _.set
 
   render() {
     return (
@@ -168,7 +149,7 @@ class UserPref extends Component {
               <Slider
                 maximumValue={10}
                 minimumValue={0}
-                value={2.5}
+                value={5}
                 step={0.5}
                 onValueChange={value => {
                   //this.checkAndAffect(value, 'weights');
@@ -184,10 +165,10 @@ class UserPref extends Component {
               <Slider
                 maximumValue={10}
                 minimumValue={0}
-                value={2.5}
+                value={5}
                 step={0.5}
                 onValueChange={value => {
-                  this.checkAndAffect(value, 'sliderPriceRange');
+                  _set(this.state, 'weights.priceRange', value);
                 }}
                 style={styles.slideSlider}
               />
@@ -199,10 +180,10 @@ class UserPref extends Component {
               <Slider
                 maximumValue={10}
                 minimumValue={0}
-                value={2.5}
+                value={5}
                 step={0.5}
                 onValueChange={value => {
-                  this.checkAndAffect(value, 'sliderRating');
+                  _set(this.state, 'weights.rating', value);
                 }}
                 style={styles.slideSlider}
               />
@@ -214,10 +195,10 @@ class UserPref extends Component {
               <Slider
                 maximumValue={10}
                 minimumValue={0}
-                value={2.5}
+                value={5}
                 step={0.5}
                 onValueChange={value => {
-                  this.checkAndAffect(value, 'sliderRange');
+                  _set(this.state, 'weights.range', value);
                 }}
                 style={styles.slideSlider}
               />
@@ -226,7 +207,7 @@ class UserPref extends Component {
           <View style={styles.distances}>
             <TouchableWithoutFeedback
               style={styles.distance}
-              onPressIn={() => this.setState({ distancePreference: 1000 })}
+              onPressIn={() => this.setState({ distance: 1000 })}
             >
               <View style={styles.distance}>
                 <Text>Walk</Text>
@@ -234,7 +215,7 @@ class UserPref extends Component {
             </TouchableWithoutFeedback>
             <TouchableWithoutFeedback
               style={styles.distance}
-              onPressIn={() => this.setState({ distancePreference: 5000 })}
+              onPressIn={() => this.setState({ distance: 5000 })}
             >
               <View style={styles.distance}>
                 <Text>Bike</Text>
@@ -242,7 +223,7 @@ class UserPref extends Component {
             </TouchableWithoutFeedback>
             <TouchableWithoutFeedback
               style={styles.distance}
-              onPressIn={() => this.setState({ distancePreference: 10000 })}
+              onPressIn={() => this.setState({ distance: 10000 })}
             >
               <View style={styles.distance}>
                 <Text>Drive</Text>
@@ -258,10 +239,10 @@ class UserPref extends Component {
                 <Slider
                   maximumValue={4}
                   minimumValue={1}
-                  value={3}
+                  value={2}
                   step={1}
                   onValueChange={value => {
-                    this.checkAndAffect(value, 'sliderPriceTier');
+                    _set(this.state, 'priceTier', value);
                   }}
                   style={styles.slideSlider}
                 />
@@ -274,10 +255,10 @@ class UserPref extends Component {
               <Slider
                 maximumValue={10}
                 minimumValue={1}
-                value={7}
+                value={4}
                 step={0.5}
                 onValueChange={value => {
-                  this.checkAndAffect(value, 'sliderRating');
+                  _set(this.state, 'rating', value);
                 }}
                 style={styles.slideSlider}
               />
@@ -289,11 +270,11 @@ class UserPref extends Component {
                 <TouchableWithoutFeedback
                   key={foodType[1]}
                   onPressIn={() => {
-                    let currentState = this.state;
-                    currentState[foodType[1]]
-                      ? (currentState[foodType[1]] = false)
-                      : (currentState[foodType[1]] = true);
-                    this.setState(currentState);
+                    let currentCategories = this.state.categories;
+                    currentCategories[foodType[1]]
+                      ? (currentCategories[foodType[1]] = false)
+                      : (currentCategories[foodType[1]] = true);
+                    this.setState(currentCategories);
                   }}
                 >
                   <View style={styles.category}>
