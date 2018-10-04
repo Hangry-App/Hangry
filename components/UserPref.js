@@ -121,7 +121,7 @@ class UserPref extends Component {
         range: 5
       },
       categories: {
-        '4d4b7105d754a06374d81259': true // this is the food general category in foursquare -- setting as initial state in case there are no food preferences
+        '4d4b7105d754a06374d81259': true // Note, this is the food general category in foursquare -- setting as initial state in case there are no food preferences
       },
       priceTier: 2,
       rating: 4,
@@ -132,7 +132,6 @@ class UserPref extends Component {
     const db = firebase.database();
     const user = await firebase.auth();
     const userId = user.currentUser.uid;
-    console.log('userId: ', userId);
     db.ref('userPreferences/' + userId).set(this.state);
   }
 
@@ -152,7 +151,6 @@ class UserPref extends Component {
                 value={5}
                 step={0.5}
                 onValueChange={value => {
-                  //this.checkAndAffect(value, 'weights');
                   _set(this.state, 'weights.categories', value);
                 }}
                 style={styles.slideSlider}
@@ -310,11 +308,8 @@ class UserPref extends Component {
                 justifyContent: 'center'
               };
               this.setState(this.state);
-              console.log('-------STATE-------');
-              console.log(this.state);
-              console.log('-------------------');
               await this.savePreferences();
-              //this.props.navigation.navigate('Main'); //TODO: Remove this comment so the navigation works.
+              this.props.navigation.navigate('Main');
             }}
           >
             <View style={styles.submitButton}>
