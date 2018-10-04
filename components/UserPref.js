@@ -14,6 +14,8 @@ const styles = StyleSheet.create({
     },
     container: {
         minHeight: '100%',
+        display: 'flex',
+        flexDirection: 'column',
     },
     headerOne: {
         alignSelf: 'center',
@@ -59,9 +61,12 @@ const styles = StyleSheet.create({
         textAlign: 'center'
     },
     categories: {
-        backgroundColor: white,
+        display: 'flex',
+        backgroundColor: '#AEAEAE',
     },
     category: {
+        width: 50,
+        height: 50,
         backgroundColor: darkBlue,
     }
 });
@@ -150,7 +155,13 @@ class UserPref extends Component {
                     </View>
                     <View styles={styles.categories}>
                         <View styles={styles.category}>
-                            <Text>asdf</Text>
+                            <Text>Test Category</Text>
+                        </View>
+                        <View styles={styles.category}>
+                            <Text>Test Category</Text>
+                        </View>
+                        <View styles={styles.category}>
+                            <Text>Test Category</Text>
                         </View>
                     </View>
                     <TouchableWithoutFeedback onPressIn={() => {
