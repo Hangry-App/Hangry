@@ -23,6 +23,11 @@ import {
   foodTitle,
   price,
 } from './styles';
+import {
+  generateRating,
+  generatePrice,
+  formatPhoneNumber,
+} from '../utils/getRestaurantInfo';
 
 const windowWidth = Dimensions.get('window').width;
 
@@ -33,22 +38,6 @@ class Cards extends Component {
       cardHeight: 200,
     };
   }
-
-  generateRating = item => {
-    let rating = '';
-    for (let i = 0; i < Math.floor(item.rating); i++) {
-      rating += '*';
-    }
-    return <Text>{rating}</Text>;
-  };
-
-  generatePrice = item => {
-    let price = '';
-    for (let i = 0; i < Math.floor(item.price.tier); i++) {
-      price += '$';
-    }
-    return <Text>{price}</Text>;
-  };
 
   onSwipeUp(gestureState) {
     this.setState({ cardHeight: 400 });
@@ -100,7 +89,7 @@ class Cards extends Component {
                     textAlign: 'center',
                   }}
                 >
-                  {this.generateRating(item)}
+                  {generateRating(item)}
                 </Text>
                 <Text
                   style={{
@@ -109,7 +98,7 @@ class Cards extends Component {
                     textAlign: 'center',
                   }}
                 >
-                  {this.generatePrice(item)}
+                  {generatePrice(item)}
                 </Text>
               </View>
             </View>
@@ -131,7 +120,12 @@ class Cards extends Component {
                   )}
                 </View>
               ) : (
-                <Text>Menu not available</Text>
+                <View>
+                  <Text>Menu not available</Text>
+                  {item.phone ? (
+                    <Text>Phone: {formatPhoneNumber(item)}</Text>
+                  ) : null}
+                </View>
               )}
             </View>
           </View>
