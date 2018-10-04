@@ -1,7 +1,15 @@
 import React, { Component } from 'react';
-import { Alert, StyleSheet, Text, View, TextInput, TouchableWithoutFeedback, Button } from 'react-native';
+import {
+  Alert,
+  StyleSheet,
+  Text,
+  View,
+  TextInput,
+  TouchableWithoutFeedback,
+  Button,
+} from 'react-native';
 import * as firebase from 'firebase';
-import { firebaseConfig } from '../secrets'
+import { firebaseConfig } from '../secrets';
 
 class UserSignUp extends Component {
   constructor() {
@@ -16,22 +24,29 @@ class UserSignUp extends Component {
   }
 
   async attemptSignUp() {
-      console.log(firebaseConfig);
     if (this.state.email && this.state.password) {
-        if (this.state.password === this.state.passwordValidate && this.state.email.includes('@', '.com')) {
-            try {
-                await firebase.auth().createUserWithEmailAndPassword(this.state.email, this.state.password);
-                this.props.navigation.navigate('Main');
-            } catch (err) {
-                Alert.alert(err.toString())
-            }
-        } else if (!this.state.email.includes('@', '.com')) {
-            Alert.alert('Please enter a valid email');
-        } else if (this.state.password !== this.state.passwordValidate) {
-            Alert.alert('Please check password matches');
+      if (
+        this.state.password === this.state.passwordValidate &&
+        this.state.email.includes('@', '.com')
+      ) {
+        try {
+          await firebase
+            .auth()
+            .createUserWithEmailAndPassword(
+              this.state.email,
+              this.state.password
+            );
+          this.props.navigation.navigate('Main');
+        } catch (err) {
+          Alert.alert(err.toString());
         }
+      } else if (!this.state.email.includes('@', '.com')) {
+        Alert.alert('Please enter a valid email');
+      } else if (this.state.password !== this.state.passwordValidate) {
+        Alert.alert('Please check password matches');
+      }
     } else {
-        Alert.alert('Please fill out all fields');
+      Alert.alert('Please fill out all fields');
     }
   }
   navToWelcome() {
@@ -49,27 +64,27 @@ class UserSignUp extends Component {
             <Text style={[styles.text, styles.firstEl]}>Email</Text>
             <TextInput
               style={styles.form}
-              placeholder={'email@email.com'}
-              autoCapitalize={'none'}
-              keyboardType={'email-address'}
+              placeholder="email@email.com"
+              autoCapitalize="none"
+              keyboardType="email-address"
               underlineColorAndroid="transparent"
               onChangeText={text => this.setState({ email: text })}
             />
             <Text style={styles.text}>Password</Text>
             <TextInput
               style={styles.form}
-              placeholder={'password'}
+              placeholder="password"
               secureTextEntry={true}
-              autoCapitalize={'none'}
+              autoCapitalize="none"
               underlineColorAndroid="transparent"
               onChangeText={text => this.setState({ password: text })}
             />
             <Text style={styles.text}>Password Validate</Text>
             <TextInput
               style={styles.form}
-              placeholder={'password validate'}
+              placeholder="password validate"
               secureTextEntry={true}
-              autoCapitalize={'none'}
+              autoCapitalize="none"
               underlineColorAndroid="transparent"
               onChangeText={text => this.setState({ passwordValidate: text })}
             />
@@ -151,11 +166,11 @@ const styles = StyleSheet.create({
     position: 'absolute',
     top: 20,
     left: 20,
-  }, 
+  },
   navButton: {
     fontSize: 40,
     color: white,
-  }
+  },
 });
 
 export default UserSignUp;
