@@ -3,7 +3,7 @@ import { View, StyleSheet, Text, Platform } from 'react-native';
 import { Constants, Location, Permissions, MapView } from 'expo';
 import * as firebase from 'firebase';
 import { Cards } from './index';
-const dummyData = require('../routes/testData');
+const dummyData = require('../routes/SampleResponses/archive/morganTestData.json');
 const Marker = MapView.Marker;
 
 class Main extends Component {
