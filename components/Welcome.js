@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Alert, StyleSheet, Text, View, TextInput, Button } from 'react-native';
+import { StyleSheet, Text, View, Button } from 'react-native';
 import * as firebase from 'firebase';
 import { firebaseConfig } from '../secrets';
 

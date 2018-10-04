@@ -3,4 +3,5 @@ export { default as UserLogin } from './UserLogIn';
 export { default as Cards } from './Cards';
 export { default as UserSignUp } from './UserSignUp';
 export { default as Welcome } from './Welcome';
+export { default as UserPref } from './UserPref';
 export { default as MenuItem } from './MenuItem';
