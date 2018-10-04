@@ -62,12 +62,13 @@ const styles = StyleSheet.create({
     },
     categories: {
         display: 'flex',
-        backgroundColor: '#AEAEAE',
+        flexDirection: 'row',
+        flexWrap: 'wrap',
+        justifyContent: 'flex-start',
     },
-    category: {
-        width: 50,
-        height: 50,
-        backgroundColor: darkBlue,
+    category:{
+        width: '25%',
+        height: 100,
     }
 });
 
@@ -153,14 +154,20 @@ class UserPref extends Component {
                         />
                     </View>
                     </View>
-                    <View styles={styles.categories}>
-                        <View styles={styles.category}>
+                    <View style={styles.categories}>
+                        <View style={styles.category}>
                             <Text>Test Category</Text>
                         </View>
-                        <View styles={styles.category}>
+                        <View style={styles.category}>
                             <Text>Test Category</Text>
                         </View>
-                        <View styles={styles.category}>
+                        <View style={styles.category}>
+                            <Text>Test Category</Text>
+                        </View>
+                        <View style={styles.category}>
+                            <Text>Test Category</Text>
+                        </View>
+                        <View style={styles.category}>
                             <Text>Test Category</Text>
                         </View>
                     </View>
