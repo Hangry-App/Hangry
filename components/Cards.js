@@ -21,6 +21,7 @@ import {
   boldWhite,
   boldBlue,
   foodTitle,
+  price,
 } from './styles';
 
 const windowWidth = Dimensions.get('window').width;
@@ -84,13 +85,11 @@ class Cards extends Component {
           </View>
           <View style={styles.cardBody}>
             {/* Check if there's a menu key on the restaurant object, and make sure it's an array*/}
-            {item.menu ? (
+            {item.menu && Array.isArray(item.menu) && item.menu[0] ? (
               <View style={styles.foodCard}>
-                <Text style={styles.foodTitle}>{item.lat}</Text>
-                <View>
-                  <Text>{'FOOD_DESCRIPTION'}</Text>
-                  <Text>{'FOOD_PRICE'}</Text>
-                </View>
+                <Text style={styles.foodTitle}>{item.menu[0].name}</Text>
+                <Text>{item.menu[0].description}</Text>
+                <Text style={styles.price}>${item.menu[0].price}</Text>
               </View>
             ) : (
               <Text>Menu not available</Text>
@@ -102,7 +101,7 @@ class Cards extends Component {
   );
 
   render() {
-    console.log(this.props.restaurants[1].menu[0].description);
+    console.log(this.props.restaurants[1].menu[0].name);
     // console.log('STATE: ', this.state);
     return (
       <View style={styles.horizontalCardStrip}>
@@ -139,6 +138,7 @@ const styles = StyleSheet.create({
   foodCard: foodCard,
   foodTitle: foodTitle,
   cardBody: cardBody,
+  price: price,
 });
 
 export default Cards;

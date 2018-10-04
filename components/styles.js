@@ -113,3 +113,7 @@ export const row = {
   flexDirection: 'row',
   justifyContent: 'space-around',
 };
+
+export const price = {
+  textAlign: 'right',
+};
