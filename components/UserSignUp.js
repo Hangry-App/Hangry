@@ -25,23 +25,27 @@ class UserSignUp extends Component {
 
   async attemptSignUp() {
     if (this.state.email && this.state.password) {
-        if (this.state.password === this.state.passwordValidate && this.state.email.includes('@', '.com')) {
-            try {
-                await firebase.auth().createUserWithEmailAndPassword(this.state.email, this.state.password);
-                this.props.navigation.navigate('UserPref');
-            } catch (err) { 
-                Alert.alert(err.toString())
-            }
-        } else if (!this.state.email.includes('@', '.com')) {
-            Alert.alert('Please enter a valid email');
-        } else if (this.state.password !== this.state.passwordValidate) {
-            Alert.alert('Please check password matches');
+      if (
+        this.state.password === this.state.passwordValidate &&
+        this.state.email.includes('@', '.com')
+      ) {
+        try {
+          await firebase
+            .auth()
+            .createUserWithEmailAndPassword(
+              this.state.email,
+              this.state.password
+            );
+          this.props.navigation.navigate('UserPref');
+        } catch (err) {
+          Alert.alert(err.toString());
         }
       } else if (!this.state.email.includes('@', '.com')) {
         Alert.alert('Please enter a valid email');
       } else if (this.state.password !== this.state.passwordValidate) {
         Alert.alert('Please check password matches');
-      } else {
+      }
+    } else {
       Alert.alert('Please fill out all fields');
     }
   }
