@@ -286,7 +286,7 @@ class UserPref extends Component {
                     <Text>{foodType[0]}</Text>
                   </View>
                 </TouchableWithoutFeedback>
-              );
+              ); 
             })}
           </View>
           <TouchableWithoutFeedback
