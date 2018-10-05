@@ -36,10 +36,12 @@ class Cards extends Component {
 
   onSwipeUp() {
     this.setState({ cardHeight: 400 });
+    this.props.offset(0.007);
   }
 
   onSwipeDown() {
     this.setState({ cardHeight: 200 });
+    this.props.offset(0);
   }
 
   onViewableItemsChanged = ({ viewableItems }) => {
