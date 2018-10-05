@@ -1,5 +1,6 @@
 import { Main, UserLogin, UserSignUp, Welcome, UserPref } from './components';
 import { createSwitchNavigator } from 'react-navigation';
+import { SDK_VERSION } from 'firebase';
 
 const App = createSwitchNavigator(
   {
@@ -7,10 +8,10 @@ const App = createSwitchNavigator(
     UserLogin,
     UserSignUp,
     UserPref,
-    Main,
+    Main
   },
   {
-    initialRouteName: 'Welcome',
+    initialRouteName: 'UserPref' //TODO: Update to the Welcome screen
   }
 );
 
