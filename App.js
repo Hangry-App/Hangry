@@ -8,10 +8,10 @@ const App = createSwitchNavigator(
     UserLogin,
     UserSignUp,
     UserPref,
-    Main
+    Main,
   },
   {
-    initialRouteName: 'UserPref' //TODO: Update to the Welcome screen
+    initialRouteName: 'Welcome',
   }
 );
 
