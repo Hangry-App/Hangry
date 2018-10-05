@@ -534,7 +534,7 @@ const dummyUserData = {
   distance: 5000
 };
 
-const calcCategoryWeighted = (venue, userData) => {
+const calculateCategoryWeighted = (venue, userData) => {
   if (userData.categories[venue.categoryId]) {
     const preferredOutOfTen = userData.categories[venue.categoryId] * 10;
     const weightedTotal = preferredOutOfTen * userData.weights.categories;
@@ -543,42 +543,51 @@ const calcCategoryWeighted = (venue, userData) => {
     return 0;
   }
 };
-const calcPriceWeighted = (venue, userData) => {
+const calculatePriceWeighted = (venue, userData) => {
   const venuePriceOutOfTen = 10 - venue.price.tier * 2.5;
   const preferredPriceOutOfTen = 10 - userData.priceTier * 2.5;
   const difference = Math.abs(venuePriceOutOfTen - preferredPriceOutOfTen);
   const differenceOutOfTen = 10 - difference;
   const weightedTotal = differenceOutOfTen * userData.weights.priceRange;
-  return weightedTotal;
+  return weightedTotal || 0;
 };
-const calcRangeWeighted = (venue, userData, searchRange) => {
+const calculateRangeWeighted = (venue, userData, searchRange) => {
   const tensInt = 10 / searchRange;
   const rangeOutOfTen = 10 - venue.distance * tensInt;
   const weightedTotal = Math.ceil(rangeOutOfTen) * userData.weights.range;
-  return weightedTotal;
+  return weightedTotal || 0;
 };
-const calcRatingWeighted = (venue, userData) => {
+const calculateRatingWeighted = (venue, userData) => {
   const difference = Math.abs(venue.rating - userData.rating);
   const differenceOutOfTen = 10 - difference;
   const weightedTotal = differenceOutOfTen * userData.weights.rating;
   return weightedTotal;
 };
-const calcSavor = (venue, userData) => {
-  const cat = calcCategoryWeighted(venue, userData);
-  const prc = calcPriceWeighted(venue, userData);
-  const rng = calcRangeWeighted(venue, userData, 5000);
-  const rtg = calcRatingWeighted(venue, userData);
-  return cat + prc + rng + rtg;
+const calculateSavor = (venue, userData) => {
+  const categoryScore = calculateCategoryWeighted(venue, userData);
+  const priceScore = calculatePriceWeighted(venue, userData);
+  const rangeScore = calculateRangeWeighted(venue, userData, 5000);
+  const ratingScore = calculateRatingWeighted(venue, userData);
+  const savorScore = categoryScore + priceScore + rangeScore + ratingScore;
+  console.log('----------------------------------------');
+  console.log(venue.name);
+  console.log('CATEGORY WEIGHT: ', categoryScore);
+  console.log('PRICE WEIGHT: ', priceScore);
+  console.log('RANGE WEIGHT: ', rangeScore);
+  console.log('RATING WEIGHT: ', ratingScore);
+  console.log('SAVOR SCORE: ', savorScore);
+  return savorScore;
 };
+
 const rateVenue = (venues, userData) => {
   const keyedVenues = {};
   const ratings = [];
   venues.forEach(venue => {
     keyedVenues[venue.restaurantId] = venue;
-    keyedVenues[venue.restaurantId].savor = calcSavor(venue, userData);
-    ratings.push(calcSavor(venue, userData));
+    keyedVenues[venue.restaurantId].savor = calculateSavor(venue, userData);
+    ratings.push(calculateSavor(venue, userData));
   });
-  console.log(ratings.sort());
 };
+
 //const adjustCatWeights = (catSelected, userData) => {}
 rateVenue(dummyData, dummyUserData);
