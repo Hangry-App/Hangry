@@ -30,6 +30,7 @@ import {
 } from '../utils/getRestaurantInfo';
 // MenuItem component import
 import { MenuItem } from './index';
+import LocationIcon from './LocationIcon';
 
 const windowWidth = Dimensions.get('window').width;
 
@@ -85,7 +86,7 @@ class Cards extends Component {
             {/*Top of card - rest name, ratings, etc.*/}
             <View style={styles.cardHeader}>
               <Text style={styles.boldWhite}>{item.name}</Text>
-
+              <LocationIcon />
               <View style={styles.row}>
                 <Text style={styles.rating}>{generateRating(item)}</Text>
                 <Text style={styles.rating}>{generatePrice(item)}</Text>
