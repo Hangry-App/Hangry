@@ -11,6 +11,7 @@ class Main extends Component {
     super();
     this.state = {
       location: null,
+      offset: 0,
       errorMessage: () => {
         if (Platform.OS === 'android' && !Constants.isDevice) {
           return 'Cannot get GPS data on Android emulator';
@@ -49,6 +50,10 @@ class Main extends Component {
     this.getLocationAsync();
   }
 
+  offsetMap = num => {
+    this.setState({ offset: num });
+  };
+
   getLocationAsync = async () => {
     let { status } = await Permissions.askAsync(Permissions.LOCATION);
     if (status !== 'granted') {
@@ -85,7 +90,7 @@ class Main extends Component {
                 longitudeDelta: 0.0421
               }}
               region={{
-                latitude: this.state.restaurant.item.lat,
+                latitude: this.state.restaurant.item.lat - this.state.offset,
                 longitude: this.state.restaurant.item.long,
                 latitudeDelta: 0.09,
                 longitudeDelta: 0.05
@@ -104,7 +109,11 @@ class Main extends Component {
             </MapView>
           </View>
         )}
-        <Cards restaurants={dummyData} update={this.updateCurrentRestaurant} />
+        <Cards
+          restaurants={dummyData}
+          update={this.updateCurentRestaurant}
+          offset={this.offsetMap}
+        />
       </View>
     );
   }
