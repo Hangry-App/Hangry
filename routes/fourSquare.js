@@ -1,7 +1,6 @@
 //Import Secrets
 const fourSquare = require('../secrets').fourSquareConfig;
-//Import Utility
-const { waitASec } = require('../utils/waitASec');
+
 //Import Libraries
 const axios = require('axios');
 const flatten = require('lodash/flatten');
@@ -42,6 +41,15 @@ const CHEAP = 1;
 const MODERATE = 2;
 const EXPENSIVE = 3;
 const VERY_EXPENSIVE = 4;
+
+//Helper Function
+const waitASec = () => {
+  return new Promise((res, reject) => {
+    setTimeout(() => {
+      res(null);
+    }, 1000);
+  });
+};
 
 //GET a venue's details, used to return rating and tier
 let getAVenuesDetails = async venueId => {
