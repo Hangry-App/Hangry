@@ -1,7 +1,14 @@
 import React, { Component } from 'react';
 import GestureRecognizer from 'react-native-swipe-gestures';
 // react-native imports
-import { StyleSheet, Text, View, FlatList, Dimensions } from 'react-native';
+import {
+  StyleSheet,
+  Text,
+  View,
+  FlatList,
+  Dimensions,
+  Image,
+} from 'react-native';
 // style imports
 import {
   horizontalCardStrip,
@@ -78,6 +85,7 @@ class Cards extends Component {
             {/*Top of card - rest name, ratings, etc.*/}
             <View style={styles.cardHeader}>
               <Text style={styles.boldWhite}>{item.name}</Text>
+
               <View style={styles.row}>
                 <Text style={styles.rating}>{generateRating(item)}</Text>
                 <Text style={styles.rating}>{generatePrice(item)}</Text>
