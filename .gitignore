@@ -3,3 +3,4 @@ node_modules/**/*
 npm-debug.*
 secrets.js
 testData.json
+functions/node_modules/

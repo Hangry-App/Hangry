@@ -575,7 +575,7 @@ const calculateSavor = (venue, userData) => {
 const rateVenue = (venues, userData) => {
   const keyedVenues = [];
   venues.forEach(venue => {
-    keyedVenues.push({...venue,savorScore: calculateSavor(venue, userData)});
+    keyedVenues.push({...venue, savorScore: calculateSavor(venue, userData)});
   });
   return keyedVenues.sort((a, b) => b.savorScore - a.savorScore)
 };
