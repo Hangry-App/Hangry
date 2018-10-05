@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Text } from 'react-native';
 
 export const generateRating = item => {
@@ -11,7 +11,7 @@ export const generateRating = item => {
 
 export const generatePrice = item => {
   let price = '';
-  for (let i = 0; i < Math.floor(item.price); i++) {
+  for (let i = 0; i < Math.floor(item.price.tier); i++) {
     price += '$';
   }
   return <Text>{price}</Text>;
