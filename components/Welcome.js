@@ -4,18 +4,13 @@ import * as firebase from 'firebase';
 import { firebaseConfig } from '../secrets';
 
 class Welcome extends Component {
-  constructor() {
+  constructor() { 
     super();
-    this.state = {
-      email: '',
-      password: '',
-      passwordValidate: '',
-    };
     this._onPressButton = this._onPressButton.bind(this);
   }
   async componentDidMount() {
     if (!firebase.apps.length) {
-      await firebase.initializeApp(firebaseConfig);
+      await firebase.initializeApp(firebaseConfig); 
     }
     firebase.auth().onAuthStateChanged(user => {
       if (user) {
@@ -55,10 +50,10 @@ class Welcome extends Component {
 const lightBlue = '#bfe2ff';
 const darkBlue = '#2699FB';
 const white = '#fff';
-
+ 
 const styles = StyleSheet.create({
-  container: {
-    display: 'flex',
+  container: { 
+    display: 'flex', 
     width: '100%',
     flex: 1,
     padding: 50,
