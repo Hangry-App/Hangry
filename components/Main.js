@@ -19,7 +19,6 @@ class Main extends Component {
           return null;
         }
       },
-
       restaurant: {
         index: 0,
         item: {
@@ -32,9 +31,9 @@ class Main extends Component {
           price: 0,
           rating: 0,
           restaurantId: 0,
-          menu: []
-        }
-      }
+          menu: [],
+        },
+      },
     };
 
     this.updateCurrentRestaurant = this.updateCurrentRestaurant.bind(this);
@@ -42,7 +41,7 @@ class Main extends Component {
 
   updateCurrentRestaurant = restaurant => {
     this.setState({
-      restaurant: restaurant[0]
+      restaurant: restaurant[0],
     });
   };
 
@@ -58,7 +57,7 @@ class Main extends Component {
     let { status } = await Permissions.askAsync(Permissions.LOCATION);
     if (status !== 'granted') {
       this.setState({
-        errorMessage: 'Cannot show location without GPS'
+        errorMessage: 'Cannot show location without GPS',
       });
     }
     let location = await Location.getCurrentPositionAsync({});
@@ -87,13 +86,13 @@ class Main extends Component {
                 latitude: this.state.location.coords.latitude,
                 longitude: this.state.location.coords.longitude,
                 latitudeDelta: 0.0922,
-                longitudeDelta: 0.0421
+                longitudeDelta: 0.0421,
               }}
               region={{
                 latitude: this.state.restaurant.item.lat - this.state.offset,
                 longitude: this.state.restaurant.item.long,
                 latitudeDelta: 0.09,
-                longitudeDelta: 0.05
+                longitudeDelta: 0.05,
               }}
               provider={MapView.PROVIDER_GOOGLE}
               showsUserLocation
@@ -101,7 +100,7 @@ class Main extends Component {
               <Marker
                 coordinate={{
                   latitude: this.state.restaurant.item.lat,
-                  longitude: this.state.restaurant.item.long
+                  longitude: this.state.restaurant.item.long,
                 }}
                 title={this.state.restaurant.item.name}
                 description={this.state.restaurant.item.categoryShortName}
@@ -111,7 +110,7 @@ class Main extends Component {
         )}
         <Cards
           restaurants={dummyData}
-          update={this.updateCurentRestaurant}
+          update={this.updateCurrentRestaurant}
           offset={this.offsetMap}
         />
       </View>
@@ -125,17 +124,17 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     paddingTop: Constants.statusBarHeight,
-    backgroundColor: '#ecf0f1'
+    backgroundColor: '#ecf0f1',
   },
   paragraph: {
     margin: 24,
     fontSize: 18,
-    textAlign: 'center'
+    textAlign: 'center',
   },
   fullscreen: {
     width: '100%',
-    height: '100%'
-  }
+    height: '100%',
+  },
 });
 
 export default Main;
