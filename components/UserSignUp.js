@@ -45,10 +45,6 @@ class UserSignUp extends Component {
       } else if (this.state.password !== this.state.passwordValidate) {
         Alert.alert('Please check password matches');
       }
-    } else if (!this.state.email.includes('@', '.com')) {
-      Alert.alert('Please enter a valid email');
-    } else if (this.state.password !== this.state.passwordValidate) {
-      Alert.alert('Please check password matches');
     } else {
       Alert.alert('Please fill out all fields');
     }

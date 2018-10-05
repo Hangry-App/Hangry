@@ -121,7 +121,7 @@ class UserPref extends Component {
         range: 5
       },
       categories: {
-        '4d4b7105d754a06374d81259': true // Note, this is the food general category in foursquare -- setting as initial state in case there are no food preferences
+        '4d4b7105d754a06374d81259': 0.5 // Note, this is the food general category in foursquare -- setting as initial state in case there are no food preferences
       },
       priceTier: 2,
       rating: 4,
@@ -268,18 +268,25 @@ class UserPref extends Component {
                 <TouchableWithoutFeedback
                   key={foodType[1]}
                   onPressIn={() => {
-                    let currentCategories = this.state.categories;
-                    currentCategories[foodType[1]]
-                      ? (currentCategories[foodType[1]] = false)
-                      : (currentCategories[foodType[1]] = true);
-                    this.setState(currentCategories);
+                    const categoryState = () => this.state.categories
+                    let currentCategories = categoryState();
+                    if (currentCategories[foodType[1]] && currentCategories[foodType[1]] === 0.5){
+                      currentCategories[foodType[1]] = 0.0
+                      if (Object.values(currentCategories).reduce((a, b) => a + b) === 0) {
+                        currentCategories['4d4b7105d754a06374d81259'] = 0.5;
+                      }
+                      } else {
+                        currentCategories[foodType[1]] = 0.5;
+                        currentCategories['4d4b7105d754a06374d81259'] = 0;
+                      }
+                    this.setState({categories: currentCategories});
                   }}
                 >
                   <View style={styles.category}>
                     <Text>{foodType[0]}</Text>
                   </View>
                 </TouchableWithoutFeedback>
-              );
+              ); 
             })}
           </View>
           <TouchableWithoutFeedback
@@ -307,6 +314,7 @@ class UserPref extends Component {
                 flexDirection: 'column',
                 justifyContent: 'center'
               };
+              console.log(this.state);
               this.setState(prevState => prevState);
               await this.savePreferences();
               this.props.navigation.navigate('Main');
