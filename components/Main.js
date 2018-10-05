@@ -36,10 +36,10 @@ class Main extends Component {
       }
     };
 
-    this.updateCurrentRestaurant = this.updateCurentRestaurant.bind(this);
+    this.updateCurrentRestaurant = this.updateCurrentRestaurant.bind(this);
   }
 
-  updateCurentRestaurant = restaurant => {
+  updateCurrentRestaurant = restaurant => {
     this.setState({
       restaurant: restaurant[0]
     });
@@ -88,7 +88,7 @@ class Main extends Component {
                 latitude: this.state.restaurant.item.lat,
                 longitude: this.state.restaurant.item.long,
                 latitudeDelta: 0.09,
-                longitudeDelta: 0.05,
+                longitudeDelta: 0.05
               }}
               provider={MapView.PROVIDER_GOOGLE}
               showsUserLocation
@@ -104,7 +104,7 @@ class Main extends Component {
             </MapView>
           </View>
         )}
-        <Cards restaurants={dummyData} update={this.updateCurentRestaurant} />
+        <Cards restaurants={dummyData} update={this.updateCurrentRestaurant} />
       </View>
     );
   }
