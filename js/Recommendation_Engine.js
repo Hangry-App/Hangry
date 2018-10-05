@@ -569,13 +569,6 @@ const calculateSavor = (venue, userData) => {
   const rangeScore = calculateRangeWeighted(venue, userData, 12000);
   const ratingScore = calculateRatingWeighted(venue, userData);
   const savorScore = (categoryScore + priceScore + rangeScore + ratingScore).toFixed(2);
-  // console.log('----------------------------------------');
-  // console.log(venue.name);
-  // console.log('CATEGORY WEIGHT: ', categoryScore);
-  // console.log('PRICE WEIGHT: ', priceScore);
-  // console.log('RANGE WEIGHT: ', rangeScore);
-  // console.log('RATING WEIGHT: ', ratingScore);
-  // console.log('SAVOR SCORE: ', savorScore);
   return savorScore;
 };
 
@@ -584,7 +577,5 @@ const rateVenue = (venues, userData) => {
   venues.forEach(venue => {
     keyedVenues.push({...venue,savorScore: calculateSavor(venue, userData)});
   });
-  return keyedVenues
+  return keyedVenues.sort((a, b) => b.savorScore - a.savorScore)
 };
-
-console.log(rateVenue(dummyData, dummyUserData).sort((a, b) => b.savorScore - a.savorScore))
