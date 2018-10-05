@@ -36,6 +36,7 @@ class Main extends Component {
           menu: [],
         },
       },
+      recommendedRestaurants: [],
     };
 
     this.updateCurrentRestaurant = this.updateCurrentRestaurant.bind(this);
@@ -47,8 +48,17 @@ class Main extends Component {
     });
   };
 
-  componentDidMount() {
-    this.getLocationAsync();
+  async componentDidMount() {
+    await this.getLocationAsync();
+    const latitude = this.state.location.coords.latitude.toFixed(4).toString();
+    const longitude = this.state.location.coords.longitude
+      .toFixed(4)
+      .toString();
+    // console.log(latitude.toString() + ',' + longitude.toString());
+    const receiveAllVenues = await axios.get(
+      `https://us-central1-hangry-1e919.cloudfunctions.net/returnVenues?lat=${latitude}?long=${longitude}`
+    );
+    this.setState({ recommendedRestaurants: receiveAllVenues });
   }
 
   offsetMap = num => {
@@ -111,7 +121,7 @@ class Main extends Component {
           </View>
         )}
         <Cards
-          restaurants={dummyData}
+          restaurants={this.state.recommendedRestaurants}
           update={this.updateCurrentRestaurant}
           offset={this.offsetMap}
         />
