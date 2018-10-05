@@ -7,9 +7,9 @@ const axios = require('axios');
 const flatten = require('lodash/flatten');
 
 //Foursquare Metadata
-const CLIENT_ID = fourSquare.clientId;
-const CLIENT_SECRET = fourSquare.clientSecret;
-const VERSION_NUMBER = fourSquare.versionNumber;
+const CLIENT_ID = fourSquare.clientid;
+const CLIENT_SECRET = fourSquare.clientsecret;
+const VERSION_NUMBER = fourSquare.versionnumber;
 
 //Sample LatLongs (for testing)
 const adilLatLong = '40.7630,-111.9011';
