@@ -525,9 +525,9 @@ const dummyUserData = {
     range: 0.2
   },
   categories: {
-    '4bf58dd8d48988d1d2941735': 0.7,
-    '4bf58dd8d48988d1e0931735': 0.7,
-    '4bf58dd8d48988d1ca941735': 0.4
+    '4bf58dd8d48988d1d2941735': 0.5,
+    '4bf58dd8d48988d1e0931735': 0.5,
+    '4bf58dd8d48988d1ca941735': 0.5
   },
   priceTier: 2,
   rating: 2,
@@ -566,28 +566,25 @@ const calculateRatingWeighted = (venue, userData) => {
 const calculateSavor = (venue, userData) => {
   const categoryScore = calculateCategoryWeighted(venue, userData);
   const priceScore = calculatePriceWeighted(venue, userData);
-  const rangeScore = calculateRangeWeighted(venue, userData, 5000);
+  const rangeScore = calculateRangeWeighted(venue, userData, 12000);
   const ratingScore = calculateRatingWeighted(venue, userData);
-  const savorScore = categoryScore + priceScore + rangeScore + ratingScore;
-  console.log('----------------------------------------');
-  console.log(venue.name);
-  console.log('CATEGORY WEIGHT: ', categoryScore);
-  console.log('PRICE WEIGHT: ', priceScore);
-  console.log('RANGE WEIGHT: ', rangeScore);
-  console.log('RATING WEIGHT: ', ratingScore);
-  console.log('SAVOR SCORE: ', savorScore);
+  const savorScore = (categoryScore + priceScore + rangeScore + ratingScore).toFixed(2);
+  // console.log('----------------------------------------');
+  // console.log(venue.name);
+  // console.log('CATEGORY WEIGHT: ', categoryScore);
+  // console.log('PRICE WEIGHT: ', priceScore);
+  // console.log('RANGE WEIGHT: ', rangeScore);
+  // console.log('RATING WEIGHT: ', ratingScore);
+  // console.log('SAVOR SCORE: ', savorScore);
   return savorScore;
 };
 
 const rateVenue = (venues, userData) => {
-  const keyedVenues = {};
-  const ratings = [];
+  const keyedVenues = [];
   venues.forEach(venue => {
-    keyedVenues[venue.restaurantId] = venue;
-    keyedVenues[venue.restaurantId].savor = calculateSavor(venue, userData);
-    ratings.push(calculateSavor(venue, userData));
+    keyedVenues.push({...venue,savorScore: calculateSavor(venue, userData)});
   });
+  return keyedVenues
 };
 
-//const adjustCatWeights = (catSelected, userData) => {}
-rateVenue(dummyData, dummyUserData);
+console.log(rateVenue(dummyData, dummyUserData).sort((a, b) => b.savorScore - a.savorScore))
