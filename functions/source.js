@@ -71,7 +71,6 @@ exports.returnVenues = functions.https.onRequest(async (req, res) => {
     }
   };
 
-
   let getAVenueMenu = async venueId => {
     try {
       const response = await axios.get(
@@ -89,7 +88,7 @@ exports.returnVenues = functions.https.onRequest(async (req, res) => {
             return {
               name: menuItem.name || false,
               description: menuItem.description || false,
-              price: menuItem.price || false
+              price: menuItem.price || false,
             };
           })
           .sort((a, b) => b.price - a.price)
@@ -116,8 +115,8 @@ exports.returnVenues = functions.https.onRequest(async (req, res) => {
             categoryId,
             client_id: CLIENT_ID, //eslint-disable-line camelcase
             client_secret: CLIENT_SECRET, //eslint-disable-line camelcase
-            v: VERSION_NUMBER
-          }
+            v: VERSION_NUMBER,
+          },
         }
       );
       const dataPromises = response.data.response.venues.map(async venues => {
@@ -136,7 +135,7 @@ exports.returnVenues = functions.https.onRequest(async (req, res) => {
           price: venueDetails.response.venue.price || 0,
           rating: venueDetails.response.venue.rating || 0,
           phone: venueDetails.response.venue.contact.phone,
-          menu: menuItems || false
+          menu: menuItems || false,
         };
       });
       const data = await Promise.all(dataPromises);
@@ -201,7 +200,13 @@ exports.returnVenues = functions.https.onRequest(async (req, res) => {
     return addScore(venues, userData);
   };
   //TEST of getting all venues
-  const johnVenues =  await getAllVenues(johnLatLong, DRIVE, FOOD_GENERAL, 20);
+  console.log('REQ QUERY ===> ', req.query);
+  const johnVenues = await getAllVenues(
+    `${req.query.lat},${req.query.long}`,
+    DRIVE,
+    FOOD_GENERAL,
+    20
+  );
 
   console.log('-----------------------------------');
   console.log(johnVenues);
@@ -212,16 +217,16 @@ exports.returnVenues = functions.https.onRequest(async (req, res) => {
       categories: 0.1,
       priceRange: 0.4,
       rating: 0.3,
-      range: 0.2
+      range: 0.2,
     },
     categories: {
       '4bf58dd8d48988d1d2941735': 0.5,
       '4bf58dd8d48988d1e0931735': 0.5,
-      '4bf58dd8d48988d1ca941735': 0.5
+      '4bf58dd8d48988d1ca941735': 0.5,
     },
     priceTier: 2,
     rating: 2,
-    distance: 5000
+    distance: 5000,
   });
   res.send(ratedVenues);
 });
@@ -236,7 +241,7 @@ const johnDummyData = [
     categoryId: '4bf58dd8d48988d143941735',
     categoryShortName: 'Breakfast',
     price: 2,
-    rating: 4.8
+    rating: 4.8,
   },
   {
     restaurantId: '4ad43881f964a52075e720e3',
@@ -247,7 +252,7 @@ const johnDummyData = [
     categoryId: '4bf58dd8d48988d116941735',
     categoryShortName: 'Bar',
     price: 2,
-    rating: 4.8
+    rating: 4.8,
   },
   {
     restaurantId: '57c8d188498e5242e4887d42',
@@ -258,7 +263,7 @@ const johnDummyData = [
     categoryId: '4bf58dd8d48988d1d2941735',
     categoryShortName: 'Sushi',
     price: 1,
-    rating: 2.8
+    rating: 2.8,
   },
   {
     restaurantId: '4abe946ef964a520988e20e3',
@@ -269,7 +274,7 @@ const johnDummyData = [
     categoryId: '4bf58dd8d48988d110941735',
     categoryShortName: 'Italian',
     price: 1,
-    rating: 8.9
+    rating: 8.9,
   },
   {
     restaurantId: '4b0ae619f964a520ab2923e3',
@@ -280,7 +285,7 @@ const johnDummyData = [
     categoryId: '4bf58dd8d48988d116941735',
     categoryShortName: 'Bar',
     price: 4,
-    rating: 7.7
+    rating: 7.7,
   },
   {
     restaurantId: '4aea28ebf964a520deb921e3',
@@ -291,7 +296,7 @@ const johnDummyData = [
     categoryId: '4bf58dd8d48988d16c941735',
     categoryShortName: 'Burgers',
     price: 4,
-    rating: 8.4
+    rating: 8.4,
   },
   {
     restaurantId: '4b4d1adff964a52024cb26e3',
@@ -302,7 +307,7 @@ const johnDummyData = [
     categoryId: '4bf58dd8d48988d1cc941735',
     categoryShortName: 'Steakhouse',
     price: 1,
-    rating: 4.2
+    rating: 4.2,
   },
   {
     restaurantId: '5328b267498e0f88beb0c5bb',
@@ -313,7 +318,7 @@ const johnDummyData = [
     categoryId: '4bf58dd8d48988d143941735',
     categoryShortName: 'Breakfast',
     price: 2,
-    rating: 5.8
+    rating: 5.8,
   },
   {
     restaurantId: '51bcae0d498e456099a2f8f0',
@@ -324,7 +329,7 @@ const johnDummyData = [
     categoryId: '52e928d0bcbc57f1066b7e9c',
     categoryShortName: 'Pelmeni',
     price: 1,
-    rating: 3.4
+    rating: 3.4,
   },
   {
     restaurantId: '4b8875f0f964a5208af931e3',
@@ -335,7 +340,7 @@ const johnDummyData = [
     categoryId: '4bf58dd8d48988d110941735',
     categoryShortName: 'Italian',
     price: 1,
-    rating: 7.7
+    rating: 7.7,
   },
   {
     restaurantId: '4b80b6d3f964a520dc8730e3',
@@ -346,7 +351,7 @@ const johnDummyData = [
     categoryId: '4bf58dd8d48988d1c9941735',
     categoryShortName: 'Ice Cream',
     price: 2,
-    rating: 8.6
+    rating: 8.6,
   },
   {
     restaurantId: '5596dacf498ef8cc220fb07f',
@@ -357,7 +362,7 @@ const johnDummyData = [
     categoryId: '4bf58dd8d48988d11b941735',
     categoryShortName: 'Pub',
     price: 3,
-    rating: 2.9
+    rating: 2.9,
   },
   {
     restaurantId: '4b886492f964a5208df431e3',
@@ -368,7 +373,7 @@ const johnDummyData = [
     categoryId: '4bf58dd8d48988d1c4941735',
     categoryShortName: 'Restaurant',
     price: 3,
-    rating: 6.9
+    rating: 6.9,
   },
   {
     restaurantId: '55c17479498ec2a4ccb2a112',
@@ -379,7 +384,7 @@ const johnDummyData = [
     categoryId: '4bf58dd8d48988d1e0931735',
     categoryShortName: 'Coffee Shop',
     price: 4,
-    rating: 2.5
+    rating: 2.5,
   },
   {
     restaurantId: '4b4f582ff964a520420227e3',
@@ -390,7 +395,7 @@ const johnDummyData = [
     categoryId: '4bf58dd8d48988d16e941735',
     categoryShortName: 'Fast Food',
     price: 3,
-    rating: 5
+    rating: 5,
   },
   {
     restaurantId: '4b3a7807f964a520116825e3',
@@ -401,7 +406,7 @@ const johnDummyData = [
     categoryId: '4bf58dd8d48988d1ca941735',
     categoryShortName: 'Pizza',
     price: 3,
-    rating: 1.6
+    rating: 1.6,
   },
   {
     restaurantId: '4bedc694e24d20a1aff97114',
@@ -412,7 +417,7 @@ const johnDummyData = [
     categoryId: '4bf58dd8d48988d116941735',
     categoryShortName: 'Bar',
     price: 2,
-    rating: 7.6
+    rating: 7.6,
   },
   {
     restaurantId: '598e2574c0f1632f70012773',
@@ -423,7 +428,7 @@ const johnDummyData = [
     categoryId: '4bf58dd8d48988d116941735',
     categoryShortName: 'Bar',
     price: 3,
-    rating: 5.3
+    rating: 5.3,
   },
   {
     restaurantId: '4b665819f964a5209f1e2be3',
@@ -434,7 +439,7 @@ const johnDummyData = [
     categoryId: '4bf58dd8d48988d1e0931735',
     categoryShortName: 'Coffee Shop',
     price: 1,
-    rating: 6.4
+    rating: 6.4,
   },
   {
     restaurantId: '4afe0a09f964a5204e2d22e3',
@@ -445,7 +450,7 @@ const johnDummyData = [
     categoryId: '4bf58dd8d48988d1c1941735',
     categoryShortName: 'Mexican',
     price: 4,
-    rating: 5.1
+    rating: 5.1,
   },
   {
     restaurantId: '5081a3b2d63e3e73d4338d30',
@@ -456,7 +461,7 @@ const johnDummyData = [
     categoryId: '4bf58dd8d48988d1e0931735',
     categoryShortName: 'Coffee Shop',
     price: 4,
-    rating: 6.1
+    rating: 6.1,
   },
   {
     restaurantId: '59c724362e268063d7dcb25d',
@@ -467,7 +472,7 @@ const johnDummyData = [
     categoryId: '4bf58dd8d48988d14e941735',
     categoryShortName: 'American',
     price: 2,
-    rating: 6
+    rating: 6,
   },
   {
     restaurantId: '4d099430e6f83704c1885b87',
@@ -478,7 +483,7 @@ const johnDummyData = [
     categoryId: '4bf58dd8d48988d157941735',
     categoryShortName: 'New American',
     price: 1,
-    rating: 7.9
+    rating: 7.9,
   },
   {
     restaurantId: '4c24b64bb012b713988a0893',
@@ -489,7 +494,7 @@ const johnDummyData = [
     categoryId: '4bf58dd8d48988d155941735',
     categoryShortName: 'Gastropub',
     price: 1,
-    rating: 5.2
+    rating: 5.2,
   },
   {
     restaurantId: '515ddf3de4b068af64c1468c',
@@ -500,7 +505,7 @@ const johnDummyData = [
     categoryId: '4bf58dd8d48988d1e0931735',
     categoryShortName: 'Coffee Shop',
     price: 4,
-    rating: 6.7
+    rating: 6.7,
   },
   {
     restaurantId: '4d686a320a25b60c55821790',
@@ -511,7 +516,7 @@ const johnDummyData = [
     categoryId: '50327c8591d4c4b30a586d5d',
     categoryShortName: 'Brewery',
     price: 3,
-    rating: 9.9
+    rating: 9.9,
   },
   {
     restaurantId: '4afcc582f964a520bc2522e3',
@@ -522,7 +527,7 @@ const johnDummyData = [
     categoryId: '4bf58dd8d48988d155941735',
     categoryShortName: 'Gastropub',
     price: 3,
-    rating: 7.6
+    rating: 7.6,
   },
   {
     restaurantId: '4bf80ce58d30d13aa9fcff17',
@@ -533,7 +538,7 @@ const johnDummyData = [
     categoryId: '4bf58dd8d48988d1c9941735',
     categoryShortName: 'Ice Cream',
     price: 1,
-    rating: 3.5
+    rating: 3.5,
   },
   {
     restaurantId: '4b9a5622f964a5201fad35e3',
@@ -544,7 +549,7 @@ const johnDummyData = [
     categoryId: '4bf58dd8d48988d1e0931735',
     categoryShortName: 'Coffee Shop',
     price: 2,
-    rating: 7.1
+    rating: 7.1,
   },
   {
     restaurantId: '41326e00f964a52086151fe3',
@@ -555,7 +560,7 @@ const johnDummyData = [
     categoryId: '4bf58dd8d48988d116941735',
     categoryShortName: 'Bar',
     price: 3,
-    rating: 0.3
+    rating: 0.3,
   },
   {
     restaurantId: '5914f620c4df1d6ddc02a361',
@@ -566,7 +571,7 @@ const johnDummyData = [
     categoryId: '4bf58dd8d48988d123941735',
     categoryShortName: 'Wine Bar',
     price: 3,
-    rating: 5
+    rating: 5,
   },
   {
     restaurantId: '4afc6d0bf964a5208b2222e3',
@@ -577,7 +582,7 @@ const johnDummyData = [
     categoryId: '4bf58dd8d48988d16d941735',
     categoryShortName: 'Café',
     price: 3,
-    rating: 6.2
+    rating: 6.2,
   },
   {
     restaurantId: '4b5b3d96f964a5208ded28e3',
@@ -588,7 +593,7 @@ const johnDummyData = [
     categoryId: '4bf58dd8d48988d16e941735',
     categoryShortName: 'Fast Food',
     price: 2,
-    rating: 6.3
+    rating: 6.3,
   },
   {
     restaurantId: '52869069498e3289da675b02',
@@ -599,7 +604,7 @@ const johnDummyData = [
     categoryId: '4bf58dd8d48988d1e0931735',
     categoryShortName: 'Coffee Shop',
     price: 4,
-    rating: 3.2
+    rating: 3.2,
   },
   {
     restaurantId: '4af9aac2f964a5201f1322e3',
@@ -610,7 +615,7 @@ const johnDummyData = [
     categoryId: '50327c8591d4c4b30a586d5d',
     categoryShortName: 'Brewery',
     price: 4,
-    rating: 1.9
+    rating: 1.9,
   },
   {
     restaurantId: '4adb8bb0f964a520da2821e3',
@@ -621,7 +626,7 @@ const johnDummyData = [
     categoryId: '4bf58dd8d48988d1e0931735',
     categoryShortName: 'Coffee Shop',
     price: 2,
-    rating: 9.5
+    rating: 9.5,
   },
   {
     restaurantId: '56218518498ed6af88a19b46',
@@ -632,7 +637,7 @@ const johnDummyData = [
     categoryId: '4bf58dd8d48988d155941735',
     categoryShortName: 'Gastropub',
     price: 3,
-    rating: 2.9
+    rating: 2.9,
   },
   {
     restaurantId: '4bbf538e30c99c743ef75411',
@@ -643,7 +648,7 @@ const johnDummyData = [
     categoryId: '4bf58dd8d48988d1e0931735',
     categoryShortName: 'Coffee Shop',
     price: 4,
-    rating: 7.8
+    rating: 7.8,
   },
   {
     restaurantId: '4e4fb3f6091a58b848442bee',
@@ -654,7 +659,7 @@ const johnDummyData = [
     categoryId: '4bf58dd8d48988d16e941735',
     categoryShortName: 'Fast Food',
     price: 2,
-    rating: 6
+    rating: 6,
   },
   {
     restaurantId: '4b743e7df964a5207fcf2de3',
@@ -665,7 +670,7 @@ const johnDummyData = [
     categoryId: '4bf58dd8d48988d1e0931735',
     categoryShortName: 'Coffee Shop',
     price: 1,
-    rating: 1.1
+    rating: 1.1,
   },
   {
     restaurantId: '54806dfb498e67f98a869485',
@@ -676,7 +681,7 @@ const johnDummyData = [
     categoryId: '4bf58dd8d48988d16e941735',
     categoryShortName: 'Fast Food',
     price: 1,
-    rating: 3.8
+    rating: 3.8,
   },
   {
     restaurantId: '4ecc30f9775b4671dc78ebc7',
@@ -687,7 +692,7 @@ const johnDummyData = [
     categoryId: '4bf58dd8d48988d1e0931735',
     categoryShortName: 'Coffee Shop',
     price: 2,
-    rating: 3.8
+    rating: 3.8,
   },
   {
     restaurantId: '57e26771498e2f5ee471ba71',
@@ -698,7 +703,7 @@ const johnDummyData = [
     categoryId: '4bf58dd8d48988d16e941735',
     categoryShortName: 'Fast Food',
     price: 4,
-    rating: 7.5
+    rating: 7.5,
   },
   {
     restaurantId: '5ac6b2c560255e1c760e8020',
@@ -709,7 +714,7 @@ const johnDummyData = [
     categoryId: '4bf58dd8d48988d1e1931735',
     categoryShortName: 'Arcade',
     price: 3,
-    rating: 2.3
+    rating: 2.3,
   },
   {
     restaurantId: '56f03d38498eb3c16b03e9c2',
@@ -720,7 +725,7 @@ const johnDummyData = [
     categoryId: '4bf58dd8d48988d16e941735',
     categoryShortName: 'Fast Food',
     price: 4,
-    rating: 4.4
+    rating: 4.4,
   },
   {
     restaurantId: '4b74b527f964a52099ed2de3',
@@ -731,7 +736,7 @@ const johnDummyData = [
     categoryId: '4bf58dd8d48988d14e941735',
     categoryShortName: 'American',
     price: 2,
-    rating: 5
+    rating: 5,
   },
   {
     restaurantId: '4ac23095f964a520229820e3',
@@ -742,7 +747,7 @@ const johnDummyData = [
     categoryId: '4bf58dd8d48988d16a941735',
     categoryShortName: 'Bakery',
     price: 3,
-    rating: 2
+    rating: 2,
   },
   {
     restaurantId: '59d3e5a0345cbe2f01dfa057',
@@ -753,7 +758,7 @@ const johnDummyData = [
     categoryId: '4bf58dd8d48988d1c4941735',
     categoryShortName: 'Restaurant',
     price: 2,
-    rating: 6.6
+    rating: 6.6,
   },
   {
     restaurantId: '4adb5042f964a520ce2521e3',
@@ -764,7 +769,7 @@ const johnDummyData = [
     categoryId: '4bf58dd8d48988d1e0931735',
     categoryShortName: 'Coffee Shop',
     price: 1,
-    rating: 5.1
+    rating: 5.1,
   },
   {
     restaurantId: '4bae4a8cf964a520469e3be3',
@@ -775,6 +780,6 @@ const johnDummyData = [
     categoryId: '4bf58dd8d48988d16e941735',
     categoryShortName: 'Fast Food',
     price: 2,
-    rating: 8.7
-  }
+    rating: 8.7,
+  },
 ];
