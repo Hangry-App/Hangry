@@ -9,8 +9,12 @@ import {
 import { Constants, Location, Permissions, MapView } from 'expo';
 import * as firebase from 'firebase';
 import { Cards, TestIcon, AccountIcon } from './index';
+require("firebase/functions");
+
+
 const dummyData = require('../testData.json');
 const Marker = MapView.Marker;
+import axios from 'axios';
 
 class Main extends Component {
   constructor() {
@@ -54,6 +58,13 @@ class Main extends Component {
   navToUserPrefs = () => {
     this.props.navigation.navigate('UserPref');
   };
+
+  async componentDidMount() {
+    const response = await axios.get('https://us-central1-hangry-1e919.cloudfunctions.net/upperCase');
+    console.log(response.data);
+    this.getLocationAsync();
+  }
+
 
   offsetMap = num => {
     this.setState({ offset: num });
