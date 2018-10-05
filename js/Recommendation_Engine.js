@@ -579,3 +579,6 @@ const rateVenue = (venues, userData) => {
   });
   return keyedVenues.sort((a, b) => b.savorScore - a.savorScore)
 };
+
+const test = rateVenue(dummyData, dummyUserData);
+console.log(test);

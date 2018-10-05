@@ -2,9 +2,11 @@ import React, { Component } from 'react';
 import { View, StyleSheet, Text, Platform } from 'react-native';
 import { Constants, Location, Permissions, MapView } from 'expo';
 import * as firebase from 'firebase';
+require("firebase/functions");
 import { Cards } from './index';
 const dummyData = require('../testData.json');
 const Marker = MapView.Marker;
+import axios from 'axios';
 
 class Main extends Component {
   constructor() {
@@ -45,7 +47,9 @@ class Main extends Component {
     });
   };
 
-  componentDidMount() {
+  async componentDidMount() {
+    const response = await axios.get('https://us-central1-hangry-1e919.cloudfunctions.net/upperCase');
+    console.log(response.data);
     this.getLocationAsync();
   }
 
