@@ -59,511 +59,557 @@ exports.returnVenues = functions.https.onRequest((req, res) => {
     }
     const ratedVenues = rateVenues([
         {
-          restaurantId: '4b463a75f964a520bf1a26e3',
-          name: 'LaSalle Market and Deli',
-          distance: 379,
-          lat: 41.81061273935046,
-          long: -72.92285654813413,
-          categoryId: '4bf58dd8d48988d146941735',
-          categoryShortName: 'Deli / Bodega',
-          price: {
-            tier: 1,
-            message: 'Cheap',
-            currency: '$'
-          },
-          rating: 8.4,
-          phone: '8606938010',
-          menu: [
-            {
-              name: 'Ming Chicken Salad',
-              description: false,
-              price: '8.95'
-            },
-            {
-              name: 'Spinach & Grilled Salmon Salad',
-              description: false,
-              price: '8.95'
-            },
-            {
-              name: 'Portabella Sandwich',
-              description:
-                'Marinated portabellas, grilled onions, grilled red peppers with melted provolone on a grilled french stick',
-              price: '8.50'
-            },
-            {
-              name: 'Fajita',
-              description:
-                'Marinated & grilled flank or chicken, red and green bell peppers, onions, cheddar, lettuce and tomato',
-              price: '8.50'
-            },
-            {
-              name: 'Teriyaki Wrap',
-              description:
-                'Chicken, flank or grilled salmon, teriyaki sauce, broccoli with sesame oil, red pepper flakes & jasmine rice',
-              price: '8.50'
-            }
-          ]
+          "restaurantId": "526da0ee498e60aad4db9623",
+          "name": "Bassett Street Brunch Club",
+          "distance": 847,
+          "lat": 43.07237001751198,
+          "long": -89.39359962541867,
+          "categoryId": "4bf58dd8d48988d143941735",
+          "categoryShortName": "Breakfast",
+          "price": 2,
+          "rating": 4.8
         },
         {
-          restaurantId: '55a5421a498e48e87c7f5640',
-          name: 'Giv Coffee',
-          distance: 2699,
-          lat: 41.825408788961504,
-          long: -72.89644322182761,
-          categoryId: '4bf58dd8d48988d1e0931735',
-          categoryShortName: 'Coffee Shop',
-          price: {
-            tier: 1,
-            message: 'Cheap',
-            currency: '$'
-          },
-          rating: 8,
-          menu: false
+          "restaurantId": "4ad43881f964a52075e720e3",
+          "name": "Nitty Gritty Restaurant & Bar",
+          "distance": 855,
+          "lat": 43.071879363581864,
+          "long": -89.39568670715576,
+          "categoryId": "4bf58dd8d48988d116941735",
+          "categoryShortName": "Bar",
+          "price": 2,
+          "rating": 4.8
         },
         {
-          restaurantId: '4c4dc1469932e21ea2bcb6cc',
-          name: "Dunkin' Donuts",
-          distance: 4288,
-          lat: 41.81717997723441,
-          long: -72.86920518372492,
-          categoryId: '4bf58dd8d48988d148941735',
-          categoryShortName: 'Donuts',
-          price: {
-            tier: 1,
-            message: 'Cheap',
-            currency: '$'
-          },
-          rating: 5.9,
-          phone: '8606510703',
-          menu: false
+          "restaurantId": "57c8d188498e5242e4887d42",
+          "name": "Red Sushi",
+          "distance": 872,
+          "lat": 43.072425463011655,
+          "long": -89.38757218434793,
+          "categoryId": "4bf58dd8d48988d1d2941735",
+          "categoryShortName": "Sushi",
+          "price": 1,
+          "rating": 2.8
         },
         {
-          restaurantId: '4c82c7fdd34ca1435ace2f80',
-          name: "McDonald's",
-          distance: 4370,
-          lat: 41.81792091357868,
-          long: -72.8684269824405,
-          categoryId: '4bf58dd8d48988d16e941735',
-          categoryShortName: 'Fast Food',
-          price: {
-            tier: 1,
-            message: 'Cheap',
-            currency: '$'
-          },
-          rating: 5.6,
-          phone: '8606519589',
-          menu: [
-            {
-              name: 'Hot Caramel Sundae',
-              description:
-                'Cool and creamy vanilla soft serve meets warm, rich, buttery caramel. *Nuts optional',
-              price: false
-            },
-            {
-              name: 'Big Mac®',
-              description:
-                'Mouthwatering perfection starts with two sear-sizzled 100% pure beef patties and Big Mac® sauce, sandwiched between a sesame seed bun. American cheese, shredded lettuce, onions and pickles top it off.',
-              price: false
-            },
-            {
-              name: 'Double Cheeseburger',
-              description:
-                'Double Cheeseburger features two 100% pure beef patties with absolutely no fillers, additives or preservatives, seasoned with a pinch of salt and pepper, and topped with tangy pickles, chopped onions, ketchup, mustard and two slices of melty American cheese.* <br><br> *Available at participating restaurants.',
-              price: false
-            },
-            {
-              name: 'Hamburger',
-              description:
-                'A juicy, 100% pure beef patty with absolutely no fillers, additives or preservatives, seasoned with a pinch of salt and pepper, and topped with a tangy pickle, chopped onions, ketchup and mustard.',
-              price: false
-            },
-            {
-              name: 'Quarter Pounder® Hamburger',
-              description:
-                'A ¼ pound 100% beef patty, slivered onions, ketchup, mustard on a toasted sesame seed bun.',
-              price: false
-            }
-          ]
+          "restaurantId": "4abe946ef964a520988e20e3",
+          "name": "Paisan's",
+          "distance": 903,
+          "lat": 43.0709316403858,
+          "long": -89.38340842638942,
+          "categoryId": "4bf58dd8d48988d110941735",
+          "categoryShortName": "Italian",
+          "price": 1,
+          "rating": 8.9
         },
         {
-          restaurantId: '4bb677126edc76b0e7fd301c',
-          name: 'Puerto Vallarta Mexican Restaurant',
-          distance: 4381,
-          lat: 41.81591479506006,
-          long: -72.86769143849651,
-          categoryId: '4bf58dd8d48988d1c1941735',
-          categoryShortName: 'Mexican',
-          price: {
-            tier: 2,
-            message: 'Moderate',
-            currency: '$'
-          },
-          rating: 8.1,
-          phone: '8606751999',
-          menu: false
+          "restaurantId": "4b0ae619f964a520ab2923e3",
+          "name": "Vintage Spirits & Grill",
+          "distance": 968,
+          "lat": 43.073035,
+          "long": -89.39557492733002,
+          "categoryId": "4bf58dd8d48988d116941735",
+          "categoryShortName": "Bar",
+          "price": 4,
+          "rating": 7.7
         },
         {
-          restaurantId: '4ba8ced6f964a5209bf039e3',
-          name: 'Starbucks',
-          distance: 4794,
-          lat: 41.81639092,
-          long: -72.8627379,
-          categoryId: '4bf58dd8d48988d1e0931735',
-          categoryShortName: 'Coffee Shop',
-          price: {
-            tier: 2,
-            message: 'Moderate',
-            currency: '$'
-          },
-          rating: 8.3,
-          phone: '8606771275',
-          menu: false
+          "restaurantId": "4aea28ebf964a520deb921e3",
+          "name": "Dotty Dumpling's Dowry",
+          "distance": 973,
+          "lat": 43.07298458901576,
+          "long": -89.39588621087248,
+          "categoryId": "4bf58dd8d48988d16c941735",
+          "categoryShortName": "Burgers",
+          "price": 4,
+          "rating": 8.4
         },
         {
-          restaurantId: '54b5537e498e46b9ea8b117d',
-          name: 'Truffles Bakery',
-          distance: 5274,
-          lat: 41.81408000599044,
-          long: -72.85640568144657,
-          categoryId: '4bf58dd8d48988d16d941735',
-          categoryShortName: 'Café',
-          price: {
-            tier: 1,
-            message: 'Cheap',
-            currency: '$'
-          },
-          rating: 6.6,
-          menu: false
+          "restaurantId": "4b4d1adff964a52024cb26e3",
+          "name": "Tornado Room Steakhouse",
+          "distance": 986,
+          "lat": 43.072508,
+          "long": -89.384554,
+          "categoryId": "4bf58dd8d48988d1cc941735",
+          "categoryShortName": "Steakhouse",
+          "price": 1,
+          "rating": 4.2
         },
         {
-          restaurantId: '4baa847af964a520ce703ae3',
-          name: 'Golf Club of Avon',
-          distance: 5996,
-          lat: 41.79208065008841,
-          long: -72.85059928894043,
-          categoryId: '4bf58dd8d48988d1e6941735',
-          categoryShortName: 'Golf Course',
-          price: 0,
-          rating: 0,
-          phone: '8606733216',
-          menu: false
+          "restaurantId": "5328b267498e0f88beb0c5bb",
+          "name": "Short Stack Eatery",
+          "distance": 1078,
+          "lat": 43.07466,
+          "long": -89.389984,
+          "categoryId": "4bf58dd8d48988d143941735",
+          "categoryShortName": "Breakfast",
+          "price": 2,
+          "rating": 5.8
         },
         {
-          restaurantId: '4c16ace0daf42d7f338b4466',
-          name: 'Cumberland Farms',
-          distance: 5999,
-          lat: 41.76987336356651,
-          long: -72.97018826007843,
-          categoryId: '4d954b0ea243a5684a65b473',
-          categoryShortName: 'Convenience Store',
-          price: 0,
-          rating: 6,
-          phone: '8606736520',
-          menu: false
+          "restaurantId": "51bcae0d498e456099a2f8f0",
+          "name": "Paul's Pel'meni",
+          "distance": 1086,
+          "lat": 43.074497,
+          "long": -89.39406,
+          "categoryId": "52e928d0bcbc57f1066b7e9c",
+          "categoryShortName": "Pelmeni",
+          "price": 1,
+          "rating": 3.4
         },
         {
-          restaurantId: '583cd68844587f3c63bc9706',
-          name: 'Taprock Beer Bar & Refuge',
-          distance: 6535,
-          lat: 41.75495683879838,
-          long: -72.88660668844965,
-          categoryId: '4bf58dd8d48988d157941735',
-          categoryShortName: 'New American',
-          price: {
-            tier: 3,
-            message: 'Expensive',
-            currency: '$'
-          },
-          rating: 8,
-          phone: '8604042074',
-          menu: false
+          "restaurantId": "4b8875f0f964a5208af931e3",
+          "name": "Tutto Pasta Trattoria",
+          "distance": 1086,
+          "lat": 43.07474132671294,
+          "long": -89.3902336227655,
+          "categoryId": "4bf58dd8d48988d110941735",
+          "categoryShortName": "Italian",
+          "price": 1,
+          "rating": 7.7
         },
         {
-          restaurantId: '554a620c498ec595b67cbe32',
-          name: "Dom's Coffee",
-          distance: 7236,
-          lat: 41.810382422557076,
-          long: -72.83232758345521,
-          categoryId: '4bf58dd8d48988d1e0931735',
-          categoryShortName: 'Coffee Shop',
-          price: {
-            tier: 1,
-            message: 'Cheap',
-            currency: '$'
-          },
-          rating: 8,
-          menu: false
+          "restaurantId": "4b80b6d3f964a520dc8730e3",
+          "name": "Chocolate Shoppe Ice Cream",
+          "distance": 1113,
+          "lat": 43.0748881730575,
+          "long": -89.39310237265538,
+          "categoryId": "4bf58dd8d48988d1c9941735",
+          "categoryShortName": "Ice Cream",
+          "price": 2,
+          "rating": 8.6
         },
         {
-          restaurantId: '4b1ad027f964a5205cf223e3',
-          name: "Bruegger's Bagel Bakery",
-          distance: 7642,
-          lat: 41.807357068484286,
-          long: -72.82739818096167,
-          categoryId: '4bf58dd8d48988d179941735',
-          categoryShortName: 'Bagels',
-          price: {
-            tier: 1,
-            message: 'Cheap',
-            currency: '$'
-          },
-          rating: 6.9,
-          phone: '8606741755',
-          menu: false
+          "restaurantId": "5596dacf498ef8cc220fb07f",
+          "name": "Hopcat",
+          "distance": 1121,
+          "lat": 43.075062115179996,
+          "long": -89.39157820920616,
+          "categoryId": "4bf58dd8d48988d11b941735",
+          "categoryShortName": "Pub",
+          "price": 3,
+          "rating": 2.9
         },
         {
-          restaurantId: '4c2bcc8e2219c928832fa548',
-          name: 'Max a Mia',
-          distance: 7891,
-          lat: 41.80784549697253,
-          long: -72.82439679926341,
-          categoryId: '4bf58dd8d48988d110941735',
-          categoryShortName: 'Italian',
-          price: {
-            tier: 4,
-            message: 'Very Expensive',
-            currency: '$'
-          },
-          rating: 8.4,
-          phone: '8606776299',
-          menu: [
-            {
-              name: 'Lobster',
-              description:
-                'Hand picked lobster, wood roasted corn, toybox tomatoes, mozzarella, truffle-garlic cream',
-              price: '18.95'
-            },
-            {
-              name: 'Hanger Steak*',
-              description:
-                'Oak grilled hanger steak, farm fresh eggs, bacon onion hash, hollandaise',
-              price: '16.95'
-            },
-            {
-              name: 'Oak Grilled Salmon*',
-              description:
-                'Warm quinoa salad, pancetta, brussels sprout leaves, white acacia truffle honey vinaigrette, shaved fennel',
-              price: '15.95'
-            },
-            {
-              name: 'Fig',
-              description:
-                'Fresh figs, smoked prosciutto, gorgonzola mountain, shaved kale, vincotto',
-              price: '15.95'
-            },
-            {
-              name: 'Polpetti*',
-              description:
-                'Fontina, ricotta, veal & pork meatballs, roasted red and yellow peppers, plum tomato sauce',
-              price: '14.95'
-            }
-          ]
+          "restaurantId": "4b886492f964a5208df431e3",
+          "name": "Myles' Teddywedgers Cornish Pasty",
+          "distance": 1138,
+          "lat": 43.074717425613585,
+          "long": -89.38665398126882,
+          "categoryId": "4bf58dd8d48988d1c4941735",
+          "categoryShortName": "Restaurant",
+          "price": 3,
+          "rating": 6.9
         },
         {
-          restaurantId: '4b8aedbff964a520b88932e3',
-          name: 'Wood-n-Tap',
-          distance: 9355,
-          lat: 41.740848308465104,
-          long: -72.85227356744811,
-          categoryId: '4bf58dd8d48988d14e941735',
-          categoryShortName: 'American',
-          price: {
-            tier: 2,
-            message: 'Moderate',
-            currency: '$'
-          },
-          rating: 8.6,
-          phone: '8607736736',
-          menu: [
-            {
-              name: 'Bison Bites - (Cooked to Order)',
-              description:
-                'Mini bison burgers with a touch of chipotle pepper, American cheese, avocado aioli, & onion strings.',
-              price: '76.00'
-            },
-            {
-              name: 'Shrimp Cocktail',
-              description: 'Crisp tiger shrimp and a spicy cocktail sauce.',
-              price: '75.00'
-            },
-            {
-              name: 'Scallops Wrapped in Bacon',
-              description:
-                'Large sea scallops with smoky bacon and a dijon dipping sauce.',
-              price: '75.00'
-            },
-            {
-              name: 'Smoked Bbq Ribs',
-              description:
-                "Finger-food sized, served with Uncle Fred's Secret Sauce.",
-              price: '68.00'
-            },
-            {
-              name: 'Petite Crab Cakes',
-              description: 'Bite-size crab cakes served with a Dijon aioli.',
-              price: '65.00'
-            }
-          ]
+          "restaurantId": "55c17479498ec2a4ccb2a112",
+          "name": "Colectivo Coffee",
+          "distance": 1147,
+          "lat": 43.074743679226295,
+          "long": -89.39562416312101,
+          "categoryId": "4bf58dd8d48988d1e0931735",
+          "categoryShortName": "Coffee Shop",
+          "price": 4,
+          "rating": 2.5
         },
         {
-          restaurantId: '4b4f341ff964a52028fd26e3',
-          name: "Abigail's Grille and Wine Bar",
-          distance: 9990,
-          lat: 41.846793454052936,
-          long: -72.81070042805653,
-          categoryId: '4bf58dd8d48988d157941735',
-          categoryShortName: 'New American',
-          price: {
-            tier: 4,
-            message: 'Very Expensive',
-            currency: '$'
-          },
-          rating: 7.8,
-          phone: '8602641580',
-          menu: false
+          "restaurantId": "4b4f582ff964a520420227e3",
+          "name": "McDonald's",
+          "distance": 1149,
+          "lat": 43.06801777542838,
+          "long": -89.4045227766037,
+          "categoryId": "4bf58dd8d48988d16e941735",
+          "categoryShortName": "Fast Food",
+          "price": 3,
+          "rating": 5
         },
         {
-          restaurantId: '4bb7532eef159c74a10577f7',
-          name: 'Dunkin Donuts',
-          distance: 10779,
-          lat: 41.7338786194022,
-          long: -72.83643933921836,
-          categoryId: '4bf58dd8d48988d148941735',
-          categoryShortName: 'Donuts',
-          price: {
-            tier: 1,
-            message: 'Cheap',
-            currency: '$'
-          },
-          rating: 7.2,
-          phone: '8606781999',
-          menu: [
-            {
-              name: 'Breakfast Sandwiches',
-              description:
-                'Smoked cherry wood bacon, egg white omelets, aged cheddar cheese, a freshly baked croissant, a hearty bagel, english muffin, crispy flatbreadwed go on, but we know youre already drooling. luckily, you can head to your local dd anytime to satisfy your hunger.',
-              price: false
-            },
-            {
-              name: 'Chicken Salad Sandwich',
-              description: false,
-              price: false
-            },
-            {
-              name: 'Texas Toast Grilled Cheese',
-              description:
-                "We've raised the bar on the basic grilled cheese you ate as a kid. melted american and white cheddar cheese between two pieces of thick texas toast. yes, it's as good as it sounds.",
-              price: false
-            },
-            {
-              name: 'Tuna Sandwiches',
-              description:
-                'Our tasty tuna sandwich is blended with mayonnaise, celery, herbs and spices all on a toasted plain bagel. or, try our oven-toasted tuna melt, featuring the same tasty ingredients and topped with a slice of cheddar cheese on a croissant. both will hit the spot and keep you runnin.',
-              price: false
-            },
-            {
-              name: 'Turkey, Cheddar & Bacon',
-              description:
-                "Freshly sliced turkey topped with cherrywood smoked bacon and white cheddar cheese. it's a great way to brighten up your afternoon. your appetite - and your busy schedule - will thank you.",
-              price: false
-            }
-          ]
+          "restaurantId": "4b3a7807f964a520116825e3",
+          "name": "Ian's Pizza on State",
+          "distance": 1150,
+          "lat": 43.074913,
+          "long": -89.386999,
+          "categoryId": "4bf58dd8d48988d1ca941735",
+          "categoryShortName": "Pizza",
+          "price": 3,
+          "rating": 1.6
         },
         {
-          restaurantId: '4b87d7b8f964a520bece31e3',
-          name: 'Brookside Bagels',
-          distance: 10966,
-          lat: 41.86319365155949,
-          long: -72.80970724054166,
-          categoryId: '4bf58dd8d48988d179941735',
-          categoryShortName: 'Bagels',
-          price: {
-            tier: 1,
-            message: 'Cheap',
-            currency: '$'
-          },
-          rating: 8.3,
-          phone: '8606511492',
-          menu: false
+          "restaurantId": "4bedc694e24d20a1aff97114",
+          "name": "State Street Brats",
+          "distance": 1160,
+          "lat": 43.07479716851709,
+          "long": -89.39586192369461,
+          "categoryId": "4bf58dd8d48988d116941735",
+          "categoryShortName": "Bar",
+          "price": 2,
+          "rating": 7.6
         },
         {
-          restaurantId: '500f36d4e4b0dbaf8f4bc806',
-          name: "Millwright's Restaurant & Tavern",
-          distance: 11301,
-          lat: 41.870058592869015,
-          long: -72.81134092816636,
-          categoryId: '4bf58dd8d48988d14e941735',
-          categoryShortName: 'American',
-          price: {
-            tier: 2,
-            message: 'Moderate',
-            currency: '$'
-          },
-          rating: 9.1,
-          phone: '8606515500',
-          menu: false
+          "restaurantId": "598e2574c0f1632f70012773",
+          "name": "Belair Cantina Madison",
+          "distance": 1169,
+          "lat": 43.0736673255023,
+          "long": -89.3828759322076,
+          "categoryId": "4bf58dd8d48988d116941735",
+          "categoryShortName": "Bar",
+          "price": 3,
+          "rating": 5.3
         },
         {
-          restaurantId: '4b34dbfef964a520da2825e3',
-          name: 'Starbucks',
-          distance: 11812,
-          lat: 41.72785569,
-          long: -72.82671629,
-          categoryId: '4bf58dd8d48988d1e0931735',
-          categoryShortName: 'Coffee Shop',
-          price: {
-            tier: 1,
-            message: 'Cheap',
-            currency: '$'
-          },
-          rating: 7.6,
-          phone: '8606748405',
-          menu: [
-            {
-              name: 'Wheat Spinach Savory Foldover',
-              description:
-                'Layers of wheat croissant with flax seed envelop a savory medley of spinach, shallots, white wine & béchamel sauce.',
-              price: false
-            },
-            {
-              name: 'Chonga Bagel',
-              description:
-                'A bagel topped with Cheddar cheese, poppy seeds, sesame seeds, onion and garlic.',
-              price: false
-            },
-            {
-              name: 'Almond Croissant Blossom',
-              description:
-                'Flaky croissant dough topped with almond filling and toasted sliced almonds.',
-              price: false
-            },
-            {
-              name: 'Banana Nut Bread',
-              description:
-                'Bananas, walnuts and pecans in moist, nutty, classic banana bread.',
-              price: false
-            },
-            {
-              name: 'Blueberry Muffin with Yogurt and Honey',
-              description: 'A flavorful muffin with blueberries, yogurt and honey.',
-              price: false
-            }
-          ]
+          "restaurantId": "4b665819f964a5209f1e2be3",
+          "name": "Starbucks",
+          "distance": 1196,
+          "lat": 43.07389817,
+          "long": -89.38273627,
+          "categoryId": "4bf58dd8d48988d1e0931735",
+          "categoryShortName": "Coffee Shop",
+          "price": 1,
+          "rating": 6.4
         },
         {
-          restaurantId: '4bdb3d913904a593e56c499e',
-          name: 'Cumberland Farms',
-          distance: 11999,
-          lat: 41.70313327307127,
-          long: -72.88780152797699,
-          categoryId: '4d954b0ea243a5684a65b473',
-          categoryShortName: 'Convenience Store',
-          price: 0,
-          rating: 7.5,
-          phone: '8606741028',
-          menu: false
+          "restaurantId": "4afe0a09f964a5204e2d22e3",
+          "name": "Chipotle Mexican Grill",
+          "distance": 1198,
+          "lat": 43.07495691256683,
+          "long": -89.3966121152414,
+          "categoryId": "4bf58dd8d48988d1c1941735",
+          "categoryShortName": "Mexican",
+          "price": 4,
+          "rating": 5.1
+        },
+        {
+          "restaurantId": "5081a3b2d63e3e73d4338d30",
+          "name": "University Book Store Coffee Cart",
+          "distance": 1224,
+          "lat": 43.0748912126272,
+          "long": -89.39759731292725,
+          "categoryId": "4bf58dd8d48988d1e0931735",
+          "categoryShortName": "Coffee Shop",
+          "price": 4,
+          "rating": 6.1
+        },
+        {
+          "restaurantId": "59c724362e268063d7dcb25d",
+          "name": "Trippalindee",
+          "distance": 1231,
+          "lat": 43.075542,
+          "long": -89.39561,
+          "categoryId": "4bf58dd8d48988d14e941735",
+          "categoryShortName": "American",
+          "price": 2,
+          "rating": 6
+        },
+        {
+          "restaurantId": "4d099430e6f83704c1885b87",
+          "name": "Merchant",
+          "distance": 1302,
+          "lat": 43.07414664263371,
+          "long": -89.38100937738655,
+          "categoryId": "4bf58dd8d48988d157941735",
+          "categoryShortName": "New American",
+          "price": 1,
+          "rating": 7.9
+        },
+        {
+          "restaurantId": "4c24b64bb012b713988a0893",
+          "name": "Graze",
+          "distance": 1303,
+          "lat": 43.07484887182121,
+          "long": -89.38232575948915,
+          "categoryId": "4bf58dd8d48988d155941735",
+          "categoryShortName": "Gastropub",
+          "price": 1,
+          "rating": 5.2
+        },
+        {
+          "restaurantId": "515ddf3de4b068af64c1468c",
+          "name": "Colectivo Coffee",
+          "distance": 1324,
+          "lat": 43.074884,
+          "long": -89.381937,
+          "categoryId": "4bf58dd8d48988d1e0931735",
+          "categoryShortName": "Coffee Shop",
+          "price": 4,
+          "rating": 6.7
+        },
+        {
+          "restaurantId": "4d686a320a25b60c55821790",
+          "name": "Great Dane Pub & Brewing Company",
+          "distance": 1381,
+          "lat": 43.07468710955784,
+          "long": -89.3803908048707,
+          "categoryId": "50327c8591d4c4b30a586d5d",
+          "categoryShortName": "Brewery",
+          "price": 3,
+          "rating": 9.9
+        },
+        {
+          "restaurantId": "4afcc582f964a520bc2522e3",
+          "name": "The Old Fashioned Tavern & Restaurant",
+          "distance": 1382,
+          "lat": 43.076153,
+          "long": -89.383526,
+          "categoryId": "4bf58dd8d48988d155941735",
+          "categoryShortName": "Gastropub",
+          "price": 3,
+          "rating": 7.6
+        },
+        {
+          "restaurantId": "4bf80ce58d30d13aa9fcff17",
+          "name": "The Daily Scoop @ Memorial Union",
+          "distance": 1399,
+          "lat": 43.07602518746117,
+          "long": -89.39925902287482,
+          "categoryId": "4bf58dd8d48988d1c9941735",
+          "categoryShortName": "Ice Cream",
+          "price": 1,
+          "rating": 3.5
+        },
+        {
+          "restaurantId": "4b9a5622f964a5201fad35e3",
+          "name": "Peet’s Coffee & Tea",
+          "distance": 1431,
+          "lat": 43.07620116893806,
+          "long": -89.39963658182754,
+          "categoryId": "4bf58dd8d48988d1e0931735",
+          "categoryShortName": "Coffee Shop",
+          "price": 2,
+          "rating": 7.1
+        },
+        {
+          "restaurantId": "41326e00f964a52086151fe3",
+          "name": "Jordan's Big Ten Pub",
+          "distance": 1440,
+          "lat": 43.0679986248754,
+          "long": -89.40823413195719,
+          "categoryId": "4bf58dd8d48988d116941735",
+          "categoryShortName": "Bar",
+          "price": 3,
+          "rating": 0.3
+        },
+        {
+          "restaurantId": "5914f620c4df1d6ddc02a361",
+          "name": "Eno Vino",
+          "distance": 1454,
+          "lat": 43.07635687443169,
+          "long": -89.38215837951033,
+          "categoryId": "4bf58dd8d48988d123941735",
+          "categoryShortName": "Wine Bar",
+          "price": 3,
+          "rating": 5
+        },
+        {
+          "restaurantId": "4afc6d0bf964a5208b2222e3",
+          "name": "Bradbury's Coffee",
+          "distance": 1491,
+          "lat": 43.077391809117046,
+          "long": -89.3840246635214,
+          "categoryId": "4bf58dd8d48988d16d941735",
+          "categoryShortName": "Café",
+          "price": 3,
+          "rating": 6.2
+        },
+        {
+          "restaurantId": "4b5b3d96f964a5208ded28e3",
+          "name": "Culver's",
+          "distance": 3772,
+          "lat": 43.03603024800349,
+          "long": -89.41506326570321,
+          "categoryId": "4bf58dd8d48988d16e941735",
+          "categoryShortName": "Fast Food",
+          "price": 2,
+          "rating": 6.3
+        },
+        {
+          "restaurantId": "52869069498e3289da675b02",
+          "name": "Starbucks",
+          "distance": 4980,
+          "lat": 43.055718033590246,
+          "long": -89.45089797472531,
+          "categoryId": "4bf58dd8d48988d1e0931735",
+          "categoryShortName": "Coffee Shop",
+          "price": 4,
+          "rating": 3.2
+        },
+        {
+          "restaurantId": "4af9aac2f964a5201f1322e3",
+          "name": "Great Dane Pub & Brewing Company",
+          "distance": 5025,
+          "lat": 43.071148699580355,
+          "long": -89.45221552063161,
+          "categoryId": "50327c8591d4c4b30a586d5d",
+          "categoryShortName": "Brewery",
+          "price": 4,
+          "rating": 1.9
+        },
+        {
+          "restaurantId": "4adb8bb0f964a520da2821e3",
+          "name": "Starbucks",
+          "distance": 5032,
+          "lat": 43.075233,
+          "long": -89.45128,
+          "categoryId": "4bf58dd8d48988d1e0931735",
+          "categoryShortName": "Coffee Shop",
+          "price": 2,
+          "rating": 9.5
+        },
+        {
+          "restaurantId": "56218518498ed6af88a19b46",
+          "name": "Café Hollander",
+          "distance": 5184,
+          "lat": 43.07320209335286,
+          "long": -89.45375822123673,
+          "categoryId": "4bf58dd8d48988d155941735",
+          "categoryShortName": "Gastropub",
+          "price": 3,
+          "rating": 2.9
+        },
+        {
+          "restaurantId": "4bbf538e30c99c743ef75411",
+          "name": "Starbucks",
+          "distance": 6264,
+          "lat": 43.01610851,
+          "long": -89.429133,
+          "categoryId": "4bf58dd8d48988d1e0931735",
+          "categoryShortName": "Coffee Shop",
+          "price": 4,
+          "rating": 7.8
+        },
+        {
+          "restaurantId": "4e4fb3f6091a58b848442bee",
+          "name": "McDonald's",
+          "distance": 9048,
+          "lat": 43.05710840173577,
+          "long": -89.50173155288212,
+          "categoryId": "4bf58dd8d48988d16e941735",
+          "categoryShortName": "Fast Food",
+          "price": 2,
+          "rating": 6
+        },
+        {
+          "restaurantId": "4b743e7df964a5207fcf2de3",
+          "name": "Starbucks",
+          "distance": 9081,
+          "lat": 43.05893389,
+          "long": -89.50234572,
+          "categoryId": "4bf58dd8d48988d1e0931735",
+          "categoryShortName": "Coffee Shop",
+          "price": 1,
+          "rating": 1.1
+        },
+        {
+          "restaurantId": "54806dfb498e67f98a869485",
+          "name": "Chick-fil-A",
+          "distance": 9175,
+          "lat": 43.058116,
+          "long": -89.503426,
+          "categoryId": "4bf58dd8d48988d16e941735",
+          "categoryShortName": "Fast Food",
+          "price": 1,
+          "rating": 3.8
+        },
+        {
+          "restaurantId": "4ecc30f9775b4671dc78ebc7",
+          "name": "Starbucks",
+          "distance": 9275,
+          "lat": 43.125614,
+          "long": -89.31271,
+          "categoryId": "4bf58dd8d48988d1e0931735",
+          "categoryShortName": "Coffee Shop",
+          "price": 2,
+          "rating": 3.8
+        },
+        {
+          "restaurantId": "57e26771498e2f5ee471ba71",
+          "name": "Chick-fil-A",
+          "distance": 9372,
+          "lat": 43.1262390281282,
+          "long": -89.31188037947008,
+          "categoryId": "4bf58dd8d48988d16e941735",
+          "categoryShortName": "Fast Food",
+          "price": 4,
+          "rating": 7.5
+        },
+        {
+          "restaurantId": "5ac6b2c560255e1c760e8020",
+          "name": "Dave & Buster's",
+          "distance": 9389,
+          "lat": 43.055190419289765,
+          "long": -89.50565557356447,
+          "categoryId": "4bf58dd8d48988d1e1931735",
+          "categoryShortName": "Arcade",
+          "price": 3,
+          "rating": 2.3
+        },
+        {
+          "restaurantId": "56f03d38498eb3c16b03e9c2",
+          "name": "Culver's",
+          "distance": 9430,
+          "lat": 43.06103350978347,
+          "long": -89.50682739776911,
+          "categoryId": "4bf58dd8d48988d16e941735",
+          "categoryShortName": "Fast Food",
+          "price": 4,
+          "rating": 4.4
+        },
+        {
+          "restaurantId": "4b74b527f964a52099ed2de3",
+          "name": "The Green Lantern",
+          "distance": 9670,
+          "lat": 43.01335673488695,
+          "long": -89.29542998326903,
+          "categoryId": "4bf58dd8d48988d14e941735",
+          "categoryShortName": "American",
+          "price": 2,
+          "rating": 5
+        },
+        {
+          "restaurantId": "4ac23095f964a520229820e3",
+          "name": "Panera Bread",
+          "distance": 10372,
+          "lat": 43.131264,
+          "long": -89.301283,
+          "categoryId": "4bf58dd8d48988d16a941735",
+          "categoryShortName": "Bakery",
+          "price": 3,
+          "rating": 2
+        },
+        {
+          "restaurantId": "59d3e5a0345cbe2f01dfa057",
+          "name": "Longtable Beer Cafe",
+          "distance": 10461,
+          "lat": 43.09548380340694,
+          "long": -89.51271572387782,
+          "categoryId": "4bf58dd8d48988d1c4941735",
+          "categoryShortName": "Restaurant",
+          "price": 2,
+          "rating": 6.6
+        },
+        {
+          "restaurantId": "4adb5042f964a520ce2521e3",
+          "name": "Starbucks",
+          "distance": 11192,
+          "lat": 43.090567,
+          "long": -89.524126,
+          "categoryId": "4bf58dd8d48988d1e0931735",
+          "categoryShortName": "Coffee Shop",
+          "price": 1,
+          "rating": 5.1
+        },
+        {
+          "restaurantId": "4bae4a8cf964a520469e3be3",
+          "name": "McDonald's",
+          "distance": 11266,
+          "lat": 43.090559928569064,
+          "long": -89.525066614151,
+          "categoryId": "4bf58dd8d48988d16e941735",
+          "categoryShortName": "Fast Food",
+          "price": 2,
+          "rating": 8.7
         }
-      ],{
+      ]
+      ,{
         weights: {
           categories: 0.1,
           priceRange: 0.4,
