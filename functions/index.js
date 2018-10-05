@@ -227,7 +227,10 @@ function () {
     }; //TEST of getting all venues
 
 
-    console.log('REQ QUERY ===> ', req.query);
+    console.log('-----------------------------------');
+    console.log('req.params');
+    console.log(req.params);
+    console.log('-----------------------------------');
     const johnVenues = yield getAllVenues(`${req.query.lat},${req.query.long}`, DRIVE, FOOD_GENERAL, 20);
     console.log('-----------------------------------');
     console.log(johnVenues);
