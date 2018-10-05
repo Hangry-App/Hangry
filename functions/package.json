@@ -6,7 +6,7 @@
     "serve": "firebase serve --only functions",
     "shell": "firebase functions:shell",
     "start": "npm run shell",
-    "deploy": "npm run build-funcs && firebase deploy --only functions",
+    "deploy": "npm run build-funcs && firebase deploy --only functions && npm run logs",
     "logs": "firebase functions:log",
     "build-funcs": "babel source.js --out-file index.js"
   },
