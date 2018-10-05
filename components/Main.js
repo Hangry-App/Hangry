@@ -1,9 +1,17 @@
 import React, { Component } from 'react';
-import { View, StyleSheet, Text, Platform } from 'react-native';
+import {
+  View,
+  StyleSheet,
+  Text,
+  Platform,
+  TouchableWithoutFeedback,
+} from 'react-native';
 import { Constants, Location, Permissions, MapView } from 'expo';
 import * as firebase from 'firebase';
+import { Cards, TestIcon, AccountIcon } from './index';
 require("firebase/functions");
-import { Cards } from './index';
+
+
 const dummyData = require('../testData.json');
 const Marker = MapView.Marker;
 import axios from 'axios';
@@ -47,11 +55,16 @@ class Main extends Component {
     });
   };
 
+  navToUserPrefs = () => {
+    this.props.navigation.navigate('UserPref');
+  };
+
   async componentDidMount() {
     const response = await axios.get('https://us-central1-hangry-1e919.cloudfunctions.net/upperCase');
     console.log(response.data);
     this.getLocationAsync();
   }
+
 
   offsetMap = num => {
     this.setState({ offset: num });
@@ -67,6 +80,10 @@ class Main extends Component {
     let location = await Location.getCurrentPositionAsync({});
     this.setState({ location: location });
   };
+
+  componentDidMount() {
+    this.getLocationAsync();
+  }
 
   render() {
     let text = 'Waiting ...';
@@ -84,6 +101,11 @@ class Main extends Component {
           <Text style={styles.paragraph}>{text}</Text>
         ) : (
           <View style={styles.fullscreen}>
+            <TouchableWithoutFeedback onPress={this.navToUserPrefs}>
+              <View style={styles.homeIcon}>
+                <AccountIcon />
+              </View>
+            </TouchableWithoutFeedback>
             <MapView
               style={styles.fullscreen}
               initialRegion={{
@@ -138,6 +160,16 @@ const styles = StyleSheet.create({
   fullscreen: {
     width: '100%',
     height: '100%',
+  },
+  homeIcon: {
+    position: 'absolute',
+    top: 10,
+    right: 10,
+    zIndex: 1000,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowRadius: 6,
+    shadowOpacity: 0.3,
   },
 });
 
