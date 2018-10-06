@@ -228,11 +228,12 @@ function () {
 
 
     console.log('-----------------------------------');
-    console.log('req.params');
-    console.log(req.params);
+    console.log('req.query');
+    console.log(req.query);
     console.log('-----------------------------------');
-    const johnVenues = yield getAllVenues(`${req.query.lat},${req.query.long}`, DRIVE, FOOD_GENERAL, 20);
+    const johnVenues = yield getAllVenues(`${req.query.lat},${req.query.long}`, DRIVE, FOOD_GENERAL, 1);
     console.log('-----------------------------------');
+    console.log('John Venues');
     console.log(johnVenues);
     console.log('-----------------------------------');
     const ratedVenues = rateVenues(johnVenues, {
@@ -251,6 +252,10 @@ function () {
       rating: 2,
       distance: 5000
     });
+    console.log('-----------------------------------');
+    console.log('Rated Venues');
+    console.log(ratedVenues);
+    console.log('-----------------------------------');
     res.send(ratedVenues);
   });
 
@@ -258,6 +263,8 @@ function () {
     return _ref.apply(this, arguments);
   };
 }());
+/*============== DUMMY DATA ==============*/
+
 const johnDummyData = [{
   restaurantId: '526da0ee498e60aad4db9623',
   name: 'Bassett Street Brunch Club',
