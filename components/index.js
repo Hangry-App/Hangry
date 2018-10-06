@@ -8,3 +8,4 @@ export { default as MenuItem } from './MenuItem';
 export { default as LocationIcon } from './LocationIcon';
 export { default as TestIcon } from './TestIcon';
 export { default as AccountIcon } from './AccountIcon';
+export { default as HangryLogo } from './HangryLogo';

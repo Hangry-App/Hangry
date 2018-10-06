@@ -6,6 +6,7 @@ import {
   View,
   TextInput,
   TouchableWithoutFeedback,
+  Image,
   Button,
 } from 'react-native';
 import * as firebase from 'firebase';
@@ -57,7 +58,10 @@ class UserSignUp extends Component {
     return (
       <View style={styles.container}>
         <View style={styles.header}>
-          <View style={styles.circleLogo} />
+          <Image
+            style={{ height: 100, width: 100 }}
+            source={require('../assets/hangry-logo-white.png')}
+          />
         </View>
         <View style={styles.container}>
           <View style={styles.formContainer}>

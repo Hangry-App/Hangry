@@ -1,7 +1,17 @@
 import React, { Component } from 'react';
-import { Alert, StyleSheet, Text, View, TextInput, TouchableWithoutFeedback, Button } from 'react-native';
+import {
+  Alert,
+  StyleSheet,
+  Text,
+  View,
+  TextInput,
+  TouchableWithoutFeedback,
+  Image,
+  Button,
+} from 'react-native';
 import * as firebase from 'firebase';
-import { firebaseConfig } from '../secrets'
+
+import { firebaseConfig } from '../secrets';
 
 class UserLogin extends Component {
   constructor() {
@@ -17,12 +27,16 @@ class UserLogin extends Component {
   async attemptLogin() {
     if (this.state.email && this.state.password) {
       try {
-        await firebase.auth().setPersistence(firebase.auth.Auth.Persistence.LOCAL);
-        await firebase.auth().signInWithEmailAndPassword(this.state.email, this.state.password);
+        await firebase
+          .auth()
+          .setPersistence(firebase.auth.Auth.Persistence.LOCAL);
+        await firebase
+          .auth()
+          .signInWithEmailAndPassword(this.state.email, this.state.password);
         this.props.navigation.navigate('Main');
-    } catch (err) {
-        Alert.alert(err.toString())
-    }
+      } catch (err) {
+        Alert.alert(err.toString());
+      }
     } else {
       Alert.alert('Please enter email and password to log in');
     }
@@ -35,25 +49,28 @@ class UserLogin extends Component {
     return (
       <View style={styles.container}>
         <View style={styles.header}>
-          <View style={styles.circleLogo} />
+          <Image
+            style={{ height: 100, width: 100 }}
+            source={require('../assets/hangry-logo-white.png')}
+          />
         </View>
         <View style={styles.container}>
           <View style={styles.formContainer}>
             <Text style={[styles.text, styles.firstEl]}>Email</Text>
             <TextInput
               style={styles.form}
-              placeholder={'email@email.com'}
-              autoCapitalize={'none'}
-              keyboardType={'email-address'}
+              placeholder="email@email.com"
+              autoCapitalize="none"
+              keyboardType="email-address"
               underlineColorAndroid="transparent"
               onChangeText={text => this.setState({ email: text })}
             />
             <Text style={styles.text}>Password</Text>
             <TextInput
               style={styles.form}
-              placeholder={'password'}
+              placeholder="password"
               secureTextEntry={true}
-              autoCapitalize={'none'}
+              autoCapitalize="none"
               underlineColorAndroid="transparent"
               onChangeText={text => this.setState({ password: text })}
             />
@@ -135,11 +152,11 @@ const styles = StyleSheet.create({
     position: 'absolute',
     top: 20,
     left: 20,
-  }, 
+  },
   navButton: {
     fontSize: 40,
     color: white,
-  }
+  },
 });
 
 export default UserLogin;
