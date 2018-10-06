@@ -3,9 +3,9 @@ import {
   StyleSheet,
   Text,
   View,
-  TouchableWithoutFeedback,
+  TouchableHighlight,
   ScrollView,
-  Slider
+  Slider,
 } from 'react-native';
 import * as firebase from 'firebase';
 import _set from 'lodash/set';
@@ -23,48 +23,54 @@ const foodTypes = [
   ['SALAD', '4bf58dd8d48988d1bd941735'],
   ['INDIAN', '4bf58dd8d48988d10f941735'],
   ['PERUVIAN', '4eb1bfa43b7b52c0e1adc2e8'],
-  ['THAI', '4bf58dd8d48988d149941735']
+  ['THAI', '4bf58dd8d48988d149941735'],
 ];
 
 const styles = StyleSheet.create({
+  shadow: {
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 4 },
+    shadowRadius: 2,
+    shadowOpacity: 0.2,
+  },
   body: {
     backgroundColor: lightBlue,
     paddingTop: 30,
     paddingLeft: 20,
-    paddingRight: 20
+    paddingRight: 20,
   },
   container: {
     minHeight: '100%',
     display: 'flex',
-    flexDirection: 'column'
+    flexDirection: 'column',
   },
   headerOne: {
     alignSelf: 'center',
     color: white,
-    fontSize: 50
+    fontSize: 50,
   },
   sliders: {
-    paddingTop: 20
+    paddingTop: 20,
   },
   slideContainer: {
     display: 'flex',
     flexDirection: 'row',
-    justifyContent: 'space-between'
+    justifyContent: 'space-between',
   },
   slideLabelContainer: {
     paddingRight: 10,
     maxWidth: '40%',
     display: 'flex',
     flexDirection: 'column',
-    justifyContent: 'space-around'
+    justifyContent: 'space-around',
   },
   slideLabel: {
     fontSize: 20,
-    color: white
+    color: white,
   },
   slideSlider: {
     flexGrow: 1,
-    maxWidth: '60%'
+    maxWidth: '60%',
   },
   submitButton: {
     marginTop: 20,
@@ -74,40 +80,48 @@ const styles = StyleSheet.create({
     borderRadius: 5,
     display: 'flex',
     flexDirection: 'column',
-    justifyContent: 'center'
+    justifyContent: 'center',
   },
-  centerText: {
+  boldWhite: {
     fontSize: 20,
     color: white,
-    textAlign: 'center'
+    fontWeight: 'bold',
+    textAlign: 'center',
   },
-  categories: {
-    display: 'flex',
-    flexDirection: 'row',
-    flexWrap: 'wrap',
-    justifyContent: 'space-around'
+  categories: {},
+  button: {
+    backgroundColor: 'white',
+    paddingHorizontal: 6,
+    paddingVertical: 4,
+    borderRadius: 4,
+    margin: 5,
+    minWidth: 30,
+    minHeight: 15,
   },
   category: {
-    backgroundColor: 'red',
-    width: 125,
-    height: 125,
-    margin: 5
+    backgroundColor: 'white',
+    paddingHorizontal: 4,
+    paddingVertical: 2,
+    borderRadius: 4,
+    margin: 5,
   },
   distances: {
     display: 'flex',
     flexDirection: 'row',
-    justifyContent: 'space-around'
+    justifyContent: 'space-around',
   },
   distance: {
-    backgroundColor: 'yellow',
+    backgroundColor: 'white',
     flexGrow: 1,
-    height: 200,
+    paddingHorizontal: 4,
+    paddingVertical: 2,
     margin: 10,
-    borderRadius: 100,
+    borderRadius: 4,
     display: 'flex',
-    flexDirection: 'column',
-    justifyContent: 'space-around'
-  }
+  },
+  centerText: {
+    textAlign: 'center',
+  },
 });
 
 class UserPref extends Component {
@@ -118,14 +132,14 @@ class UserPref extends Component {
         categories: 5,
         priceRange: 5,
         rating: 5,
-        range: 5
+        range: 5,
       },
       categories: {
-        '4d4b7105d754a06374d81259': 0.5 // Note, this is the food general category in foursquare -- setting as initial state in case there are no food preferences
+        '4d4b7105d754a06374d81259': 0.5, // Note, this is the food general category in foursquare -- setting as initial state in case there are no food preferences
       },
       priceTier: 2,
       rating: 4,
-      distance: 5000
+      distance: 5000,
     };
   }
   async savePreferences() {
@@ -139,11 +153,13 @@ class UserPref extends Component {
     return (
       <View style={styles.body}>
         <ScrollView contentContainerStyle={styles.container}>
-          <Text style={styles.headerOne}>Preferences</Text>
+          <Text style={[styles.headerOne, styles.centerText]}>Preferences</Text>
           <View style={styles.sliders}>
             <View style={styles.slideContainer}>
               <View style={styles.slideLabelContainer}>
-                <Text style={styles.slideLabel}>Categories</Text>
+                <Text style={[styles.slideLabel, styles.centerText]}>
+                  Categories
+                </Text>
               </View>
               <Slider
                 maximumValue={10}
@@ -203,30 +219,24 @@ class UserPref extends Component {
             </View>
           </View>
           <View style={styles.distances}>
-            <TouchableWithoutFeedback
-              style={styles.distance}
+            <TouchableHighlight
+              style={[styles.button, styles.shadow]}
               onPressIn={() => this.setState({ distance: 1000 })}
             >
-              <View style={styles.distance}>
-                <Text>Walk</Text>
-              </View>
-            </TouchableWithoutFeedback>
-            <TouchableWithoutFeedback
-              style={styles.distance}
+              <Text style={styles.centerText}>Walk</Text>
+            </TouchableHighlight>
+            <TouchableHighlight
+              style={[styles.button, styles.shadow]}
               onPressIn={() => this.setState({ distance: 5000 })}
             >
-              <View style={styles.distance}>
-                <Text>Bike</Text>
-              </View>
-            </TouchableWithoutFeedback>
-            <TouchableWithoutFeedback
-              style={styles.distance}
+              <Text style={styles.centerText}>Bike</Text>
+            </TouchableHighlight>
+            <TouchableHighlight
+              style={[styles.button, styles.shadow]}
               onPressIn={() => this.setState({ distance: 10000 })}
             >
-              <View style={styles.distance}>
-                <Text>Drive</Text>
-              </View>
-            </TouchableWithoutFeedback>
+              <Text style={styles.centerText}>Drive</Text>
+            </TouchableHighlight>
           </View>
           <View>
             <View style={styles.sliders}>
@@ -263,33 +273,43 @@ class UserPref extends Component {
             </View>
           </View>
           <View style={styles.categories}>
-            {foodTypes.map(foodType => {
-              return (
-                <TouchableWithoutFeedback
-                  key={foodType[1]}
-                  onPressIn={() => {
-                    const categoryState = () => this.state.categories
-                    let currentCategories = categoryState();
-                    if (currentCategories[foodType[1]] && currentCategories[foodType[1]] === 0.5){
-                      currentCategories[foodType[1]] = 0.0
-                      if (Object.values(currentCategories).reduce((a, b) => a + b) === 0) {
-                        currentCategories['4d4b7105d754a06374d81259'] = 0.5;
-                      }
+            <Text style={styles.boldWhite}>Favorite Cuisines</Text>
+            <View>
+              {foodTypes.map(foodType => {
+                return (
+                  <TouchableHighlight
+                    key={foodType[1]}
+                    onPressIn={() => {
+                      const categoryState = () => this.state.categories;
+                      let currentCategories = categoryState();
+                      if (
+                        currentCategories[foodType[1]] &&
+                        currentCategories[foodType[1]] === 0.5
+                      ) {
+                        currentCategories[foodType[1]] = 0.0;
+                        if (
+                          Object.values(currentCategories).reduce(
+                            (a, b) => a + b
+                          ) === 0
+                        ) {
+                          currentCategories['4d4b7105d754a06374d81259'] = 0.5;
+                        }
                       } else {
                         currentCategories[foodType[1]] = 0.5;
                         currentCategories['4d4b7105d754a06374d81259'] = 0;
                       }
-                    this.setState({categories: currentCategories});
-                  }}
-                >
-                  <View style={styles.category}>
-                    <Text>{foodType[0]}</Text>
-                  </View>
-                </TouchableWithoutFeedback>
-              ); 
-            })}
+                      this.setState({ categories: currentCategories });
+                    }}
+                  >
+                    <View style={styles.category}>
+                      <Text style={styles.centerText}>{foodType[0]}</Text>
+                    </View>
+                  </TouchableHighlight>
+                );
+              })}
+            </View>
           </View>
-          <TouchableWithoutFeedback
+          <TouchableHighlight
             onPressIn={() => {
               styles.submitButton = {
                 marginTop: 20,
@@ -299,7 +319,7 @@ class UserPref extends Component {
                 borderRadius: 5,
                 display: 'flex',
                 flexDirection: 'column',
-                justifyContent: 'center'
+                justifyContent: 'center',
               };
               this.setState(prevState => prevState);
             }}
@@ -312,18 +332,17 @@ class UserPref extends Component {
                 borderRadius: 5,
                 display: 'flex',
                 flexDirection: 'column',
-                justifyContent: 'center'
+                justifyContent: 'center',
               };
-              console.log(this.state);
               this.setState(prevState => prevState);
               await this.savePreferences();
               this.props.navigation.navigate('Main');
             }}
           >
-            <View style={styles.submitButton}>
-              <Text style={styles.centerText}>Submit</Text>
+            <View style={[styles.submitButton, styles.shadow]}>
+              <Text style={styles.boldWhite}>Submit</Text>
             </View>
-          </TouchableWithoutFeedback>
+          </TouchableHighlight>
         </ScrollView>
       </View>
     );

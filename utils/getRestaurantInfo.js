@@ -11,7 +11,7 @@ export const generateRating = item => {
 
 export const generatePrice = item => {
   let price = '';
-  for (let i = 0; i < Math.floor(item.price); i++) {
+  for (let i = 0; i < Math.floor(item.price.tier); i++) {
     price += '$';
   }
   return <Text>{price}</Text>;
