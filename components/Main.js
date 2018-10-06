@@ -10,8 +10,6 @@ import { Constants, Location, Permissions, MapView } from 'expo';
 import * as firebase from 'firebase';
 import { Cards, TestIcon, AccountIcon } from './index';
 require('firebase/functions');
-
-require('firebase/functions');
 const dummyData = require('../testData.json');
 const Marker = MapView.Marker;
 import axios from 'axios';
@@ -61,19 +59,15 @@ class Main extends Component {
   };
 
   async componentDidMount() {
-    console.log('component did mount');
     await this.getLocationAsync();
     const latitude = this.state.location.coords.latitude.toFixed(4).toString();
     const longitude = this.state.location.coords.longitude
       .toFixed(4)
       .toString();
-
-    console.log('Lat => ', latitude, 'Long => ', longitude);
     const { data: receiveAllVenues } = await axios.get(
       `https://us-central1-hangry-1e919.cloudfunctions.net/returnVenues?lat=${latitude}&long=${longitude}`
     );
     this.setState({ recommendedRestaurants: receiveAllVenues });
-    console.log('State Restaurants ==> ', this.state.recommendedRestaurants);
   }
 
   offsetMap = num => {
@@ -100,6 +94,21 @@ class Main extends Component {
     } else if (this.state.location) {
       locationFound = true;
     }
+
+    const userId = firebase.auth().currentUser.uid;
+    console.log('-----------------------------------');
+    console.log('Firebase Auth');
+    const getUserData = async () => {
+      const db = firebase.database();
+      const ref = await db
+        .ref('userPreferences')
+        .child(userId)
+        .limitToFirst(5)
+        .on('value', snapshot => {
+          console.log(snapshot);
+        });
+    };
+    getUserData();
 
     return (
       <View style={styles.container}>
