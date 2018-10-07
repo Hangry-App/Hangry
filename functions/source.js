@@ -617,7 +617,6 @@ exports.returnVenues = functions.https.onRequest(async (req, res) => {
         `https://api.foursquare.com/v2/venues/${venueId}?&client_id=${CLIENT_ID}&client_secret=${CLIENT_SECRET}&v=${VERSION_NUMBER}`
       );
       return response.data;
-      //.response.venue; //attempt at parsing
     } catch (error) {
       console.error(error);
       return null;
