@@ -1,18 +1,17 @@
-import { Main, UserLogin, UserSignUp, Welcome, UserPref } from './components';
-import { createSwitchNavigator } from 'react-navigation';
-import { SDK_VERSION } from 'firebase';
+import { Main, UserLogin, UserSignUp, Welcome, UserPref } from './components'
+import { createSwitchNavigator } from 'react-navigation'
 
 const App = createSwitchNavigator(
-  {
-    Welcome,
-    UserLogin,
-    UserSignUp,
-    UserPref,
-    Main,
-  },
-  {
-    initialRouteName: 'Welcome',
-  }
-);
+    {
+        Welcome,
+        UserLogin,
+        UserSignUp,
+        UserPref,
+        Main,
+    },
+    {
+        initialRouteName: 'Welcome',
+    }
+)
 
-export default App;
+export default App
