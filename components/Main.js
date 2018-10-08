@@ -12,6 +12,7 @@ import { Cards, AccountIcon } from './index'
 require('firebase/functions')
 const Marker = MapView.Marker
 import axios from 'axios'
+const dummyData = require('../testData.json');
 
 class Main extends Component {
   constructor () {
@@ -93,9 +94,19 @@ class Main extends Component {
   getRestaurants = async userData => {
     const latitude = this.state.location.coords.latitude.toFixed(4).toString()
     const longitude = this.state.location.coords.longitude.toFixed(4).toString()
-    //const response = await axios.get(this.buildQuery(latitude, longitude, userData))
-    const receiveAllVenues = response.data
-    this.setState({ recommendedRestaurants: receiveAllVenues })
+    if (process.env.NODE_ENV === 'development') {
+      const response = {
+        data: dummyData
+      }
+      console.log('DEVELOPMENT');
+      const receiveAllVenues = response.data
+      this.setState({ recommendedRestaurants: receiveAllVenues })
+    } else {  
+      const response = await axios.get(this.buildQuery(latitude, longitude, userData))
+      const receiveAllVenues = response.data
+      console.log('PRODUCTION');
+      this.setState({ recommendedRestaurants: receiveAllVenues })
+    }
   }
 
   offsetMap = num => {
