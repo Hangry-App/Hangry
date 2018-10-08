@@ -1,15 +1,14 @@
 //Import Secrets
 const fourSquare = require('../secrets').fourSquareConfig;
-//Import Utility
-const { waitASec } = require('../utils/waitASec');
+
 //Import Libraries
 const axios = require('axios');
 const flatten = require('lodash/flatten');
 
 //Foursquare Metadata
-const CLIENT_ID = fourSquare.clientId;
-const CLIENT_SECRET = fourSquare.clientSecret;
-const VERSION_NUMBER = fourSquare.versionNumber;
+const CLIENT_ID = fourSquare.clientid;
+const CLIENT_SECRET = fourSquare.clientsecret;
+const VERSION_NUMBER = fourSquare.versionnumber;
 
 //Sample LatLongs (for testing)
 const adilLatLong = '40.7630,-111.9011';
@@ -42,6 +41,15 @@ const CHEAP = 1;
 const MODERATE = 2;
 const EXPENSIVE = 3;
 const VERY_EXPENSIVE = 4;
+
+//Helper Function
+const waitASec = () => {
+  return new Promise((res, reject) => {
+    setTimeout(() => {
+      res(null);
+    }, 1000);
+  });
+};
 
 //GET a venue's details, used to return rating and tier
 let getAVenuesDetails = async venueId => {
