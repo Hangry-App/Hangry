@@ -92,7 +92,7 @@ class UserPref extends Component {
                         <Text>
                             Use these four sliders to say how important
                             distance, price, rating, and cuisine type are
-                            important to you. We'll use these to build a
+                            important to you. We will use these to build a
                             weighted score.
                         </Text>
                         <View style={styles.slideContainer}>
