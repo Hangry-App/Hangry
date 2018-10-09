@@ -46,18 +46,32 @@ class UserPref extends Component {
             distance: 5000,
         }
     }
+    getPrefs = async () => {
+        const userId = firebase.auth().currentUser.uid
+        const db = await firebase.database()
+        const ref = await db.ref('userPreferences').child(userId)
+        ref.once('value', snapshot => {
+          const userData = snapshot.val()
+          userData !== null && this.setPrefs(userData)
+        })
+    }
+    setPrefs = prefs => {
+        this.setState(prefs) 
+    }
     async savePreferences() {
         const db = firebase.database()
         const user = await firebase.auth()
         const userId = user.currentUser.uid
         db.ref('userPreferences/' + userId).set(this.state)
     }
-
+    async componentDidMount() {
+        await this.getPrefs();
+    }
     render() {
         return (
             <View style={styles.body}>
                 <TouchableWithoutFeedback
-                    onPressOut={() => {
+                    onPressOut={() => { 
                         this.props.navigation.navigate('Main')
                     }}
                 >
@@ -85,7 +99,7 @@ class UserPref extends Component {
                             <Slider
                                 maximumValue={10}
                                 minimumValue={0}
-                                value={5}
+                                value={this.state.weights.categories}
                                 step={0.5}
                                 onValueChange={value => {
                                     _set(
@@ -106,7 +120,7 @@ class UserPref extends Component {
                             <Slider
                                 maximumValue={10}
                                 minimumValue={0}
-                                value={5}
+                                value={this.state.weights.priceRange}
                                 step={0.5}
                                 onValueChange={value => {
                                     _set(
@@ -125,7 +139,7 @@ class UserPref extends Component {
                             <Slider
                                 maximumValue={10}
                                 minimumValue={0}
-                                value={5}
+                                value={this.state.weights.rating}
                                 step={0.5}
                                 onValueChange={value => {
                                     _set(this.state, 'weights.rating', value)
@@ -140,7 +154,7 @@ class UserPref extends Component {
                             <Slider
                                 maximumValue={10}
                                 minimumValue={0}
-                                value={5}
+                                value={this.state.weights.range}
                                 step={0.5}
                                 onValueChange={value => {
                                     _set(this.state, 'weights.range', value)
@@ -152,18 +166,21 @@ class UserPref extends Component {
                     <View style={styles.distances}>
                         <TouchableHighlight
                             style={[styles.button, styles.shadow]}
+                            selected={(() => this.state.distance === 1000)()}
                             onPressIn={() => this.setState({ distance: 1000 })}
                         >
                             <Text style={styles.centerText}>Walk</Text>
                         </TouchableHighlight>
                         <TouchableHighlight
                             style={[styles.button, styles.shadow]}
+                            selected={(() => this.state.distance === 5000)()}
                             onPressIn={() => this.setState({ distance: 5000 })}
                         >
                             <Text style={styles.centerText}>Bike</Text>
                         </TouchableHighlight>
                         <TouchableHighlight
                             style={[styles.button, styles.shadow]}
+                            selected={(() => this.state.distance === 10000)()}
                             onPressIn={() => this.setState({ distance: 10000 })}
                         >
                             <Text style={styles.centerText}>Drive</Text>
@@ -180,7 +197,7 @@ class UserPref extends Component {
                                 <Slider
                                     maximumValue={4}
                                     minimumValue={1}
-                                    value={2}
+                                    value={this.state.priceTier}
                                     step={1}
                                     onValueChange={value => {
                                         _set(this.state, 'priceTier', value)
@@ -196,7 +213,7 @@ class UserPref extends Component {
                             <Slider
                                 maximumValue={10}
                                 minimumValue={1}
-                                value={4}
+                                value={this.state.rating}
                                 step={0.5}
                                 onValueChange={value => {
                                     _set(this.state, 'rating', value)
@@ -212,6 +229,7 @@ class UserPref extends Component {
                                 return (
                                     <TouchableHighlight
                                         key={foodType[1]}
+                                        selected={(() => this.state.categories[foodType[1]])()}
                                         onPressIn={() => {
                                             const categoryState = () =>
                                                 this.state.categories

@@ -205,7 +205,7 @@ exports.returnVenues = functions.https.onRequest(async (req, res) => {
     `${req.query.lat},${req.query.long}`,
     `${req.query.distance}`,
     FOOD_GENERAL,
-    1
+    5
   );
 
   console.log('-----------------------------------');
