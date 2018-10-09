@@ -180,7 +180,7 @@ class UserPref extends Component {
                     />
                     <Text style={{ alignSelf: 'center' }}>
                         Now, set your preferences for each of these one time.
-                        After this, wherever you go you won't have to worry
+                        After this, wherever you go you will not have to worry
                         about getting Hangry™ when trying to make a complicated
                         decision like choosing where to eat!
                     </Text>
