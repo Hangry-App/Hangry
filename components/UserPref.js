@@ -51,12 +51,12 @@ class UserPref extends Component {
         const db = await firebase.database()
         const ref = await db.ref('userPreferences').child(userId)
         ref.once('value', snapshot => {
-          const userData = snapshot.val()
-          userData !== null && this.setPrefs(userData)
+            const userData = snapshot.val()
+            userData !== null && this.setPrefs(userData)
         })
     }
     setPrefs = prefs => {
-        this.setState(prefs) 
+        this.setState(prefs)
     }
     async savePreferences() {
         const db = firebase.database()
@@ -65,13 +65,14 @@ class UserPref extends Component {
         db.ref('userPreferences/' + userId).set(this.state)
     }
     async componentDidMount() {
-        await this.getPrefs();
+        await this.getPrefs()
+        console.log('State => ', this.state)
     }
     render() {
         return (
             <View style={styles.body}>
                 <TouchableWithoutFeedback
-                    onPressOut={() => { 
+                    onPressOut={() => {
                         this.props.navigation.navigate('Main')
                     }}
                 >
@@ -165,21 +166,36 @@ class UserPref extends Component {
                     </View>
                     <View style={styles.distances}>
                         <TouchableHighlight
-                            style={[styles.button, styles.shadow]}
+                            style={[
+                                this.state.distance === 1000
+                                    ? styles.selectedButton
+                                    : styles.button,
+                                styles.shadow,
+                            ]}
                             selected={(() => this.state.distance === 1000)()}
                             onPressIn={() => this.setState({ distance: 1000 })}
                         >
                             <Text style={styles.centerText}>Walk</Text>
                         </TouchableHighlight>
                         <TouchableHighlight
-                            style={[styles.button, styles.shadow]}
+                            style={[
+                                this.state.distance === 5000
+                                    ? styles.selectedButton
+                                    : styles.button,
+                                styles.shadow,
+                            ]}
                             selected={(() => this.state.distance === 5000)()}
                             onPressIn={() => this.setState({ distance: 5000 })}
                         >
                             <Text style={styles.centerText}>Bike</Text>
                         </TouchableHighlight>
                         <TouchableHighlight
-                            style={[styles.button, styles.shadow]}
+                            style={[
+                                this.state.distance === 10000
+                                    ? styles.selectedButton
+                                    : styles.button,
+                                styles.shadow,
+                            ]}
                             selected={(() => this.state.distance === 10000)()}
                             onPressIn={() => this.setState({ distance: 10000 })}
                         >
@@ -229,7 +245,10 @@ class UserPref extends Component {
                                 return (
                                     <TouchableHighlight
                                         key={foodType[1]}
-                                        selected={(() => this.state.categories[foodType[1]])()}
+                                        selected={(() =>
+                                            this.state.categories[
+                                                foodType[1]
+                                            ])()}
                                         onPressIn={() => {
                                             const categoryState = () =>
                                                 this.state.categories
@@ -384,6 +403,15 @@ const styles = StyleSheet.create({
     categories: {},
     button: {
         backgroundColor: 'white',
+        paddingHorizontal: 6,
+        paddingVertical: 4,
+        borderRadius: 4,
+        margin: 5,
+        minWidth: 30,
+        minHeight: 15,
+    },
+    selectedButton: {
+        backgroundColor: 'red',
         paddingHorizontal: 6,
         paddingVertical: 4,
         borderRadius: 4,
