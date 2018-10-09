@@ -52,11 +52,11 @@ class UserPref extends Component {
         const ref = await db.ref('userPreferences').child(userId)
         ref.once('value', snapshot => {
           const userData = snapshot.val()
-          this.setPrefs(userData)
+          userData !== null && this.setPrefs(userData)
         })
     }
     setPrefs = prefs => {
-        this.setState(prefs)
+        this.setState(prefs) 
     }
     async savePreferences() {
         const db = firebase.database()
@@ -71,7 +71,7 @@ class UserPref extends Component {
         return (
             <View style={styles.body}>
                 <TouchableWithoutFeedback
-                    onPressOut={() => {
+                    onPressOut={() => { 
                         this.props.navigation.navigate('Main')
                     }}
                 >
