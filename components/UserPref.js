@@ -85,9 +85,19 @@ class UserPref extends Component {
                         Preferences
                     </Text>
                     <View style={styles.sliders}>
+                        <Text>
+                            {`Let's build your SavorScore™!
+                            `}
+                        </Text>
+                        <Text>
+                            Use these four sliders to say how important
+                            distance, price, rating, and cuisine type are
+                            important to you. We'll use these to build a
+                            weighted score.
+                        </Text>
                         <View style={styles.slideContainer}>
                             <View style={styles.slideLabelContainer}>
-                                <Text style={styles.slideLabel}>Range</Text>
+                                <Text style={styles.slideLabel}>Distance</Text>
                             </View>
                             <Slider
                                 maximumValue={10}
@@ -103,9 +113,7 @@ class UserPref extends Component {
 
                         <View style={styles.slideContainer}>
                             <View style={styles.slideLabelContainer}>
-                                <Text style={styles.slideLabel}>
-                                    Price Range
-                                </Text>
+                                <Text style={styles.slideLabel}>Price</Text>
                             </View>
                             <Slider
                                 maximumValue={10}
@@ -145,7 +153,7 @@ class UserPref extends Component {
                                         styles.centerText,
                                     ]}
                                 >
-                                    Cuisines
+                                    Cuisine Type
                                 </Text>
                             </View>
                             <Slider
@@ -170,6 +178,9 @@ class UserPref extends Component {
                             borderBottomWidth: 10,
                         }}
                     />
+                    <Text style={{ alignSelf: 'center' }}>
+                        Now, let's set our preferences for each of these.
+                    </Text>
                     <View style={styles.distances}>
                         <TouchableHighlight
                             style={[
