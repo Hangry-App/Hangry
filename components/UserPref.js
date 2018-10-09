@@ -439,7 +439,7 @@ const styles = StyleSheet.create({
         minHeight: 15,
     },
     selectedButton: {
-        backgroundColor: 'red',
+        backgroundColor: '#a6a6a6',
         paddingHorizontal: 6,
         paddingVertical: 4,
         borderRadius: 4,
