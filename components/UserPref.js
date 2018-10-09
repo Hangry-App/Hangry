@@ -85,37 +85,35 @@ class UserPref extends Component {
                         Preferences
                     </Text>
                     <View style={styles.sliders}>
+                        <Text>
+                            {`Let's build your SavorScore™!
+                            `}
+                        </Text>
+                        <Text>
+                            Use these four sliders to say how important
+                            distance, price, rating, and cuisine type are
+                            important to you. We will use these to build a
+                            weighted score.
+                        </Text>
                         <View style={styles.slideContainer}>
                             <View style={styles.slideLabelContainer}>
-                                <Text
-                                    style={[
-                                        styles.slideLabel,
-                                        styles.centerText,
-                                    ]}
-                                >
-                                    Categories
-                                </Text>
+                                <Text style={styles.slideLabel}>Distance</Text>
                             </View>
                             <Slider
                                 maximumValue={10}
                                 minimumValue={0}
-                                value={this.state.weights.categories}
+                                value={this.state.weights.range}
                                 step={0.5}
                                 onValueChange={value => {
-                                    _set(
-                                        this.state,
-                                        'weights.categories',
-                                        value
-                                    )
+                                    _set(this.state, 'weights.range', value)
                                 }}
                                 style={styles.slideSlider}
                             />
                         </View>
+
                         <View style={styles.slideContainer}>
                             <View style={styles.slideLabelContainer}>
-                                <Text style={styles.slideLabel}>
-                                    Price Range
-                                </Text>
+                                <Text style={styles.slideLabel}>Price</Text>
                             </View>
                             <Slider
                                 maximumValue={10}
@@ -149,20 +147,43 @@ class UserPref extends Component {
                         </View>
                         <View style={styles.slideContainer}>
                             <View style={styles.slideLabelContainer}>
-                                <Text style={styles.slideLabel}>Range</Text>
+                                <Text
+                                    style={[
+                                        styles.slideLabel,
+                                        styles.centerText,
+                                    ]}
+                                >
+                                    Cuisine Type
+                                </Text>
                             </View>
                             <Slider
                                 maximumValue={10}
                                 minimumValue={0}
-                                value={this.state.weights.range}
+                                value={this.state.weights.categories}
                                 step={0.5}
                                 onValueChange={value => {
-                                    _set(this.state, 'weights.range', value)
+                                    _set(
+                                        this.state,
+                                        'weights.categories',
+                                        value
+                                    )
                                 }}
                                 style={styles.slideSlider}
                             />
                         </View>
                     </View>
+                    <View
+                        style={{
+                            borderBottomColor: 'black',
+                            borderBottomWidth: 10,
+                        }}
+                    />
+                    <Text style={{ alignSelf: 'center' }}>
+                        Now, set your preferences for each of these one time.
+                        After this, wherever you go you won't have to worry
+                        about getting Hangry™ when trying to make a complicated
+                        decision like choosing where to eat!
+                    </Text>
                     <View style={styles.distances}>
                         <TouchableHighlight
                             style={[
