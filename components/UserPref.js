@@ -250,6 +250,7 @@ class UserPref extends Component {
                                                 foodType[1]
                                             ])()}
                                         onPressIn={() => {
+                                            console.log('State => ', this.state)
                                             const categoryState = () =>
                                                 this.state.categories
                                             let currentCategories = categoryState()
@@ -288,7 +289,15 @@ class UserPref extends Component {
                                             })
                                         }}
                                     >
-                                        <View style={styles.category}>
+                                        <View
+                                            style={
+                                                this.state.categories[
+                                                    foodType[1]
+                                                ] === 0.5
+                                                    ? styles.selectedButton
+                                                    : styles.category
+                                            }
+                                        >
                                             <Text style={styles.centerText}>
                                                 {foodType[0]}
                                             </Text>
