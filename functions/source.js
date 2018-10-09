@@ -2,6 +2,7 @@ const functions = require('firebase-functions');
 const admin = require('firebase-admin');
 admin.initializeApp();
 
+// OB/JL: a lot of logic for just one function, worthwhile to split it up
 exports.returnVenues = functions.https.onRequest(async (req, res) => {
   //Import Libraries
   const axios = require('axios');
@@ -45,6 +46,7 @@ exports.returnVenues = functions.https.onRequest(async (req, res) => {
   const VERY_EXPENSIVE = 4;
 
   //Helper Function
+  // OB/JL: longer term you might define a "rateLimitedGet" method that wraps `axios.get`, but "throttled" or "debounced" or something (reach out if you want to try)
   const waitASec = () => {
     return new Promise((res, reject) => {
       setTimeout(() => {
@@ -53,11 +55,13 @@ exports.returnVenues = functions.https.onRequest(async (req, res) => {
     });
   };
 
+  // OB/JL: could define it outside
   //GET a venue's details, used to return rating and tier
   let getAVenuesDetails = async venueId => {
     try {
       const response = await axios.get(
         `https://api.foursquare.com/v2/venues/${venueId}?&client_id=${CLIENT_ID}&client_secret=${CLIENT_SECRET}&v=${VERSION_NUMBER}`
+        // OB/JL: could refactor to format this as an object and pass it as the {params: ???} to axios (see main function)
       );
       return response.data;
     } catch (error) {
@@ -141,6 +145,7 @@ exports.returnVenues = functions.https.onRequest(async (req, res) => {
     }
   };
   const rateVenues = (venues, userData) => {
+    // OB/JL: these functions could be defined outside of here
     const calculateCategoryWeighted = (venue, userData) => {
       if (userData.categories[venue.categoryId]) {
         const preferredOutOfTen = userData.categories[venue.categoryId] * 10;

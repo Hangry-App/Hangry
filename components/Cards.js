@@ -43,6 +43,7 @@ class Cards extends Component {
 
   onSwipeUp() {
     this.setState({ cardHeight: 400 });
+    // OB/JD: how does 0.007 convert to 200px? should be called `bond` no matter what; maybe use padding or absolute positioning with some sort of `MapPadding` hack: https://github.com/react-community/react-native-maps/blob/master/docs/mapview.md
     this.props.offset(0.007);
   }
 
@@ -58,6 +59,7 @@ class Cards extends Component {
   _keyExtractor = item => item.restaurantId;
 
   _renderItem = ({ item }) => {
+    // OB/JD: might be worthwhile for this to use another component
     return (
       <View style={styles.padCard}>
         <GestureRecognizer
@@ -70,6 +72,7 @@ class Cards extends Component {
         >
           <View
             style={
+              // OB/JD: should be an array below, or you could use object assign / merge / spread
               (styles.restaurantCard,
               {
                 height: this.state.cardHeight,
@@ -102,7 +105,7 @@ class Cards extends Component {
                   <Text>Menu not available</Text>
                   {item.phone ? (
                     <Text>Phone: {formatPhoneNumber(item)}</Text>
-                  ) : null}
+                  ) : null /* OB/JD: when your ternary is x ? y : null can just be x && y*/}
                 </View>
               )}
             </View>

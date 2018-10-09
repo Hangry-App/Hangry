@@ -20,6 +20,7 @@ class UserLogin extends Component {
       email: '',
       password: '',
     };
+    // OB/JD: you can use class arrow methods instead of .bind (need the right babel plugin / preset)
     this.attemptLogin = this.attemptLogin.bind(this);
     this.navToWelcome = this.navToWelcome.bind(this);
   }
@@ -50,7 +51,7 @@ class UserLogin extends Component {
       <View style={styles.container}>
         <View style={styles.header}>
           <Image
-            style={{ height: 100, width: 100 }}
+            style={/* OB/JD: inline styling, a little inconsistent */{ height: 100, width: 100 }}
             source={require('../assets/hangry-logo-white.png')}
           />
         </View>

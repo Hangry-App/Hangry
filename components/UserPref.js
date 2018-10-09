@@ -16,6 +16,7 @@ const lightBlue = '#7FC4FD'
 const darkBlue = '#2699FB'
 const white = '#fff'
 
+// OB/JD: indentation is different in this file
 const foodTypes = [
     ['PIZZA', '4bf58dd8d48988d1ca941735'],
     ['AMERICAN', '4bf58dd8d48988d14e941735'],
@@ -28,6 +29,7 @@ const foodTypes = [
     ['THAI', '4bf58dd8d48988d149941735'],
 ]
 
+// OB/JD: high score, worth separating this into multiple components
 class UserPref extends Component {
     constructor() {
         super()
@@ -50,6 +52,7 @@ class UserPref extends Component {
         const userId = firebase.auth().currentUser.uid
         const db = await firebase.database()
         const ref = await db.ref('userPreferences').child(userId)
+        // OB/JD: can use promises with `.once('value', ...)`
         ref.once('value', snapshot => {
           const userData = snapshot.val()
           userData !== null && this.setPrefs(userData)
@@ -59,9 +62,11 @@ class UserPref extends Component {
         this.setState(prefs) 
     }
     async savePreferences() {
+        // OB/JD: could define `db` once, above this component
         const db = firebase.database()
         const user = await firebase.auth()
         const userId = user.currentUser.uid
+        // OB/JD: room for silent error below
         db.ref('userPreferences/' + userId).set(this.state)
     }
     async componentDidMount() {
@@ -164,6 +169,7 @@ class UserPref extends Component {
                         </View>
                     </View>
                     <View style={styles.distances}>
+                        {/* OB/JD: even without another component could use `.map` here to slim it down */}
                         <TouchableHighlight
                             style={[styles.button, styles.shadow]}
                             selected={(() => this.state.distance === 1000)()}
@@ -226,11 +232,13 @@ class UserPref extends Component {
                         <Text style={styles.boldWhite}>Favorite Cuisines</Text>
                         <View>
                             {foodTypes.map(foodType => {
+                                // OB/JD: you access the 0th and 1th elements of the array, could name those values (and could use destructuring)
                                 return (
                                     <TouchableHighlight
                                         key={foodType[1]}
                                         selected={(() => this.state.categories[foodType[1]])()}
                                         onPressIn={() => {
+                                            // OB/JD: logic could go in its own method
                                             const categoryState = () =>
                                                 this.state.categories
                                             let currentCategories = categoryState()
@@ -281,6 +289,7 @@ class UserPref extends Component {
                     </View>
                     <TouchableHighlight
                         onPressIn={() => {
+                            // OB/JD: could be named functions
                             styles.submitButton = {
                                 marginTop: 20,
                                 width: '100%',
@@ -304,6 +313,8 @@ class UserPref extends Component {
                                 flexDirection: 'column',
                                 justifyContent: 'center',
                             }
+                            // OB/JD: need something on state instead of mutating styles object
+                            // OB/JD: there's also `this.forceUpdate()`
                             this.setState(prevState => prevState)
                             await this.savePreferences()
                             this.props.navigation.navigate('Main')

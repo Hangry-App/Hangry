@@ -2,6 +2,7 @@ import React from 'react';
 import SvgUri from 'react-native-svg-uri';
 
 const AccountIcon = () => {
+  // OB/JD: define outside of the function, or even better as a prop
   const size = 50;
   return (
     <SvgUri

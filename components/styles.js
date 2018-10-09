@@ -1,3 +1,4 @@
+// OB/JD: might want to split this into multiple files soon (and you'd have to go update all the other files that use it)
 export const colors = {
   lightBlue: '#7FC4FD',
   darkBlue: '#2699FB',
