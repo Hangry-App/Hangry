@@ -87,30 +87,20 @@ class UserPref extends Component {
                     <View style={styles.sliders}>
                         <View style={styles.slideContainer}>
                             <View style={styles.slideLabelContainer}>
-                                <Text
-                                    style={[
-                                        styles.slideLabel,
-                                        styles.centerText,
-                                    ]}
-                                >
-                                    Categories
-                                </Text>
+                                <Text style={styles.slideLabel}>Range</Text>
                             </View>
                             <Slider
                                 maximumValue={10}
                                 minimumValue={0}
-                                value={this.state.weights.categories}
+                                value={this.state.weights.range}
                                 step={0.5}
                                 onValueChange={value => {
-                                    _set(
-                                        this.state,
-                                        'weights.categories',
-                                        value
-                                    )
+                                    _set(this.state, 'weights.range', value)
                                 }}
                                 style={styles.slideSlider}
                             />
                         </View>
+
                         <View style={styles.slideContainer}>
                             <View style={styles.slideLabelContainer}>
                                 <Text style={styles.slideLabel}>
@@ -149,20 +139,37 @@ class UserPref extends Component {
                         </View>
                         <View style={styles.slideContainer}>
                             <View style={styles.slideLabelContainer}>
-                                <Text style={styles.slideLabel}>Range</Text>
+                                <Text
+                                    style={[
+                                        styles.slideLabel,
+                                        styles.centerText,
+                                    ]}
+                                >
+                                    Cuisines
+                                </Text>
                             </View>
                             <Slider
                                 maximumValue={10}
                                 minimumValue={0}
-                                value={this.state.weights.range}
+                                value={this.state.weights.categories}
                                 step={0.5}
                                 onValueChange={value => {
-                                    _set(this.state, 'weights.range', value)
+                                    _set(
+                                        this.state,
+                                        'weights.categories',
+                                        value
+                                    )
                                 }}
                                 style={styles.slideSlider}
                             />
                         </View>
                     </View>
+                    <View
+                        style={{
+                            borderBottomColor: 'black',
+                            borderBottomWidth: 10,
+                        }}
+                    />
                     <View style={styles.distances}>
                         <TouchableHighlight
                             style={[
