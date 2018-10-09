@@ -179,7 +179,10 @@ class UserPref extends Component {
                         }}
                     />
                     <Text style={{ alignSelf: 'center' }}>
-                        Now, let's set our preferences for each of these.
+                        Now, set your preferences for each of these one time.
+                        After this, wherever you go you won't have to worry
+                        about getting Hangry™ when trying to make a complicated
+                        decision like choosing where to eat!
                     </Text>
                     <View style={styles.distances}>
                         <TouchableHighlight
