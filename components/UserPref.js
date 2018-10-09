@@ -66,7 +66,6 @@ class UserPref extends Component {
     }
     async componentDidMount() {
         await this.getPrefs()
-        console.log('State => ', this.state)
     }
     render() {
         return (
@@ -250,7 +249,6 @@ class UserPref extends Component {
                                                 foodType[1]
                                             ])()}
                                         onPressIn={() => {
-                                            console.log('State => ', this.state)
                                             const categoryState = () =>
                                                 this.state.categories
                                             let currentCategories = categoryState()
