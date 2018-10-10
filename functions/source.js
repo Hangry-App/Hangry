@@ -228,19 +228,19 @@ exports.returnVenues = functions.https.onRequest(async (req, res) => {
     const usersVenues = await getAllVenues(
         `${req.query.lat},${req.query.long}`,
         `${req.query.distance}`,
-        `${req.query.categories}`,
+        `${req.query.listOfCategories}`,
         10
     )
 
     console.log('-----------------------------------')
-    console.log('John Venues')
+    console.log('Venues')
     console.log(usersVenues)
     console.log('-----------------------------------')
 
     const ratedVenues = rateVenues(usersVenues, {
         weights: {
             categories: req.query.categories,
-            priceRange: req.query.priceRance,
+            priceRange: req.query.priceTier,
             rating: req.query.rating,
             range: req.query.range,
         },

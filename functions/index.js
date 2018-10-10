@@ -246,7 +246,7 @@ function () {
     console.log('req.query');
     console.log(req.query);
     console.log('-----------------------------------');
-    const usersVenues = yield getAllVenues(`${req.query.lat},${req.query.long}`, `${req.query.distance}`, `${req.query.categories}`, 10);
+    const usersVenues = yield getAllVenues(`${req.query.lat},${req.query.long}`, `${req.query.distance}`, `${req.query.listOfCategories}`, 10);
     console.log('-----------------------------------');
     console.log('John Venues');
     console.log(usersVenues);
@@ -254,7 +254,7 @@ function () {
     const ratedVenues = rateVenues(usersVenues, {
       weights: {
         categories: req.query.categories,
-        priceRange: req.query.priceRance,
+        priceRange: req.query.priceTier,
         rating: req.query.rating,
         range: req.query.range
       },
