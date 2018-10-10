@@ -11,6 +11,7 @@ import {
 } from 'react-native'
 import * as firebase from 'firebase'
 import _set from 'lodash/set'
+import { Loader } from './index';
 
 const lightBlue = '#7FC4FD'
 const darkBlue = '#2699FB'
@@ -32,6 +33,7 @@ class UserPref extends Component {
     constructor() {
         super()
         this.state = {
+            loaded: false,
             weights: {
                 categories: 5,
                 priceRange: 5,
@@ -56,7 +58,7 @@ class UserPref extends Component {
         })
     }
     setPrefs = prefs => {
-        this.setState(prefs)
+        this.setState({...prefs, loaded: true})
     }
     async savePreferences() {
         const db = firebase.database()
@@ -69,6 +71,7 @@ class UserPref extends Component {
     }
     render() {
         return (
+          !this.state.loaded ? ( <Loader />) : (
             <View style={styles.body}>
                 <TouchableWithoutFeedback
                     onPressOut={() => {
@@ -369,6 +372,8 @@ class UserPref extends Component {
                     </TouchableHighlight>
                 </ScrollView>
             </View>
+          )
+
         )
     }
 }
