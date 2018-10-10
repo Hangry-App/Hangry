@@ -1,0 +1,168 @@
+[
+    {
+        "restaurantId": "4ce4348bbebd370405afa4a0",
+        "name": "The Rose Establishment",
+        "distance": 157,
+        "lat": 40.7640947765476,
+        "long": -111.9022840887633,
+        "categoryId": "4bf58dd8d48988d16d941735",
+        "categoryShortName": "Café",
+        "price": {
+            "tier": 2,
+            "message": "Moderate",
+            "currency": "$"
+        },
+        "rating": 9.1,
+        "phone": "8019906270",
+        "hasMenu": true
+    },
+    {
+        "restaurantId": "4b612e69f964a520330c2ae3",
+        "name": "Starbucks",
+        "distance": 755,
+        "lat": 40.75672813,
+        "long": -111.8976693,
+        "categoryId": "4bf58dd8d48988d1e0931735",
+        "categoryShortName": "Coffee Shop",
+        "price": {
+            "tier": 2,
+            "message": "Moderate",
+            "currency": "$"
+        },
+        "rating": 8.3,
+        "phone": "8015321367",
+        "hasMenu": false
+    },
+    {
+        "restaurantId": "50659f4de4b0bd91e00b97e0",
+        "name": "Starbucks",
+        "distance": 952,
+        "lat": 40.76742,
+        "long": -111.89142,
+        "categoryId": "4bf58dd8d48988d1e0931735",
+        "categoryShortName": "Coffee Shop",
+        "price": {
+            "tier": 1,
+            "message": "Cheap",
+            "currency": "$"
+        },
+        "rating": 8.3,
+        "phone": "8013553037",
+        "hasMenu": false
+    },
+    {
+        "restaurantId": "4ad4f28ef964a520d7fc20e3",
+        "name": "Kimpton Hotel Monaco Salt Lake City",
+        "distance": 820,
+        "lat": 40.764754,
+        "long": -111.891652,
+        "categoryId": "4bf58dd8d48988d1fa931735",
+        "categoryShortName": "Hotel",
+        "price": 0,
+        "rating": 8.3,
+        "phone": "8015950000",
+        "hasMenu": false
+    },
+    {
+        "restaurantId": "50f19acde4b036c5c8613022",
+        "name": "Eva's Bakery",
+        "distance": 920,
+        "lat": 40.76578932405195,
+        "long": -111.89082815252097,
+        "categoryId": "4bf58dd8d48988d16a941735",
+        "categoryShortName": "Bakery",
+        "price": {
+            "tier": 2,
+            "message": "Moderate",
+            "currency": "$"
+        },
+        "rating": 8.9,
+        "phone": "8013553942",
+        "hasMenu": false
+    },
+    {
+        "restaurantId": "4ad4f28ef964a52013fd20e3",
+        "name": "Red Rock Brewing Co.",
+        "distance": 343,
+        "lat": 40.76371377115242,
+        "long": -111.89713768871168,
+        "categoryId": "50327c8591d4c4b30a586d5d",
+        "categoryShortName": "Brewery",
+        "price": {
+            "tier": 2,
+            "message": "Moderate",
+            "currency": "$"
+        },
+        "rating": 8.4,
+        "phone": "8015217446",
+        "hasMenu": true
+    },
+    {
+        "restaurantId": "4b2bdea5f964a520b2bc24e3",
+        "name": "Crown Burger",
+        "distance": 1004,
+        "lat": 40.77189947091721,
+        "long": -111.89913075855628,
+        "categoryId": "4bf58dd8d48988d16c941735",
+        "categoryShortName": "Burgers",
+        "price": {
+            "tier": 1,
+            "message": "Cheap",
+            "currency": "$"
+        },
+        "rating": 8,
+        "phone": "8015325300",
+        "hasMenu": true
+    },
+    {
+        "restaurantId": "4f5aa0e9e4b075ad78d80f10",
+        "name": "The Cheesecake Factory",
+        "distance": 1094,
+        "lat": 40.767642899099116,
+        "long": -111.88965180947159,
+        "categoryId": "4bf58dd8d48988d14e941735",
+        "categoryShortName": "American",
+        "price": {
+            "tier": 2,
+            "message": "Moderate",
+            "currency": "$"
+        },
+        "rating": 8.5,
+        "phone": "8015211732",
+        "hasMenu": true
+    },
+    {
+        "restaurantId": "4ae7198ef964a52067a821e3",
+        "name": "Squatters Pub Brewery",
+        "distance": 477,
+        "lat": 40.762552336133,
+        "long": -111.89547300338744,
+        "categoryId": "50327c8591d4c4b30a586d5d",
+        "categoryShortName": "Brewery",
+        "price": {
+            "tier": 2,
+            "message": "Moderate",
+            "currency": "$"
+        },
+        "rating": 8.6,
+        "phone": "8013632739",
+        "hasMenu": false
+    },
+    {
+        "restaurantId": "4aea79adf964a520b3bb21e3",
+        "name": "The Green Pig Pub",
+        "distance": 977,
+        "lat": 40.76079218948593,
+        "long": -111.88987494764773,
+        "categoryId": "4bf58dd8d48988d116941735",
+        "categoryShortName": "Bar",
+        "price": {
+            "tier": 2,
+            "message": "Moderate",
+            "currency": "$"
+        },
+        "rating": 8.1,
+        "phone": "8015327441",
+        "hasMenu": false
+    }
+]

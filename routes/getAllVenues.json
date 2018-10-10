@@ -1,0 +1,2168 @@
+{
+  "meta": {
+    "code": 200,
+    "requestId": "5bbe21461ed2194285464b08"
+  },
+  "response": {
+    "venues": [
+      {
+        "id": "4ce4348bbebd370405afa4a0",
+        "name": "The Rose Establishment",
+        "location": {
+          "address": "235 S 400 W",
+          "crossStreet": "at Pierpont Ave.",
+          "lat": 40.7640947765476,
+          "lng": -111.9022840887633,
+          "labeledLatLngs": [
+            {
+              "label": "display",
+              "lat": 40.7640947765476,
+              "lng": -111.9022840887633
+            }
+          ],
+          "distance": 157,
+          "postalCode": "84101",
+          "cc": "US",
+          "city": "Salt Lake City",
+          "state": "UT",
+          "country": "United States",
+          "formattedAddress": [
+            "235 S 400 W (at Pierpont Ave.)",
+            "Salt Lake City, UT 84101",
+            "United States"
+          ]
+        },
+        "categories": [
+          {
+            "id": "4bf58dd8d48988d16d941735",
+            "name": "Café",
+            "pluralName": "Cafés",
+            "shortName": "Café",
+            "icon": {
+              "prefix": "https://ss3.4sqi.net/img/categories_v2/food/cafe_",
+              "suffix": ".png"
+            },
+            "primary": true
+          }
+        ],
+        "venuePage": {
+          "id": "105525597"
+        },
+        "referralId": "v-1539187014",
+        "hasPerk": false
+      },
+      {
+        "id": "4b612e69f964a520330c2ae3",
+        "name": "Starbucks",
+        "location": {
+          "address": "224 W 600 S",
+          "lat": 40.75672813,
+          "lng": -111.8976693,
+          "labeledLatLngs": [
+            {
+              "label": "display",
+              "lat": 40.75672813,
+              "lng": -111.8976693
+            }
+          ],
+          "distance": 755,
+          "postalCode": "84101",
+          "cc": "US",
+          "city": "Salt Lake City",
+          "state": "UT",
+          "country": "United States",
+          "formattedAddress": [
+            "224 W 600 S",
+            "Salt Lake City, UT 84101",
+            "United States"
+          ]
+        },
+        "categories": [
+          {
+            "id": "4bf58dd8d48988d1e0931735",
+            "name": "Coffee Shop",
+            "pluralName": "Coffee Shops",
+            "shortName": "Coffee Shop",
+            "icon": {
+              "prefix": "https://ss3.4sqi.net/img/categories_v2/food/coffeeshop_",
+              "suffix": ".png"
+            },
+            "primary": true
+          }
+        ],
+        "referralId": "v-1539187014",
+        "hasPerk": false
+      },
+      {
+        "id": "4b3a6d4ef964a520156725e3",
+        "name": "Starbucks",
+        "location": {
+          "address": "2101 S State St",
+          "lat": 40.72525474680296,
+          "lng": -111.88798696077953,
+          "labeledLatLngs": [
+            {
+              "label": "display",
+              "lat": 40.72525474680296,
+              "lng": -111.88798696077953
+            }
+          ],
+          "distance": 4344,
+          "postalCode": "84115",
+          "cc": "US",
+          "city": "South Salt Lake City",
+          "state": "UT",
+          "country": "United States",
+          "formattedAddress": [
+            "2101 S State St",
+            "South Salt Lake City, UT 84115",
+            "United States"
+          ]
+        },
+        "categories": [
+          {
+            "id": "4bf58dd8d48988d1e0931735",
+            "name": "Coffee Shop",
+            "pluralName": "Coffee Shops",
+            "shortName": "Coffee Shop",
+            "icon": {
+              "prefix": "https://ss3.4sqi.net/img/categories_v2/food/coffeeshop_",
+              "suffix": ".png"
+            },
+            "primary": true
+          }
+        ],
+        "referralId": "v-1539187014",
+        "hasPerk": false
+      },
+      {
+        "id": "4dbaa69b4b22153e34b721a3",
+        "name": "Starbucks",
+        "location": {
+          "address": "474 N 3700 W",
+          "lat": 40.78674345,
+          "lng": -111.9820235,
+          "labeledLatLngs": [
+            {
+              "label": "display",
+              "lat": 40.78674345,
+              "lng": -111.9820235
+            }
+          ],
+          "distance": 7315,
+          "postalCode": "84116",
+          "cc": "US",
+          "city": "Salt Lake City",
+          "state": "UT",
+          "country": "United States",
+          "formattedAddress": [
+            "474 N 3700 W",
+            "Salt Lake City, UT 84116",
+            "United States"
+          ]
+        },
+        "categories": [
+          {
+            "id": "4bf58dd8d48988d1e0931735",
+            "name": "Coffee Shop",
+            "pluralName": "Coffee Shops",
+            "shortName": "Coffee Shop",
+            "icon": {
+              "prefix": "https://ss3.4sqi.net/img/categories_v2/food/coffeeshop_",
+              "suffix": ".png"
+            },
+            "primary": true
+          }
+        ],
+        "referralId": "v-1539187014",
+        "hasPerk": false
+      },
+      {
+        "id": "4b9701a7f964a52013f334e3",
+        "name": "Starbucks",
+        "location": {
+          "address": "701 E 2100 S",
+          "lat": 40.72562530008308,
+          "lng": -111.87084609654704,
+          "labeledLatLngs": [
+            {
+              "label": "display",
+              "lat": 40.72562530008308,
+              "lng": -111.87084609654704
+            }
+          ],
+          "distance": 4880,
+          "postalCode": "84106",
+          "cc": "US",
+          "city": "Salt Lake City",
+          "state": "UT",
+          "country": "United States",
+          "formattedAddress": [
+            "701 E 2100 S",
+            "Salt Lake City, UT 84106",
+            "United States"
+          ]
+        },
+        "categories": [
+          {
+            "id": "4bf58dd8d48988d1e0931735",
+            "name": "Coffee Shop",
+            "pluralName": "Coffee Shops",
+            "shortName": "Coffee Shop",
+            "icon": {
+              "prefix": "https://ss3.4sqi.net/img/categories_v2/food/coffeeshop_",
+              "suffix": ".png"
+            },
+            "primary": true
+          }
+        ],
+        "referralId": "v-1539187014",
+        "hasPerk": false
+      },
+      {
+        "id": "56b630c4498ed26513d49255",
+        "name": "Publik Kitchen",
+        "location": {
+          "address": "931 E 900 S",
+          "lat": 40.75004228675572,
+          "lng": -111.86425903324202,
+          "labeledLatLngs": [
+            {
+              "label": "display",
+              "lat": 40.75004228675572,
+              "lng": -111.86425903324202
+            }
+          ],
+          "distance": 3425,
+          "postalCode": "84105",
+          "cc": "US",
+          "neighborhood": "East Central",
+          "city": "Salt Lake City",
+          "state": "UT",
+          "country": "United States",
+          "formattedAddress": [
+            "931 E 900 S",
+            "Salt Lake City, UT 84105",
+            "United States"
+          ]
+        },
+        "categories": [
+          {
+            "id": "4bf58dd8d48988d143941735",
+            "name": "Breakfast Spot",
+            "pluralName": "Breakfast Spots",
+            "shortName": "Breakfast",
+            "icon": {
+              "prefix": "https://ss3.4sqi.net/img/categories_v2/food/breakfast_",
+              "suffix": ".png"
+            },
+            "primary": true
+          }
+        ],
+        "referralId": "v-1539187014",
+        "hasPerk": false
+      },
+      {
+        "id": "559d9005498e392d515a5e5a",
+        "name": "Starbucks",
+        "location": {
+          "address": "5151 S. State Street",
+          "lat": 40.65947347016134,
+          "lng": -111.88792719703538,
+          "labeledLatLngs": [
+            {
+              "label": "display",
+              "lat": 40.65947347016134,
+              "lng": -111.88792719703538
+            }
+          ],
+          "distance": 11577,
+          "postalCode": "84107",
+          "cc": "US",
+          "city": "Murray",
+          "state": "UT",
+          "country": "United States",
+          "formattedAddress": [
+            "5151 S. State Street",
+            "Murray, UT 84107",
+            "United States"
+          ]
+        },
+        "categories": [
+          {
+            "id": "4bf58dd8d48988d1e0931735",
+            "name": "Coffee Shop",
+            "pluralName": "Coffee Shops",
+            "shortName": "Coffee Shop",
+            "icon": {
+              "prefix": "https://ss3.4sqi.net/img/categories_v2/food/coffeeshop_",
+              "suffix": ".png"
+            },
+            "primary": true
+          }
+        ],
+        "referralId": "v-1539187014",
+        "hasPerk": false
+      },
+      {
+        "id": "4ad4f28ef964a52010fd20e3",
+        "name": "Coffee Garden",
+        "location": {
+          "address": "898 E 900 S",
+          "lat": 40.74965024136162,
+          "lng": -111.86581350721181,
+          "labeledLatLngs": [
+            {
+              "label": "display",
+              "lat": 40.74965024136162,
+              "lng": -111.86581350721181
+            }
+          ],
+          "distance": 3325,
+          "postalCode": "84102",
+          "cc": "US",
+          "city": "Salt Lake City",
+          "state": "UT",
+          "country": "United States",
+          "formattedAddress": [
+            "898 E 900 S",
+            "Salt Lake City, UT 84102",
+            "United States"
+          ]
+        },
+        "categories": [
+          {
+            "id": "4bf58dd8d48988d1e0931735",
+            "name": "Coffee Shop",
+            "pluralName": "Coffee Shops",
+            "shortName": "Coffee Shop",
+            "icon": {
+              "prefix": "https://ss3.4sqi.net/img/categories_v2/food/coffeeshop_",
+              "suffix": ".png"
+            },
+            "primary": true
+          }
+        ],
+        "referralId": "v-1539187014",
+        "hasPerk": false
+      },
+      {
+        "id": "5000134ee4b049e4abacfa60",
+        "name": "French Meadow Bakery",
+        "location": {
+          "address": "Salt Lake City International Airport",
+          "crossStreet": "Terminal 1, Near Gate B4",
+          "lat": 40.786666286950656,
+          "lng": -111.97909988357453,
+          "labeledLatLngs": [
+            {
+              "label": "display",
+              "lat": 40.786666286950656,
+              "lng": -111.97909988357453
+            }
+          ],
+          "distance": 7083,
+          "postalCode": "84116",
+          "cc": "US",
+          "city": "Salt Lake City",
+          "state": "UT",
+          "country": "United States",
+          "formattedAddress": [
+            "Salt Lake City International Airport (Terminal 1, Near Gate B4)",
+            "Salt Lake City, UT 84116",
+            "United States"
+          ]
+        },
+        "categories": [
+          {
+            "id": "4bf58dd8d48988d16a941735",
+            "name": "Bakery",
+            "pluralName": "Bakeries",
+            "shortName": "Bakery",
+            "icon": {
+              "prefix": "https://ss3.4sqi.net/img/categories_v2/food/bakery_",
+              "suffix": ".png"
+            },
+            "primary": true
+          }
+        ],
+        "referralId": "v-1539187014",
+        "hasPerk": false
+      },
+      {
+        "id": "50659f4de4b0bd91e00b97e0",
+        "name": "Starbucks",
+        "location": {
+          "address": "80 S. Main Street",
+          "lat": 40.76742,
+          "lng": -111.89142,
+          "labeledLatLngs": [
+            {
+              "label": "display",
+              "lat": 40.76742,
+              "lng": -111.89142
+            }
+          ],
+          "distance": 952,
+          "postalCode": "84101",
+          "cc": "US",
+          "city": "Salt Lake City",
+          "state": "UT",
+          "country": "United States",
+          "formattedAddress": [
+            "80 S. Main Street",
+            "Salt Lake City, UT 84101",
+            "United States"
+          ]
+        },
+        "categories": [
+          {
+            "id": "4bf58dd8d48988d1e0931735",
+            "name": "Coffee Shop",
+            "pluralName": "Coffee Shops",
+            "shortName": "Coffee Shop",
+            "icon": {
+              "prefix": "https://ss3.4sqi.net/img/categories_v2/food/coffeeshop_",
+              "suffix": ".png"
+            },
+            "primary": true
+          }
+        ],
+        "referralId": "v-1539187014",
+        "hasPerk": false
+      },
+      {
+        "id": "4ad4f28ef964a520d7fc20e3",
+        "name": "Kimpton Hotel Monaco Salt Lake City",
+        "location": {
+          "address": "15 W 200 S",
+          "lat": 40.764754,
+          "lng": -111.891652,
+          "labeledLatLngs": [
+            {
+              "label": "display",
+              "lat": 40.764754,
+              "lng": -111.891652
+            }
+          ],
+          "distance": 820,
+          "postalCode": "84101",
+          "cc": "US",
+          "city": "Salt Lake City",
+          "state": "UT",
+          "country": "United States",
+          "formattedAddress": [
+            "15 W 200 S",
+            "Salt Lake City, UT 84101",
+            "United States"
+          ]
+        },
+        "categories": [
+          {
+            "id": "4bf58dd8d48988d1fa931735",
+            "name": "Hotel",
+            "pluralName": "Hotels",
+            "shortName": "Hotel",
+            "icon": {
+              "prefix": "https://ss3.4sqi.net/img/categories_v2/travel/hotel_",
+              "suffix": ".png"
+            },
+            "primary": true
+          }
+        ],
+        "venuePage": {
+          "id": "90486108"
+        },
+        "referralId": "v-1539187014",
+        "hasPerk": false
+      },
+      {
+        "id": "4fdb4ce9e4b03cded9ce2acc",
+        "name": "Starbucks",
+        "location": {
+          "address": "655 E 400 S",
+          "lat": 40.760914,
+          "lng": -111.87201,
+          "labeledLatLngs": [
+            {
+              "label": "display",
+              "lat": 40.760914,
+              "lng": -111.87201
+            }
+          ],
+          "distance": 2463,
+          "postalCode": "84102",
+          "cc": "US",
+          "city": "Salt Lake City",
+          "state": "UT",
+          "country": "United States",
+          "formattedAddress": [
+            "655 E 400 S",
+            "Salt Lake City, UT 84102",
+            "United States"
+          ]
+        },
+        "categories": [
+          {
+            "id": "4bf58dd8d48988d1e0931735",
+            "name": "Coffee Shop",
+            "pluralName": "Coffee Shops",
+            "shortName": "Coffee Shop",
+            "icon": {
+              "prefix": "https://ss3.4sqi.net/img/categories_v2/food/coffeeshop_",
+              "suffix": ".png"
+            },
+            "primary": true
+          }
+        ],
+        "referralId": "v-1539187014",
+        "hasPerk": false
+      },
+      {
+        "id": "50f19acde4b036c5c8613022",
+        "name": "Eva's Bakery",
+        "location": {
+          "address": "155 S Main St",
+          "lat": 40.76578932405195,
+          "lng": -111.89082815252097,
+          "labeledLatLngs": [
+            {
+              "label": "display",
+              "lat": 40.76578932405195,
+              "lng": -111.89082815252097
+            }
+          ],
+          "distance": 920,
+          "postalCode": "84111",
+          "cc": "US",
+          "city": "Salt Lake City",
+          "state": "UT",
+          "country": "United States",
+          "formattedAddress": [
+            "155 S Main St",
+            "Salt Lake City, UT 84111",
+            "United States"
+          ]
+        },
+        "categories": [
+          {
+            "id": "4bf58dd8d48988d16a941735",
+            "name": "Bakery",
+            "pluralName": "Bakeries",
+            "shortName": "Bakery",
+            "icon": {
+              "prefix": "https://ss3.4sqi.net/img/categories_v2/food/bakery_",
+              "suffix": ".png"
+            },
+            "primary": true
+          }
+        ],
+        "referralId": "v-1539187014",
+        "hasPerk": false
+      },
+      {
+        "id": "50acf052e4b0c7ff4f20e283",
+        "name": "Market Street Grill",
+        "location": {
+          "address": "Terminal 2",
+          "crossStreet": "Salt Lake City International Airport",
+          "lat": 40.78708496350304,
+          "lng": -111.98235386793033,
+          "labeledLatLngs": [
+            {
+              "label": "display",
+              "lat": 40.78708496350304,
+              "lng": -111.98235386793033
+            }
+          ],
+          "distance": 7355,
+          "postalCode": "84116",
+          "cc": "US",
+          "city": "Salt Lake City",
+          "state": "UT",
+          "country": "United States",
+          "formattedAddress": [
+            "Terminal 2 (Salt Lake City International Airport)",
+            "Salt Lake City, UT 84116",
+            "United States"
+          ]
+        },
+        "categories": [
+          {
+            "id": "4bf58dd8d48988d1ce941735",
+            "name": "Seafood Restaurant",
+            "pluralName": "Seafood Restaurants",
+            "shortName": "Seafood",
+            "icon": {
+              "prefix": "https://ss3.4sqi.net/img/categories_v2/food/seafood_",
+              "suffix": ".png"
+            },
+            "primary": true
+          }
+        ],
+        "referralId": "v-1539187014",
+        "hasPerk": false
+      },
+      {
+        "id": "5869575a1b36d41b5b187ead",
+        "name": "Three Pines Coffee",
+        "location": {
+          "address": "52 E Gallivan Ave",
+          "lat": 40.765501517317624,
+          "lng": -111.89115077400044,
+          "labeledLatLngs": [
+            {
+              "label": "display",
+              "lat": 40.765501517317624,
+              "lng": -111.89115077400044
+            }
+          ],
+          "distance": 883,
+          "postalCode": "84111",
+          "cc": "US",
+          "city": "Salt Lake City",
+          "state": "UT",
+          "country": "United States",
+          "formattedAddress": [
+            "52 E Gallivan Ave",
+            "Salt Lake City, UT 84111",
+            "United States"
+          ]
+        },
+        "categories": [
+          {
+            "id": "4bf58dd8d48988d1e0931735",
+            "name": "Coffee Shop",
+            "pluralName": "Coffee Shops",
+            "shortName": "Coffee Shop",
+            "icon": {
+              "prefix": "https://ss3.4sqi.net/img/categories_v2/food/coffeeshop_",
+              "suffix": ".png"
+            },
+            "primary": true
+          }
+        ],
+        "referralId": "v-1539187014",
+        "hasPerk": false
+      },
+      {
+        "id": "4b083a35f964a520c80623e3",
+        "name": "Starbucks",
+        "location": {
+          "address": "2727 West 3500 South",
+          "lat": 40.69636551,
+          "lng": -111.958339,
+          "labeledLatLngs": [
+            {
+              "label": "display",
+              "lat": 40.69636551,
+              "lng": -111.958339
+            }
+          ],
+          "distance": 8850,
+          "postalCode": "84119",
+          "cc": "US",
+          "city": "West Valley City",
+          "state": "UT",
+          "country": "United States",
+          "formattedAddress": [
+            "2727 West 3500 South",
+            "West Valley City, UT 84119",
+            "United States"
+          ]
+        },
+        "categories": [
+          {
+            "id": "4bf58dd8d48988d1e0931735",
+            "name": "Coffee Shop",
+            "pluralName": "Coffee Shops",
+            "shortName": "Coffee Shop",
+            "icon": {
+              "prefix": "https://ss3.4sqi.net/img/categories_v2/food/coffeeshop_",
+              "suffix": ".png"
+            },
+            "primary": true
+          }
+        ],
+        "referralId": "v-1539187014",
+        "hasPerk": false
+      },
+      {
+        "id": "5096a7b1e4b0a7026376e116",
+        "name": "Popeyes Louisiana Kitchen",
+        "location": {
+          "address": "Salt Lake International",
+          "lat": 40.788130102212726,
+          "lng": -111.97853390115384,
+          "labeledLatLngs": [
+            {
+              "label": "display",
+              "lat": 40.788130102212726,
+              "lng": -111.97853390115384
+            }
+          ],
+          "distance": 7101,
+          "postalCode": "84116",
+          "cc": "US",
+          "city": "Salt Lake City",
+          "state": "UT",
+          "country": "United States",
+          "formattedAddress": [
+            "Salt Lake International",
+            "Salt Lake City, UT 84116",
+            "United States"
+          ]
+        },
+        "categories": [
+          {
+            "id": "4d4ae6fc7a7b7dea34424761",
+            "name": "Fried Chicken Joint",
+            "pluralName": "Fried Chicken Joints",
+            "shortName": "Fried Chicken",
+            "icon": {
+              "prefix": "https://ss3.4sqi.net/img/categories_v2/food/friedchicken_",
+              "suffix": ".png"
+            },
+            "primary": true
+          }
+        ],
+        "referralId": "v-1539187014",
+        "hasPerk": false
+      },
+      {
+        "id": "5050ff94e4b006e3d2d92bda",
+        "name": "Cat Cora's Kitchen",
+        "location": {
+          "address": "776 N Terminal Dr",
+          "lat": 40.78771009321678,
+          "lng": -111.97845670636706,
+          "labeledLatLngs": [
+            {
+              "label": "display",
+              "lat": 40.78771009321678,
+              "lng": -111.97845670636706
+            }
+          ],
+          "distance": 7077,
+          "postalCode": "84122",
+          "cc": "US",
+          "city": "Salt Lake City",
+          "state": "UT",
+          "country": "United States",
+          "formattedAddress": [
+            "776 N Terminal Dr",
+            "Salt Lake City, UT 84122",
+            "United States"
+          ]
+        },
+        "categories": [
+          {
+            "id": "4bf58dd8d48988d157941735",
+            "name": "New American Restaurant",
+            "pluralName": "New American Restaurants",
+            "shortName": "New American",
+            "icon": {
+              "prefix": "https://ss3.4sqi.net/img/categories_v2/food/newamerican_",
+              "suffix": ".png"
+            },
+            "primary": true
+          }
+        ],
+        "referralId": "v-1539187014",
+        "hasPerk": false
+      },
+      {
+        "id": "4b4d5815f964a52016d126e3",
+        "name": "McDonald's",
+        "location": {
+          "address": "210 W 500 S",
+          "lat": 40.75905727697256,
+          "lng": -111.89738117159777,
+          "labeledLatLngs": [
+            {
+              "label": "display",
+              "lat": 40.75905727697256,
+              "lng": -111.89738117159777
+            }
+          ],
+          "distance": 539,
+          "postalCode": "84101",
+          "cc": "US",
+          "city": "Salt Lake City",
+          "state": "UT",
+          "country": "United States",
+          "formattedAddress": [
+            "210 W 500 S",
+            "Salt Lake City, UT 84101",
+            "United States"
+          ]
+        },
+        "categories": [
+          {
+            "id": "4bf58dd8d48988d16e941735",
+            "name": "Fast Food Restaurant",
+            "pluralName": "Fast Food Restaurants",
+            "shortName": "Fast Food",
+            "icon": {
+              "prefix": "https://ss3.4sqi.net/img/categories_v2/food/fastfood_",
+              "suffix": ".png"
+            },
+            "primary": true
+          }
+        ],
+        "referralId": "v-1539187014",
+        "hasPerk": false
+      },
+      {
+        "id": "4c3d4644b169c9b645ea4668",
+        "name": "Love's Travel Stop",
+        "location": {
+          "address": "25 N Redwood Rd",
+          "crossStreet": "on I-80 & Redwood Rd,  Exit 118",
+          "lat": 40.76990946572283,
+          "lng": -111.93989321529936,
+          "labeledLatLngs": [
+            {
+              "label": "display",
+              "lat": 40.76990946572283,
+              "lng": -111.93989321529936
+            }
+          ],
+          "distance": 3359,
+          "postalCode": "84116",
+          "cc": "US",
+          "city": "Salt Lake City",
+          "state": "UT",
+          "country": "United States",
+          "formattedAddress": [
+            "25 N Redwood Rd (on I-80 & Redwood Rd,  Exit 118)",
+            "Salt Lake City, UT 84116",
+            "United States"
+          ]
+        },
+        "categories": [
+          {
+            "id": "4bf58dd8d48988d113951735",
+            "name": "Gas Station",
+            "pluralName": "Gas Stations",
+            "shortName": "Gas Station",
+            "icon": {
+              "prefix": "https://ss3.4sqi.net/img/categories_v2/shops/gas_",
+              "suffix": ".png"
+            },
+            "primary": true
+          }
+        ],
+        "referralId": "v-1539187014",
+        "hasPerk": false
+      },
+      {
+        "id": "4b1c08a8f964a520080124e3",
+        "name": "Eggs In the City",
+        "location": {
+          "address": "1675 E 1300 S",
+          "lat": 40.7418235167977,
+          "lng": -111.84252362635655,
+          "labeledLatLngs": [
+            {
+              "label": "display",
+              "lat": 40.7418235167977,
+              "lng": -111.84252362635655
+            }
+          ],
+          "distance": 5473,
+          "postalCode": "84105",
+          "cc": "US",
+          "city": "Salt Lake City",
+          "state": "UT",
+          "country": "United States",
+          "formattedAddress": [
+            "1675 E 1300 S",
+            "Salt Lake City, UT 84105",
+            "United States"
+          ]
+        },
+        "categories": [
+          {
+            "id": "4bf58dd8d48988d143941735",
+            "name": "Breakfast Spot",
+            "pluralName": "Breakfast Spots",
+            "shortName": "Breakfast",
+            "icon": {
+              "prefix": "https://ss3.4sqi.net/img/categories_v2/food/breakfast_",
+              "suffix": ".png"
+            },
+            "primary": true
+          }
+        ],
+        "referralId": "v-1539187014",
+        "hasPerk": false
+      },
+      {
+        "id": "4f8a4751e4b00a6262b29278",
+        "name": "Cafe Rio Mexican Grill",
+        "location": {
+          "address": "776 N Terminal Dr",
+          "crossStreet": "Behind Security Between C & D Concourse",
+          "lat": 40.78709644670482,
+          "lng": -111.98254025686934,
+          "labeledLatLngs": [
+            {
+              "label": "display",
+              "lat": 40.78709644670482,
+              "lng": -111.98254025686934
+            }
+          ],
+          "distance": 7370,
+          "postalCode": "84122",
+          "cc": "US",
+          "city": "Salt Lake City",
+          "state": "UT",
+          "country": "United States",
+          "formattedAddress": [
+            "776 N Terminal Dr (Behind Security Between C & D Concourse)",
+            "Salt Lake City, UT 84122",
+            "United States"
+          ]
+        },
+        "categories": [
+          {
+            "id": "4bf58dd8d48988d1c1941735",
+            "name": "Mexican Restaurant",
+            "pluralName": "Mexican Restaurants",
+            "shortName": "Mexican",
+            "icon": {
+              "prefix": "https://ss3.4sqi.net/img/categories_v2/food/mexican_",
+              "suffix": ".png"
+            },
+            "primary": true
+          }
+        ],
+        "referralId": "v-1539187014",
+        "hasPerk": false
+      },
+      {
+        "id": "537d2314498e3b8f3665265d",
+        "name": "Publik Coffee Roasters",
+        "location": {
+          "address": "975 S West Temple",
+          "lat": 40.747803,
+          "lng": -111.8935,
+          "labeledLatLngs": [
+            {
+              "label": "display",
+              "lat": 40.747803,
+              "lng": -111.8935
+            }
+          ],
+          "distance": 1809,
+          "postalCode": "84101",
+          "cc": "US",
+          "city": "Salt Lake City",
+          "state": "UT",
+          "country": "United States",
+          "formattedAddress": [
+            "975 S West Temple",
+            "Salt Lake City, UT 84101",
+            "United States"
+          ]
+        },
+        "categories": [
+          {
+            "id": "4bf58dd8d48988d1e0931735",
+            "name": "Coffee Shop",
+            "pluralName": "Coffee Shops",
+            "shortName": "Coffee Shop",
+            "icon": {
+              "prefix": "https://ss3.4sqi.net/img/categories_v2/food/coffeeshop_",
+              "suffix": ".png"
+            },
+            "primary": true
+          }
+        ],
+        "referralId": "v-1539187014",
+        "hasPerk": false
+      },
+      {
+        "id": "500d84131648cb60d50b86ad",
+        "name": "Smashburger",
+        "location": {
+          "address": "776 N Terminal Dr",
+          "crossStreet": "at Concourse D (SLC Airport)",
+          "lat": 40.78821043714702,
+          "lng": -111.98464793154264,
+          "labeledLatLngs": [
+            {
+              "label": "display",
+              "lat": 40.78821043714702,
+              "lng": -111.98464793154264
+            }
+          ],
+          "distance": 7581,
+          "postalCode": "84122",
+          "cc": "US",
+          "city": "Salt Lake City",
+          "state": "UT",
+          "country": "United States",
+          "formattedAddress": [
+            "776 N Terminal Dr (at Concourse D (SLC Airport))",
+            "Salt Lake City, UT 84122",
+            "United States"
+          ]
+        },
+        "categories": [
+          {
+            "id": "4bf58dd8d48988d16c941735",
+            "name": "Burger Joint",
+            "pluralName": "Burger Joints",
+            "shortName": "Burgers",
+            "icon": {
+              "prefix": "https://ss3.4sqi.net/img/categories_v2/food/burger_",
+              "suffix": ".png"
+            },
+            "primary": true
+          }
+        ],
+        "referralId": "v-1539187014",
+        "hasPerk": false
+      },
+      {
+        "id": "4b2c3cc7f964a5205ec424e3",
+        "name": "McDonald's",
+        "location": {
+          "address": "242 S 700 E",
+          "lat": 40.763845364696266,
+          "lng": -111.87153048347454,
+          "labeledLatLngs": [
+            {
+              "label": "display",
+              "lat": 40.763845364696266,
+              "lng": -111.87153048347454
+            }
+          ],
+          "distance": 2494,
+          "postalCode": "84102",
+          "cc": "US",
+          "city": "Salt Lake City",
+          "state": "UT",
+          "country": "United States",
+          "formattedAddress": [
+            "242 S 700 E",
+            "Salt Lake City, UT 84102",
+            "United States"
+          ]
+        },
+        "categories": [
+          {
+            "id": "4bf58dd8d48988d16e941735",
+            "name": "Fast Food Restaurant",
+            "pluralName": "Fast Food Restaurants",
+            "shortName": "Fast Food",
+            "icon": {
+              "prefix": "https://ss3.4sqi.net/img/categories_v2/food/fastfood_",
+              "suffix": ".png"
+            },
+            "primary": true
+          }
+        ],
+        "referralId": "v-1539187014",
+        "hasPerk": false
+      },
+      {
+        "id": "5139f519e4b0ab02209951b5",
+        "name": "Chick-fil-A",
+        "location": {
+          "address": "5175 S State St",
+          "lat": 40.659071,
+          "lng": -111.887848,
+          "labeledLatLngs": [
+            {
+              "label": "display",
+              "lat": 40.659071,
+              "lng": -111.887848
+            }
+          ],
+          "distance": 11623,
+          "postalCode": "84107",
+          "cc": "US",
+          "city": "Murray",
+          "state": "UT",
+          "country": "United States",
+          "formattedAddress": [
+            "5175 S State St",
+            "Murray, UT 84107",
+            "United States"
+          ]
+        },
+        "categories": [
+          {
+            "id": "4bf58dd8d48988d16e941735",
+            "name": "Fast Food Restaurant",
+            "pluralName": "Fast Food Restaurants",
+            "shortName": "Fast Food",
+            "icon": {
+              "prefix": "https://ss3.4sqi.net/img/categories_v2/food/fastfood_",
+              "suffix": ".png"
+            },
+            "primary": true
+          }
+        ],
+        "referralId": "v-1539187014",
+        "hasPerk": false
+      },
+      {
+        "id": "4b5dc929f964a5208d6b29e3",
+        "name": "Corner Bakery Cafe",
+        "location": {
+          "address": "610 Foothill Blvd,",
+          "lat": 40.754811,
+          "lng": -111.83383,
+          "labeledLatLngs": [
+            {
+              "label": "display",
+              "lat": 40.754811,
+              "lng": -111.83383
+            }
+          ],
+          "distance": 5744,
+          "postalCode": "84113",
+          "cc": "US",
+          "city": "Salt Lake City",
+          "state": "UT",
+          "country": "United States",
+          "formattedAddress": [
+            "610 Foothill Blvd,",
+            "Salt Lake City, UT 84113",
+            "United States"
+          ]
+        },
+        "categories": [
+          {
+            "id": "4bf58dd8d48988d16a941735",
+            "name": "Bakery",
+            "pluralName": "Bakeries",
+            "shortName": "Bakery",
+            "icon": {
+              "prefix": "https://ss3.4sqi.net/img/categories_v2/food/bakery_",
+              "suffix": ".png"
+            },
+            "primary": true
+          }
+        ],
+        "referralId": "v-1539187014",
+        "hasPerk": false
+      },
+      {
+        "id": "5ae79e648194fc002c343ca4",
+        "name": "Gordon Biersch Brewery Restaurant",
+        "location": {
+          "lat": 40.78576456359024,
+          "lng": -111.97963215555065,
+          "labeledLatLngs": [
+            {
+              "label": "display",
+              "lat": 40.78576456359024,
+              "lng": -111.97963215555065
+            }
+          ],
+          "distance": 7088,
+          "postalCode": "84122",
+          "cc": "US",
+          "city": "Salt Lake City",
+          "state": "UT",
+          "country": "United States",
+          "formattedAddress": [
+            "Salt Lake City, UT 84122",
+            "United States"
+          ]
+        },
+        "categories": [
+          {
+            "id": "4bf58dd8d48988d14e941735",
+            "name": "American Restaurant",
+            "pluralName": "American Restaurants",
+            "shortName": "American",
+            "icon": {
+              "prefix": "https://ss3.4sqi.net/img/categories_v2/food/default_",
+              "suffix": ".png"
+            },
+            "primary": true
+          }
+        ],
+        "referralId": "v-1539187014",
+        "hasPerk": false
+      },
+      {
+        "id": "4b077142f964a520a3fd22e3",
+        "name": "Gourmandise - The Bakery",
+        "location": {
+          "address": "250 S 300 E",
+          "crossStreet": "btwn 200 S & 300 S",
+          "lat": 40.76381607648126,
+          "lng": -111.8830002839329,
+          "labeledLatLngs": [
+            {
+              "label": "display",
+              "lat": 40.76381607648126,
+              "lng": -111.8830002839329
+            }
+          ],
+          "distance": 1528,
+          "postalCode": "84111",
+          "cc": "US",
+          "city": "Salt Lake City",
+          "state": "UT",
+          "country": "United States",
+          "formattedAddress": [
+            "250 S 300 E (btwn 200 S & 300 S)",
+            "Salt Lake City, UT 84111",
+            "United States"
+          ]
+        },
+        "categories": [
+          {
+            "id": "4bf58dd8d48988d16a941735",
+            "name": "Bakery",
+            "pluralName": "Bakeries",
+            "shortName": "Bakery",
+            "icon": {
+              "prefix": "https://ss3.4sqi.net/img/categories_v2/food/bakery_",
+              "suffix": ".png"
+            },
+            "primary": true
+          }
+        ],
+        "delivery": {
+          "id": "859629",
+          "url": "https://www.grubhub.com/restaurant/gourmandise-the-bakery-250-s-300-e-salt-lake-city/859629?affiliate=1131&utm_source=foursquare-affiliate-network&utm_medium=affiliate&utm_campaign=1131&utm_content=859629",
+          "provider": {
+            "name": "grubhub",
+            "icon": {
+              "prefix": "https://igx.4sqi.net/img/general/cap/",
+              "sizes": [
+                40,
+                50
+              ],
+              "name": "/delivery_provider_grubhub_20180129.png"
+            }
+          }
+        },
+        "referralId": "v-1539187014",
+        "hasPerk": false
+      },
+      {
+        "id": "53aa1ad9498e98d78b9dc4d4",
+        "name": "Even Stevens Sandwiches",
+        "location": {
+          "address": "200 S 414 E",
+          "lat": 40.764635599826335,
+          "lng": -111.87904666842637,
+          "labeledLatLngs": [
+            {
+              "label": "display",
+              "lat": 40.764635599826335,
+              "lng": -111.87904666842637
+            }
+          ],
+          "distance": 1868,
+          "postalCode": "84111",
+          "cc": "US",
+          "city": "Salt Lake City",
+          "state": "UT",
+          "country": "United States",
+          "formattedAddress": [
+            "200 S 414 E",
+            "Salt Lake City, UT 84111",
+            "United States"
+          ]
+        },
+        "categories": [
+          {
+            "id": "4bf58dd8d48988d1c5941735",
+            "name": "Sandwich Place",
+            "pluralName": "Sandwich Places",
+            "shortName": "Sandwiches",
+            "icon": {
+              "prefix": "https://ss3.4sqi.net/img/categories_v2/food/deli_",
+              "suffix": ".png"
+            },
+            "primary": true
+          }
+        ],
+        "referralId": "v-1539187014",
+        "hasPerk": false
+      },
+      {
+        "id": "5a8f2911d3cce805ecf41030",
+        "name": "Pretty Bird",
+        "location": {
+          "lat": 40.76587842187219,
+          "lng": -111.88993179434965,
+          "labeledLatLngs": [
+            {
+              "label": "display",
+              "lat": 40.76587842187219,
+              "lng": -111.88993179434965
+            }
+          ],
+          "distance": 994,
+          "postalCode": "84111",
+          "cc": "US",
+          "city": "Salt Lake City",
+          "state": "UT",
+          "country": "United States",
+          "formattedAddress": [
+            "Salt Lake City, UT 84111",
+            "United States"
+          ]
+        },
+        "categories": [
+          {
+            "id": "4d4ae6fc7a7b7dea34424761",
+            "name": "Fried Chicken Joint",
+            "pluralName": "Fried Chicken Joints",
+            "shortName": "Fried Chicken",
+            "icon": {
+              "prefix": "https://ss3.4sqi.net/img/categories_v2/food/friedchicken_",
+              "suffix": ".png"
+            },
+            "primary": true
+          }
+        ],
+        "referralId": "v-1539187014",
+        "hasPerk": false
+      },
+      {
+        "id": "4ebc1a932c5bf3fb89471ba9",
+        "name": "Chick-fil-A",
+        "location": {
+          "address": "1206 E 2100 S",
+          "lat": 40.725215,
+          "lng": -111.856483,
+          "labeledLatLngs": [
+            {
+              "label": "display",
+              "lat": 40.725215,
+              "lng": -111.856483
+            }
+          ],
+          "distance": 5643,
+          "postalCode": "84106",
+          "cc": "US",
+          "city": "Salt Lake City",
+          "state": "UT",
+          "country": "United States",
+          "formattedAddress": [
+            "1206 E 2100 S",
+            "Salt Lake City, UT 84106",
+            "United States"
+          ]
+        },
+        "categories": [
+          {
+            "id": "4bf58dd8d48988d16e941735",
+            "name": "Fast Food Restaurant",
+            "pluralName": "Fast Food Restaurants",
+            "shortName": "Fast Food",
+            "icon": {
+              "prefix": "https://ss3.4sqi.net/img/categories_v2/food/fastfood_",
+              "suffix": ".png"
+            },
+            "primary": true
+          }
+        ],
+        "referralId": "v-1539187014",
+        "hasPerk": false
+      },
+      {
+        "id": "582790bd7a4d7f479e430db7",
+        "name": "Thirst",
+        "location": {
+          "address": "38 E 1300 S",
+          "lat": 40.74140295194365,
+          "lng": -111.889392083037,
+          "labeledLatLngs": [
+            {
+              "label": "display",
+              "lat": 40.74140295194365,
+              "lng": -111.889392083037
+            }
+          ],
+          "distance": 2598,
+          "postalCode": "84115",
+          "cc": "US",
+          "city": "Salt Lake City",
+          "state": "UT",
+          "country": "United States",
+          "formattedAddress": [
+            "38 E 1300 S",
+            "Salt Lake City, UT 84115",
+            "United States"
+          ]
+        },
+        "categories": [
+          {
+            "id": "4bf58dd8d48988d16e941735",
+            "name": "Fast Food Restaurant",
+            "pluralName": "Fast Food Restaurants",
+            "shortName": "Fast Food",
+            "icon": {
+              "prefix": "https://ss3.4sqi.net/img/categories_v2/food/fastfood_",
+              "suffix": ".png"
+            },
+            "primary": true
+          }
+        ],
+        "referralId": "v-1539187014",
+        "hasPerk": false
+      },
+      {
+        "id": "5063bc89e4b0f8bfa6c9d79d",
+        "name": "Zest Kitchen & Bar",
+        "location": {
+          "address": "275 S 200 W",
+          "crossStreet": "West Broadway",
+          "lat": 40.76329589428238,
+          "lng": -111.89649313667098,
+          "labeledLatLngs": [
+            {
+              "label": "display",
+              "lat": 40.76329589428238,
+              "lng": -111.89649313667098
+            }
+          ],
+          "distance": 389,
+          "postalCode": "84101",
+          "cc": "US",
+          "city": "Salt Lake City",
+          "state": "UT",
+          "country": "United States",
+          "formattedAddress": [
+            "275 S 200 W (West Broadway)",
+            "Salt Lake City, UT 84101",
+            "United States"
+          ]
+        },
+        "categories": [
+          {
+            "id": "4c2cd86ed066bed06c3c5209",
+            "name": "Gluten-free Restaurant",
+            "pluralName": "Gluten-free Restaurants",
+            "shortName": "Gluten-free",
+            "icon": {
+              "prefix": "https://ss3.4sqi.net/img/categories_v2/food/glutenfree_",
+              "suffix": ".png"
+            },
+            "primary": true
+          }
+        ],
+        "venuePage": {
+          "id": "61713830"
+        },
+        "referralId": "v-1539187014",
+        "hasPerk": false
+      },
+      {
+        "id": "4ad4f28ef964a52013fd20e3",
+        "name": "Red Rock Brewing Co.",
+        "location": {
+          "address": "254 S 200 W",
+          "crossStreet": "btwn W Broadway & W 200 S",
+          "lat": 40.76371377115242,
+          "lng": -111.89713768871168,
+          "labeledLatLngs": [
+            {
+              "label": "display",
+              "lat": 40.76371377115242,
+              "lng": -111.89713768871168
+            }
+          ],
+          "distance": 343,
+          "postalCode": "84101",
+          "cc": "US",
+          "city": "Salt Lake City",
+          "state": "UT",
+          "country": "United States",
+          "formattedAddress": [
+            "254 S 200 W (btwn W Broadway & W 200 S)",
+            "Salt Lake City, UT 84101",
+            "United States"
+          ]
+        },
+        "categories": [
+          {
+            "id": "50327c8591d4c4b30a586d5d",
+            "name": "Brewery",
+            "pluralName": "Breweries",
+            "shortName": "Brewery",
+            "icon": {
+              "prefix": "https://ss3.4sqi.net/img/categories_v2/food/brewery_",
+              "suffix": ".png"
+            },
+            "primary": true
+          }
+        ],
+        "referralId": "v-1539187014",
+        "hasPerk": false
+      },
+      {
+        "id": "594589aef62f2b6488e63c14",
+        "name": "White Horse Spirits & Kitchen",
+        "location": {
+          "address": "325 Main St",
+          "lat": 40.762074350766,
+          "lng": -111.89080215938,
+          "labeledLatLngs": [
+            {
+              "label": "display",
+              "lat": 40.762074350766,
+              "lng": -111.89080215938
+            }
+          ],
+          "distance": 874,
+          "postalCode": "84111",
+          "cc": "US",
+          "city": "Salt Lake City",
+          "state": "UT",
+          "country": "United States",
+          "formattedAddress": [
+            "325 Main St",
+            "Salt Lake City, UT 84111",
+            "United States"
+          ]
+        },
+        "categories": [
+          {
+            "id": "4bf58dd8d48988d122941735",
+            "name": "Whisky Bar",
+            "pluralName": "Whisky Bars",
+            "shortName": "Whisky Bar",
+            "icon": {
+              "prefix": "https://ss3.4sqi.net/img/categories_v2/nightlife/whiskey_",
+              "suffix": ".png"
+            },
+            "primary": true
+          }
+        ],
+        "referralId": "v-1539187014",
+        "hasPerk": false
+      },
+      {
+        "id": "4ad4f28ef964a52029fd20e3",
+        "name": "Salt Lake Coffee Break",
+        "location": {
+          "address": "430 E 400 S",
+          "lat": 40.76047318429251,
+          "lng": -111.87852096071731,
+          "labeledLatLngs": [
+            {
+              "label": "display",
+              "lat": 40.76047318429251,
+              "lng": -111.87852096071731
+            }
+          ],
+          "distance": 1924,
+          "postalCode": "84111",
+          "cc": "US",
+          "city": "Salt Lake City",
+          "state": "UT",
+          "country": "United States",
+          "formattedAddress": [
+            "430 E 400 S",
+            "Salt Lake City, UT 84111",
+            "United States"
+          ]
+        },
+        "categories": [
+          {
+            "id": "4bf58dd8d48988d1e0931735",
+            "name": "Coffee Shop",
+            "pluralName": "Coffee Shops",
+            "shortName": "Coffee Shop",
+            "icon": {
+              "prefix": "https://ss3.4sqi.net/img/categories_v2/food/coffeeshop_",
+              "suffix": ".png"
+            },
+            "primary": true
+          }
+        ],
+        "referralId": "v-1539187014",
+        "hasPerk": false
+      },
+      {
+        "id": "4b2bdea5f964a520b2bc24e3",
+        "name": "Crown Burger",
+        "location": {
+          "address": "118 N 300 W",
+          "crossStreet": "at North Temple",
+          "lat": 40.77189947091721,
+          "lng": -111.89913075855628,
+          "labeledLatLngs": [
+            {
+              "label": "display",
+              "lat": 40.77189947091721,
+              "lng": -111.89913075855628
+            }
+          ],
+          "distance": 1004,
+          "postalCode": "84103",
+          "cc": "US",
+          "city": "Salt Lake City",
+          "state": "UT",
+          "country": "United States",
+          "formattedAddress": [
+            "118 N 300 W (at North Temple)",
+            "Salt Lake City, UT 84103",
+            "United States"
+          ]
+        },
+        "categories": [
+          {
+            "id": "4bf58dd8d48988d16c941735",
+            "name": "Burger Joint",
+            "pluralName": "Burger Joints",
+            "shortName": "Burgers",
+            "icon": {
+              "prefix": "https://ss3.4sqi.net/img/categories_v2/food/burger_",
+              "suffix": ".png"
+            },
+            "primary": true
+          }
+        ],
+        "referralId": "v-1539187014",
+        "hasPerk": false
+      },
+      {
+        "id": "5422e59b498e5f5c07c5bd61",
+        "name": "Wasatch Brew Pub",
+        "location": {
+          "address": "2110 S Highland Dr",
+          "lat": 40.72525826365627,
+          "lng": -111.86005663000391,
+          "labeledLatLngs": [
+            {
+              "label": "display",
+              "lat": 40.72525826365627,
+              "lng": -111.86005663000391
+            }
+          ],
+          "distance": 5443,
+          "postalCode": "84106",
+          "cc": "US",
+          "city": "Salt Lake City",
+          "state": "UT",
+          "country": "United States",
+          "formattedAddress": [
+            "2110 S Highland Dr",
+            "Salt Lake City, UT 84106",
+            "United States"
+          ]
+        },
+        "categories": [
+          {
+            "id": "4bf58dd8d48988d155941735",
+            "name": "Gastropub",
+            "pluralName": "Gastropubs",
+            "shortName": "Gastropub",
+            "icon": {
+              "prefix": "https://ss3.4sqi.net/img/categories_v2/food/gastropub_",
+              "suffix": ".png"
+            },
+            "primary": true
+          }
+        ],
+        "referralId": "v-1539187014",
+        "hasPerk": false
+      },
+      {
+        "id": "4aea79adf964a520b3bb21e3",
+        "name": "The Green Pig Pub",
+        "location": {
+          "address": "31 E 400 S",
+          "lat": 40.76079218948593,
+          "lng": -111.88987494764773,
+          "labeledLatLngs": [
+            {
+              "label": "display",
+              "lat": 40.76079218948593,
+              "lng": -111.88987494764773
+            }
+          ],
+          "distance": 977,
+          "postalCode": "84111",
+          "cc": "US",
+          "city": "Salt Lake City",
+          "state": "UT",
+          "country": "United States",
+          "formattedAddress": [
+            "31 E 400 S",
+            "Salt Lake City, UT 84111",
+            "United States"
+          ]
+        },
+        "categories": [
+          {
+            "id": "4bf58dd8d48988d116941735",
+            "name": "Bar",
+            "pluralName": "Bars",
+            "shortName": "Bar",
+            "icon": {
+              "prefix": "https://ss3.4sqi.net/img/categories_v2/nightlife/pub_",
+              "suffix": ".png"
+            },
+            "primary": true
+          }
+        ],
+        "venuePage": {
+          "id": "55846859"
+        },
+        "referralId": "v-1539187014",
+        "hasPerk": false
+      },
+      {
+        "id": "4ae7198ef964a52067a821e3",
+        "name": "Squatters Pub Brewery",
+        "location": {
+          "address": "147 W Broadway",
+          "crossStreet": "at W 300 S",
+          "lat": 40.762552336133,
+          "lng": -111.89547300338744,
+          "labeledLatLngs": [
+            {
+              "label": "display",
+              "lat": 40.762552336133,
+              "lng": -111.89547300338744
+            }
+          ],
+          "distance": 477,
+          "postalCode": "84101",
+          "cc": "US",
+          "city": "Salt Lake City",
+          "state": "UT",
+          "country": "United States",
+          "formattedAddress": [
+            "147 W Broadway (at W 300 S)",
+            "Salt Lake City, UT 84101",
+            "United States"
+          ]
+        },
+        "categories": [
+          {
+            "id": "50327c8591d4c4b30a586d5d",
+            "name": "Brewery",
+            "pluralName": "Breweries",
+            "shortName": "Brewery",
+            "icon": {
+              "prefix": "https://ss3.4sqi.net/img/categories_v2/food/brewery_",
+              "suffix": ".png"
+            },
+            "primary": true
+          }
+        ],
+        "venuePage": {
+          "id": "59601096"
+        },
+        "referralId": "v-1539187014",
+        "hasPerk": false
+      },
+      {
+        "id": "522e1d7793cd2ee6843d7aff",
+        "name": "Spitz",
+        "location": {
+          "address": "35 E Broadway",
+          "lat": 40.762897094522394,
+          "lng": -111.89005021500816,
+          "labeledLatLngs": [
+            {
+              "label": "display",
+              "lat": 40.762897094522394,
+              "lng": -111.89005021500816
+            }
+          ],
+          "distance": 931,
+          "postalCode": "84111",
+          "cc": "US",
+          "city": "Salt Lake City",
+          "state": "UT",
+          "country": "United States",
+          "formattedAddress": [
+            "35 E Broadway",
+            "Salt Lake City, UT 84111",
+            "United States"
+          ]
+        },
+        "categories": [
+          {
+            "id": "4bf58dd8d48988d1c0941735",
+            "name": "Mediterranean Restaurant",
+            "pluralName": "Mediterranean Restaurants",
+            "shortName": "Mediterranean",
+            "icon": {
+              "prefix": "https://ss3.4sqi.net/img/categories_v2/food/mediterranean_",
+              "suffix": ".png"
+            },
+            "primary": true
+          }
+        ],
+        "delivery": {
+          "id": "376476",
+          "url": "https://www.grubhub.com/restaurant/spitz-downtown-35-e-broadway-salt-lake-city/376476?affiliate=1131&utm_source=foursquare-affiliate-network&utm_medium=affiliate&utm_campaign=1131&utm_content=376476",
+          "provider": {
+            "name": "grubhub",
+            "icon": {
+              "prefix": "https://igx.4sqi.net/img/general/cap/",
+              "sizes": [
+                40,
+                50
+              ],
+              "name": "/delivery_provider_grubhub_20180129.png"
+            }
+          }
+        },
+        "referralId": "v-1539187014",
+        "hasPerk": false
+      },
+      {
+        "id": "4adf49fff964a5201f7921e3",
+        "name": "Red Iguana",
+        "location": {
+          "address": "736 W North Temple",
+          "lat": 40.77167732469157,
+          "lng": -111.91250234444355,
+          "labeledLatLngs": [
+            {
+              "label": "display",
+              "lat": 40.77167732469157,
+              "lng": -111.91250234444355
+            }
+          ],
+          "distance": 1362,
+          "postalCode": "84116",
+          "cc": "US",
+          "city": "Salt Lake City",
+          "state": "UT",
+          "country": "United States",
+          "formattedAddress": [
+            "736 W North Temple",
+            "Salt Lake City, UT 84116",
+            "United States"
+          ]
+        },
+        "categories": [
+          {
+            "id": "4bf58dd8d48988d1c1941735",
+            "name": "Mexican Restaurant",
+            "pluralName": "Mexican Restaurants",
+            "shortName": "Mexican",
+            "icon": {
+              "prefix": "https://ss3.4sqi.net/img/categories_v2/food/mexican_",
+              "suffix": ".png"
+            },
+            "primary": true
+          }
+        ],
+        "referralId": "v-1539187014",
+        "hasPerk": false
+      },
+      {
+        "id": "4c4745d619fde21e1cc80776",
+        "name": "In-N-Out Burger",
+        "location": {
+          "address": "3715 S Constitution Blvd",
+          "crossStreet": "at Valley Fair Mall",
+          "lat": 40.691373278845376,
+          "lng": -111.95764795585703,
+          "labeledLatLngs": [
+            {
+              "label": "display",
+              "lat": 40.691373278845376,
+              "lng": -111.95764795585703
+            }
+          ],
+          "distance": 9291,
+          "postalCode": "84119",
+          "cc": "US",
+          "city": "West Valley City",
+          "state": "UT",
+          "country": "United States",
+          "formattedAddress": [
+            "3715 S Constitution Blvd (at Valley Fair Mall)",
+            "West Valley City, UT 84119",
+            "United States"
+          ]
+        },
+        "categories": [
+          {
+            "id": "4bf58dd8d48988d16e941735",
+            "name": "Fast Food Restaurant",
+            "pluralName": "Fast Food Restaurants",
+            "shortName": "Fast Food",
+            "icon": {
+              "prefix": "https://ss3.4sqi.net/img/categories_v2/food/fastfood_",
+              "suffix": ".png"
+            },
+            "primary": true
+          }
+        ],
+        "referralId": "v-1539187014",
+        "hasPerk": false
+      },
+      {
+        "id": "4f5aa0e9e4b075ad78d80f10",
+        "name": "The Cheesecake Factory",
+        "location": {
+          "address": "65 S Regent St",
+          "lat": 40.767642899099116,
+          "lng": -111.88965180947159,
+          "labeledLatLngs": [
+            {
+              "label": "display",
+              "lat": 40.767642899099116,
+              "lng": -111.88965180947159
+            }
+          ],
+          "distance": 1094,
+          "postalCode": "84111",
+          "cc": "US",
+          "city": "Salt Lake City",
+          "state": "UT",
+          "country": "United States",
+          "formattedAddress": [
+            "65 S Regent St",
+            "Salt Lake City, UT 84111",
+            "United States"
+          ]
+        },
+        "categories": [
+          {
+            "id": "4bf58dd8d48988d14e941735",
+            "name": "American Restaurant",
+            "pluralName": "American Restaurants",
+            "shortName": "American",
+            "icon": {
+              "prefix": "https://ss3.4sqi.net/img/categories_v2/food/default_",
+              "suffix": ".png"
+            },
+            "primary": true
+          }
+        ],
+        "referralId": "v-1539187014",
+        "hasPerk": false
+      },
+      {
+        "id": "4b6cc9d7f964a5207d542ce3",
+        "name": "The Copper Onion",
+        "location": {
+          "address": "111 E Broadway #170",
+          "lat": 40.762856930346494,
+          "lng": -111.88747149327294,
+          "labeledLatLngs": [
+            {
+              "label": "display",
+              "lat": 40.762856930346494,
+              "lng": -111.88747149327294
+            }
+          ],
+          "distance": 1149,
+          "postalCode": "84111",
+          "cc": "US",
+          "city": "Salt Lake City",
+          "state": "UT",
+          "country": "United States",
+          "formattedAddress": [
+            "111 E Broadway #170",
+            "Salt Lake City, UT 84111",
+            "United States"
+          ]
+        },
+        "categories": [
+          {
+            "id": "4bf58dd8d48988d157941735",
+            "name": "New American Restaurant",
+            "pluralName": "New American Restaurants",
+            "shortName": "New American",
+            "icon": {
+              "prefix": "https://ss3.4sqi.net/img/categories_v2/food/newamerican_",
+              "suffix": ".png"
+            },
+            "primary": true
+          }
+        ],
+        "referralId": "v-1539187014",
+        "hasPerk": false
+      },
+      {
+        "id": "4d27e9cbebacb1f73b4cec4f",
+        "name": "Pie Hole",
+        "location": {
+          "address": "344 S State St",
+          "lat": 40.761590233157115,
+          "lng": -111.88838899867248,
+          "labeledLatLngs": [
+            {
+              "label": "display",
+              "lat": 40.761590233157115,
+              "lng": -111.88838899867248
+            }
+          ],
+          "distance": 1083,
+          "postalCode": "84111",
+          "cc": "US",
+          "city": "Salt Lake City",
+          "state": "UT",
+          "country": "United States",
+          "formattedAddress": [
+            "344 S State St",
+            "Salt Lake City, UT 84111",
+            "United States"
+          ]
+        },
+        "categories": [
+          {
+            "id": "4bf58dd8d48988d1ca941735",
+            "name": "Pizza Place",
+            "pluralName": "Pizza Places",
+            "shortName": "Pizza",
+            "icon": {
+              "prefix": "https://ss3.4sqi.net/img/categories_v2/food/pizza_",
+              "suffix": ".png"
+            },
+            "primary": true
+          }
+        ],
+        "referralId": "v-1539187014",
+        "hasPerk": false
+      },
+      {
+        "id": "4b6e1b92f964a52003ab2ce3",
+        "name": "Lucky 13",
+        "location": {
+          "address": "135 W 1300 S",
+          "lat": 40.74141310137612,
+          "lng": -111.89507439665451,
+          "labeledLatLngs": [
+            {
+              "label": "display",
+              "lat": 40.74141310137612,
+              "lng": -111.89507439665451
+            }
+          ],
+          "distance": 2456,
+          "postalCode": "84115",
+          "cc": "US",
+          "city": "Salt Lake City",
+          "state": "UT",
+          "country": "United States",
+          "formattedAddress": [
+            "135 W 1300 S",
+            "Salt Lake City, UT 84115",
+            "United States"
+          ]
+        },
+        "categories": [
+          {
+            "id": "4bf58dd8d48988d116941735",
+            "name": "Bar",
+            "pluralName": "Bars",
+            "shortName": "Bar",
+            "icon": {
+              "prefix": "https://ss3.4sqi.net/img/categories_v2/nightlife/pub_",
+              "suffix": ".png"
+            },
+            "primary": true
+          }
+        ],
+        "referralId": "v-1539187014",
+        "hasPerk": false
+      },
+      {
+        "id": "4b2bc755f964a520ccba24e3",
+        "name": "Red Iguana 2",
+        "location": {
+          "address": "866 W South Temple",
+          "lat": 40.7697224553498,
+          "lng": -111.91610829207085,
+          "labeledLatLngs": [
+            {
+              "label": "display",
+              "lat": 40.7697224553498,
+              "lng": -111.91610829207085
+            }
+          ],
+          "distance": 1470,
+          "postalCode": "84104",
+          "cc": "US",
+          "city": "Salt Lake City",
+          "state": "UT",
+          "country": "United States",
+          "formattedAddress": [
+            "866 W South Temple",
+            "Salt Lake City, UT 84104",
+            "United States"
+          ]
+        },
+        "categories": [
+          {
+            "id": "4bf58dd8d48988d151941735",
+            "name": "Taco Place",
+            "pluralName": "Taco Places",
+            "shortName": "Tacos",
+            "icon": {
+              "prefix": "https://ss3.4sqi.net/img/categories_v2/food/taco_",
+              "suffix": ".png"
+            },
+            "primary": true
+          }
+        ],
+        "referralId": "v-1539187014",
+        "hasPerk": false
+      },
+      {
+        "id": "4add36d0f964a520a46421e3",
+        "name": "The Bayou",
+        "location": {
+          "address": "645 S State St",
+          "lat": 40.75515676964496,
+          "lng": -111.88776956935187,
+          "labeledLatLngs": [
+            {
+              "label": "display",
+              "lat": 40.75515676964496,
+              "lng": -111.88776956935187
+            }
+          ],
+          "distance": 1423,
+          "postalCode": "84111",
+          "cc": "US",
+          "city": "Salt Lake City",
+          "state": "UT",
+          "country": "United States",
+          "formattedAddress": [
+            "645 S State St",
+            "Salt Lake City, UT 84111",
+            "United States"
+          ]
+        },
+        "categories": [
+          {
+            "id": "4bf58dd8d48988d116941735",
+            "name": "Bar",
+            "pluralName": "Bars",
+            "shortName": "Bar",
+            "icon": {
+              "prefix": "https://ss3.4sqi.net/img/categories_v2/nightlife/pub_",
+              "suffix": ".png"
+            },
+            "primary": true
+          }
+        ],
+        "venuePage": {
+          "id": "61708468"
+        },
+        "referralId": "v-1539187014",
+        "hasPerk": false
+      }
+    ],
+    "confident": true
+  }
+}
