@@ -2,27 +2,32 @@
   "name": "functions",
   "description": "Cloud Functions for Firebase",
   "scripts": {
-    "lint": "eslint source.js",
+    "lint": "eslint source",
     "serve": "firebase serve --only functions",
     "shell": "firebase functions:shell",
     "start": "npm run shell",
     "deploy": "npm run build-funcs && firebase deploy --only functions && npm run logs",
     "logs": "firebase functions:log",
-    "build-funcs": "babel source.js --out-file index.js"
+    "build-funcs": "babel source.js --out-file index.js",
+    "pack": "webpack"
   },
   "dependencies": {
     "axios": "^0.18.0",
     "babel-eslint": "^10.0.1",
     "firebase-admin": "~6.0.0",
     "firebase-functions": "^2.0.3",
-    "lodash.flatten": "^4.4.0"
+    "lodash.flatten": "^4.4.0",
+    "webpack-node-externals": "^1.7.2"
   },
   "devDependencies": {
     "@babel/cli": "^7.1.2",
     "@babel/core": "^7.1.2",
+    "@babel/polyfill": "^7.0.0",
     "@babel/preset-env": "^7.1.0",
     "eslint": "^4.12.0",
-    "eslint-plugin-promise": "^3.6.0"
+    "eslint-plugin-promise": "^3.6.0",
+    "webpack": "^4.20.2",
+    "webpack-cli": "^3.1.2"
   },
   "private": true
 }

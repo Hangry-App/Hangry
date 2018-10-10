@@ -25,34 +25,35 @@ function () {
 
     const CLIENT_ID = functions.config().foursquare.clientid;
     const CLIENT_SECRET = functions.config().foursquare.clientsecret;
-    const VERSION_NUMBER = functions.config().foursquare.versionnumber; //Sample LatLongs (for testing)
-
-    const adilLatLong = '40.7630,-111.9011';
-    const johnLatLong = '43.0650,-89.3910';
-    const morganLatLong = '41.8083,-72.9195'; //Sample Restaurant IDs (for testing)
-
-    const MEXICAN_RESTAURANT = '4adf49fff964a5201f7921e3';
-    const PUB_RESTAURANT = '4ae7198ef964a52067a821e3'; //Food Standards
-
-    const FOOD_GENERAL = '4d4b7105d754a06374d81259';
-    const PIZZA = '4bf58dd8d48988d1ca941735';
-    const AMERICAN = '4bf58dd8d48988d14e941735';
-    const CHINESE = '4bf58dd8d48988d145941735';
-    const SUSHI = '4bf58dd8d48988d1d2941735';
-    const MEXICAN = '4bf58dd8d48988d1c1941735';
-    const SALAD = '4bf58dd8d48988d1bd941735';
-    const INDIAN = '4bf58dd8d48988d10f941735';
-    const PERUVIAN = '4eb1bfa43b7b52c0e1adc2e8';
-    const THAI = '4bf58dd8d48988d149941735'; //Transportation Standards (in meters)
-
-    const WALK = 1000;
-    const BIKE = 5000;
-    const DRIVE = 10000; //Price Standards (in Foursquare metrics)
-
-    const CHEAP = 1;
-    const MODERATE = 2;
-    const EXPENSIVE = 3;
-    const VERY_EXPENSIVE = 4; //Helper Function
+    const VERSION_NUMBER = functions.config().foursquare.versionnumber;
+    {} // //Sample LatLongs (for testing)
+    // const adilLatLong = '40.7630,-111.9011'
+    // const johnLatLong = '43.0650,-89.3910'
+    // const morganLatLong = '41.8083,-72.9195'
+    // //Sample Restaurant IDs (for testing)
+    // const MEXICAN_RESTAURANT = '4adf49fff964a5201f7921e3'
+    // const PUB_RESTAURANT = '4ae7198ef964a52067a821e3'
+    // //Food Standards
+    // const FOOD_GENERAL = '4d4b7105d754a06374d81259'
+    // const PIZZA = '4bf58dd8d48988d1ca941735'
+    // const AMERICAN = '4bf58dd8d48988d14e941735'
+    // const CHINESE = '4bf58dd8d48988d145941735'
+    // const SUSHI = '4bf58dd8d48988d1d2941735'
+    // const MEXICAN = '4bf58dd8d48988d1c1941735'
+    // const SALAD = '4bf58dd8d48988d1bd941735'
+    // const INDIAN = '4bf58dd8d48988d10f941735'
+    // const PERUVIAN = '4eb1bfa43b7b52c0e1adc2e8'
+    // const THAI = '4bf58dd8d48988d149941735'
+    // //Transportation Standards (in meters)
+    // const WALK = 1000
+    // const BIKE = 5000
+    // const DRIVE = 10000
+    // //Price Standards (in Foursquare metrics)
+    // const CHEAP = 1
+    // const MODERATE = 2
+    // const EXPENSIVE = 3
+    // const VERY_EXPENSIVE = 4
+    //Helper Function
 
     const waitASec = () => {
       return new Promise((res, reject) => {
@@ -189,7 +190,7 @@ function () {
       const calculateCategoryWeighted = (venue, userData) => {
         if (userData.categories[venue.categoryId]) {
           const preferredOutOfTen = userData.categories[venue.categoryId] * 10;
-          const weightedTotal = preferredOutOfTen * userData.weights.categories;
+          const weightedTotal = preferredOutOfTen * (userData.weights.categories + userData.weights.priceRange + userData.weights.rating + userData.weights.range);
           return weightedTotal;
         } else {
           return 0;
@@ -201,21 +202,21 @@ function () {
         const preferredPriceOutOfTen = 10 - userData.priceTier * 2.5;
         const difference = Math.abs(venuePriceOutOfTen - preferredPriceOutOfTen);
         const differenceOutOfTen = 10 - difference;
-        const weightedTotal = differenceOutOfTen * userData.weights.priceRange;
+        const weightedTotal = differenceOutOfTen * (userData.weights.priceRange * ((userData.weights.rating + userData.weights.priceRange + userData.weights.range + userData.weights.categories) / 10));
         return weightedTotal || 0;
       };
 
       const calculateRangeWeighted = (venue, userData, searchRange) => {
         const tensInt = 10 / searchRange;
         const rangeOutOfTen = 10 - venue.distance * tensInt;
-        const weightedTotal = Math.ceil(rangeOutOfTen) * userData.weights.range;
+        const weightedTotal = Math.ceil(rangeOutOfTen) * (userData.weights.range * ((userData.weights.rating + userData.weights.priceRange + userData.weights.range + userData.weights.categories) / 10));
         return weightedTotal || 0;
       };
 
       const calculateRatingWeighted = (venue, userData) => {
         const difference = Math.abs(venue.rating - userData.rating);
         const differenceOutOfTen = 10 - difference;
-        const weightedTotal = differenceOutOfTen * userData.weights.rating;
+        const weightedTotal = differenceOutOfTen * (userData.weights.rating * ((userData.weights.rating + userData.weights.priceRange + userData.weights.range + userData.weights.categories) / 10));
         return weightedTotal;
       };
 
@@ -224,6 +225,7 @@ function () {
         const priceScore = calculatePriceWeighted(venue, userData);
         const rangeScore = calculateRangeWeighted(venue, userData, req.query.distance);
         const ratingScore = calculateRatingWeighted(venue, userData);
+        console.log(categoryScore, priceScore, rangeScore, ratingScore);
         const savorScore = (categoryScore + priceScore + rangeScore + ratingScore).toFixed(2);
         return savorScore;
       };
@@ -239,18 +241,9 @@ function () {
       };
 
       return addScore(venues, userData);
-    }; //TEST of getting all venues
+    };
 
-
-    console.log('-----------------------------------');
-    console.log('req.query');
-    console.log(req.query);
-    console.log('-----------------------------------');
     const usersVenues = yield getAllVenues(`${req.query.lat},${req.query.long}`, `${req.query.distance}`, `${req.query.listOfCategories}`, 10);
-    console.log('-----------------------------------');
-    console.log('John Venues');
-    console.log(usersVenues);
-    console.log('-----------------------------------');
     const ratedVenues = rateVenues(usersVenues, {
       weights: {
         categories: req.query.categories,
