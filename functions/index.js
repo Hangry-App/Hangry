@@ -1,5 +1,9 @@
 "use strict";
 
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; var ownKeys = Object.keys(source); if (typeof Object.getOwnPropertySymbols === 'function') { ownKeys = ownKeys.concat(Object.getOwnPropertySymbols(source).filter(function (sym) { return Object.getOwnPropertyDescriptor(source, sym).enumerable; })); } ownKeys.forEach(function (key) { _defineProperty(target, key, source[key]); }); } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
 
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
@@ -117,7 +121,7 @@ function () {
           const response = yield axios.get(`https://api.foursquare.com/v2/venues/search`, {
             params: {
               ll: latLong,
-              radius: req.query.distance,
+              radius,
               limit,
               categoryId,
               client_id: CLIENT_ID,
@@ -127,13 +131,11 @@ function () {
               v: VERSION_NUMBER
             }
           });
-          const dataPromises = response.data.response.venues.map(
+          const getVenueDetailsPromises = response.data.response.venues.map(
           /*#__PURE__*/
           function () {
             var _ref5 = _asyncToGenerator(function* (venues) {
               const venueDetails = yield getAVenuesDetails(venues.id);
-              yield waitASec();
-              const menuItems = yield getAVenueMenu(venues.id);
               yield waitASec();
               return {
                 restaurantId: venues.id,
@@ -146,7 +148,7 @@ function () {
                 price: venueDetails.response.venue.price || 0,
                 rating: venueDetails.response.venue.rating || 0,
                 phone: venueDetails.response.venue.contact.phone,
-                menu: menuItems || false
+                hasMenu: venueDetails.response.venue.hasMenu || false
               };
             });
 
@@ -154,11 +156,27 @@ function () {
               return _ref5.apply(this, arguments);
             };
           }());
-          const data = yield Promise.all(dataPromises);
-          return data;
+          const allVenues = yield Promise.all(getVenueDetailsPromises);
+          const allVenuesThatHaveMenus = allVenues.filter(venue => venue.hasMenu);
+          const venuesWithMenusPromises = allVenuesThatHaveMenus.map(
+          /*#__PURE__*/
+          function () {
+            var _ref6 = _asyncToGenerator(function* (venue) {
+              const menuItems = yield getAVenueMenu(venue.restaurantId);
+              yield waitASec();
+              return _objectSpread({}, venue, {
+                menu: menuItems
+              });
+            });
+
+            return function (_x9) {
+              return _ref6.apply(this, arguments);
+            };
+          }());
+          const venuesWithMenus = yield Promise.all(venuesWithMenusPromises);
+          return venuesWithMenus;
         } catch (error) {
           console.error(error);
-          return null;
         }
       });
 
@@ -228,7 +246,7 @@ function () {
     console.log('req.query');
     console.log(req.query);
     console.log('-----------------------------------');
-    const usersVenues = yield getAllVenues(`${req.query.lat},${req.query.long}`, `${req.query.distance}`, FOOD_GENERAL, 5);
+    const usersVenues = yield getAllVenues(`${req.query.lat},${req.query.long}`, `${req.query.distance}`, `${req.query.categories}`, 10);
     console.log('-----------------------------------');
     console.log('John Venues');
     console.log(usersVenues);

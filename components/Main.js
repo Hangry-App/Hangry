@@ -82,9 +82,10 @@ class Main extends Component {
         output += `${weight}=${userData.weights[weight]}&`
       }
     }
+    output += `categories=`;
     for (let category in userData.categories) {
       if (userData.categories[category]) {
-        output += `${category}=${userData.categories[category]}&`
+        output += `${category},`
       }
     }
     output += `priceTier=${userData.priceTier}&ratingPref=${userData.rating}&distance=${userData.distance}`
@@ -101,7 +102,7 @@ class Main extends Component {
       console.log('DEVELOPMENT');
       const receiveAllVenues = response.data
       this.setState({ recommendedRestaurants: receiveAllVenues })
-    } else {  
+    } else {
       const response = await axios.get(this.buildQuery(latitude, longitude, userData))
       const receiveAllVenues = response.data
       console.log('PRODUCTION');
