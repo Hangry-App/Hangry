@@ -113,12 +113,16 @@ class Main extends Component {
             const receiveAllVenues = response.data
             this.setState({ recommendedRestaurants: receiveAllVenues })
         } else {
+            try {
             const response = await axios.get(
                 this.buildQuery(latitude, longitude, userData)
             )
             const receiveAllVenues = response.data
             console.log('PRODUCTION')
             this.setState({ recommendedRestaurants: receiveAllVenues })
+            } catch (err) {
+                console.error(err);
+            }
         }
     }
 

@@ -6,7 +6,14 @@ module.exports = {
     target: "node",
     output: {
         path: __dirname,
-        filename: "./bundle.js"
+        filename: "./index.js"
     },
-    externals: [nodeExternals()]
+    externals: [nodeExternals()],
+    module: {
+        rules: [{
+            test: /\.js$/,
+            use: "babel-loader",
+            exclude: /node_modules/
+        }]
+    },
 }
