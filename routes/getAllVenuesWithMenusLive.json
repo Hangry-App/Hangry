@@ -1,0 +1,126 @@
+[
+  {
+    "restaurantId": "4ce4348bbebd370405afa4a0",
+    "name": "The Rose Establishment",
+    "distance": 157,
+    "lat": 40.7640947765476,
+    "long": -111.9022840887633,
+    "categoryId": "4bf58dd8d48988d16d941735",
+    "categoryShortName": "Café",
+    "price": {
+      "tier": 2,
+      "message": "Moderate",
+      "currency": "$"
+    },
+    "rating": 9.1,
+    "phone": "8019906270",
+    "hasMenu": true,
+    "menu": false
+  },
+  {
+    "restaurantId": "4ad4f28ef964a52013fd20e3",
+    "name": "Red Rock Brewing Co.",
+    "distance": 343,
+    "lat": 40.76371377115242,
+    "long": -111.89713768871168,
+    "categoryId": "50327c8591d4c4b30a586d5d",
+    "categoryShortName": "Brewery",
+    "price": {
+      "tier": 2,
+      "message": "Moderate",
+      "currency": "$"
+    },
+    "rating": 8.4,
+    "phone": "8015217446",
+    "hasMenu": true,
+    "menu": [
+      {
+        "name": "Filet Mignon**",
+        "description": "Broiled 7 oz. tenderloin of beef served with sautéed mushrooms & topped with Béarnaise butter*",
+        "price": "26.00"
+      },
+      {
+        "name": "Alaskan Sautéed Halibut",
+        "description": "Sauteed spinach, lemon caper butter sauce",
+        "price": "24.00"
+      },
+      {
+        "name": "New York Steak**",
+        "description": "Broiled 12 oz. steak served with sautéed mushrooms & topped with Béarnaise butter*",
+        "price": "24.00"
+      },
+      {
+        "name": "Alaskan Halibut Fish & Chips",
+        "description": "Red Rock beer battered, coleslaw",
+        "price": "20.00"
+      },
+      {
+        "name": "Flat Iron Steak**",
+        "description": "Broiled 9 oz. steak topped with Gorgonzola butter & crispy onion straws*",
+        "price": "20.00"
+      }
+    ]
+  },
+  {
+    "restaurantId": "4b2bdea5f964a520b2bc24e3",
+    "name": "Crown Burger",
+    "distance": 1004,
+    "lat": 40.77189947091721,
+    "long": -111.89913075855628,
+    "categoryId": "4bf58dd8d48988d16c941735",
+    "categoryShortName": "Burgers",
+    "price": {
+      "tier": 1,
+      "message": "Cheap",
+      "currency": "$"
+    },
+    "rating": 8,
+    "phone": "8015325300",
+    "hasMenu": true,
+    "menu": [
+      {
+        "name": "Ribeye Steak",
+        "description": false,
+        "price": "12.25"
+      },
+      {
+        "name": "Double Souvlaki",
+        "description": false,
+        "price": "10.95"
+      },
+      {
+        "name": "Fish & Chips (Halibut)",
+        "description": false,
+        "price": "10.50"
+      },
+      {
+        "name": "Shrimp 5 Pieces",
+        "description": false,
+        "price": "10.50"
+      },
+      {
+        "name": "Rib Eye Steak Sand",
+        "description": false,
+        "price": "9.75"
+      }
+    ]
+  },
+  {
+    "restaurantId": "4f5aa0e9e4b075ad78d80f10",
+    "name": "The Cheesecake Factory",
+    "distance": 1094,
+    "lat": 40.767642899099116,
+    "long": -111.88965180947159,
+    "categoryId": "4bf58dd8d48988d14e941735",
+    "categoryShortName": "American",
+    "price": {
+      "tier": 2,
+      "message": "Moderate",
+      "currency": "$"
+    },
+    "rating": 8.5,
+    "phone": "8015211732",
+    "hasMenu": true,
+    "menu": false
+  }
+]

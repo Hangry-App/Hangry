@@ -76,7 +76,7 @@ class UserPref extends Component {
                     }}
                 >
                     <Image
-                        style={{ height: 25, width: 25, position: 'absolute', top: 45, left: 20 }}
+                        style={{ height: 25, width: 25, position: 'absolute', top: 45, left: 20, zIndex: 9999 }}
                         source={require('../assets/baseline-arrow_back_ios-white-18/2x/baseline_arrow_back_ios_white_18dp.png')}
                     />
                 </TouchableWithoutFeedback>
