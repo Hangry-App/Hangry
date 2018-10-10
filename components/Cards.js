@@ -8,6 +8,8 @@ import {
   FlatList,
   Dimensions,
   Image,
+  Linking,
+  TouchableWithoutFeedback
 } from 'react-native';
 // style imports
 import {
@@ -89,6 +91,11 @@ class Cards extends Component {
               <View style={styles.row}>
                 <Text style={styles.rating}>{generateRating(item)}</Text>
                 <Text style={styles.rating}>{generatePrice(item)}</Text>
+                <TouchableWithoutFeedback onPress={ ()=>{ Linking.openURL(this.props.getURL())}}>
+                  <Image  source={require('../assets/baseline-location_on-white-18/2x/baseline_location_on_white_18dp.png')} />
+                </TouchableWithoutFeedback>
+
+
               </View>
             </View>
             <View style={styles.cardBody}>

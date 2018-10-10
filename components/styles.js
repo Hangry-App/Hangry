@@ -113,8 +113,9 @@ export const horizontalCardStrip = {
 export const row = {
   display: 'flex',
   width: '100%',
-  paddingHorizontal: 135,
+  // paddingHorizontal: 135,
   flexDirection: 'row',
+  alignItems: 'center',
   justifyContent: 'space-around',
 };
 
