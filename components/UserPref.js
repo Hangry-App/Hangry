@@ -76,7 +76,7 @@ class UserPref extends Component {
                     }}
                 >
                     <Image
-                        style={{ height: 25, width: 25, marginTop: 10 }}
+                        style={{ height: 25, width: 25, position: 'absolute', top: 45, left: 20 }}
                         source={require('../assets/baseline-arrow_back_ios-white-18/2x/baseline_arrow_back_ios_white_18dp.png')}
                     />
                 </TouchableWithoutFeedback>
@@ -85,11 +85,11 @@ class UserPref extends Component {
                         Preferences
                     </Text>
                     <View style={styles.sliders}>
-                        <Text>
+                        <Text style={styles.whiteText}>
                             {`Let's build your SavorScore™!
                             `}
                         </Text>
-                        <Text>
+                        <Text style={styles.whiteText}>
                             Use these four sliders to say how important
                             distance, price, rating, and cuisine type are
                             important to you. We will use these to build a
@@ -102,6 +102,7 @@ class UserPref extends Component {
                             <Slider
                                 maximumValue={10}
                                 minimumValue={0}
+                                maximumTrackTintColor="#fff"
                                 value={this.state.weights.range}
                                 step={0.5}
                                 onValueChange={value => {
@@ -118,6 +119,7 @@ class UserPref extends Component {
                             <Slider
                                 maximumValue={10}
                                 minimumValue={0}
+                                maximumTrackTintColor="#fff"
                                 value={this.state.weights.priceRange}
                                 step={0.5}
                                 onValueChange={value => {
@@ -137,6 +139,7 @@ class UserPref extends Component {
                             <Slider
                                 maximumValue={10}
                                 minimumValue={0}
+                                maximumTrackTintColor="#fff"
                                 value={this.state.weights.rating}
                                 step={0.5}
                                 onValueChange={value => {
@@ -159,6 +162,7 @@ class UserPref extends Component {
                             <Slider
                                 maximumValue={10}
                                 minimumValue={0}
+                                maximumTrackTintColor="#fff"
                                 value={this.state.weights.categories}
                                 step={0.5}
                                 onValueChange={value => {
@@ -176,9 +180,10 @@ class UserPref extends Component {
                         style={{
                             borderBottomColor: 'black',
                             borderBottomWidth: 10,
+                            marginVertical: 10,
                         }}
                     />
-                    <Text style={{ alignSelf: 'center' }}>
+                  <Text style={ [{alignSelf: 'center'}, styles.whiteText] }>
                         Now, set your preferences for each of these one time.
                         After this, wherever you go you will not have to worry
                         about getting Hangry™ when trying to make a complicated
@@ -233,6 +238,7 @@ class UserPref extends Component {
                                 <Slider
                                     maximumValue={4}
                                     minimumValue={1}
+                                    maximumTrackTintColor="#fff"
                                     value={this.state.priceTier}
                                     step={1}
                                     onValueChange={value => {
@@ -249,6 +255,7 @@ class UserPref extends Component {
                             <Slider
                                 maximumValue={10}
                                 minimumValue={1}
+                                maximumTrackTintColor="#fff"
                                 value={this.state.rating}
                                 step={0.5}
                                 onValueChange={value => {
@@ -413,14 +420,14 @@ const styles = StyleSheet.create({
         maxWidth: '60%',
     },
     submitButton: {
-        marginTop: 20,
+        marginVertical: 20,
         width: '100%',
         height: 50,
         backgroundColor: darkBlue,
         borderRadius: 5,
         display: 'flex',
         flexDirection: 'column',
-        justifyContent: 'center',
+        justifyContent: 'center'
     },
     boldWhite: {
         fontSize: 20,
@@ -439,7 +446,7 @@ const styles = StyleSheet.create({
         minHeight: 15,
     },
     selectedButton: {
-        backgroundColor: 'red',
+        backgroundColor: '#CDCDCD',
         paddingHorizontal: 6,
         paddingVertical: 4,
         borderRadius: 4,
@@ -458,6 +465,7 @@ const styles = StyleSheet.create({
         display: 'flex',
         flexDirection: 'row',
         justifyContent: 'space-around',
+        marginTop: 20,
     },
     distance: {
         backgroundColor: 'white',
@@ -471,6 +479,9 @@ const styles = StyleSheet.create({
     centerText: {
         textAlign: 'center',
     },
+    whiteText: {
+      color: '#fff'
+    }
 })
 
 export default UserPref
