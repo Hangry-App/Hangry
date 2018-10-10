@@ -8,7 +8,7 @@ import {
 } from 'react-native'
 import { Constants, Location, Permissions, MapView } from 'expo'
 import * as firebase from 'firebase'
-import { Cards, AccountIcon } from './index'
+import { Cards, AccountIcon, Loader } from './index'
 require('firebase/functions')
 const Marker = MapView.Marker
 import axios from 'axios'
@@ -150,7 +150,7 @@ class Main extends Component {
         return (
             <View style={styles.container}>
                 {!locationFound || this.state.restaurant.item.lat === 0 ? (
-                    <Text style={styles.paragraph}>{text}</Text>
+                    <Loader />
                 ) : (
                     <View style={styles.fullscreen}>
                         <TouchableWithoutFeedback onPress={this.navToUserPrefs}>
