@@ -8,6 +8,8 @@ import {
   FlatList,
   Dimensions,
   Image,
+  Linking,
+  TouchableWithoutFeedback
 } from 'react-native';
 // style imports
 import {
@@ -29,7 +31,7 @@ import {
   threeMenuItems,
 } from '../utils/getRestaurantInfo';
 // MenuItem component import
-import { MenuItem, LocationIcon } from './index';
+import { MenuItem } from './index';
 
 const windowWidth = Dimensions.get('window').width;
 
@@ -84,13 +86,20 @@ class Cards extends Component {
           >
             {/*Top of card - rest name, ratings, etc.*/}
             <View style={styles.cardHeader}>
-              <Text style={styles.boldWhite}>{item.name}</Text>
-              {/*<LocationIcon />*/}
+              <View style={styles.headerTop}>
+                <Text style={styles.boldWhite}>{item.name}</Text>
+                <TouchableWithoutFeedback onPress={ ()=>{ Linking.openURL(this.props.getURL())}}>
+                  <Image style={styles.location} source={require('../assets/baseline-location_on-white-18/2x/baseline_location_on_white_18dp.png')} />
+                </TouchableWithoutFeedback>
+              </View>
+
               <View style={styles.row}>
                 <Text style={styles.rating}>{generateRating(item)}</Text>
                 <Text style={styles.rating}>{generatePrice(item)}</Text>
+                <Text style={styles.rating}>Savor Score: {item.savorScore}</Text>
               </View>
             </View>
+            {/*END OF CARD HEADER*/}
             <View style={styles.cardBody}>
               {/* Check if there's a menu key on the restaurant object, and make sure it's an array*/}
               {item.menu && Array.isArray(item.menu) && item.menu[0] ? (
@@ -134,6 +143,18 @@ class Cards extends Component {
 
 const styles = StyleSheet.create({
   restaurantCard: restaurantCard,
+  location: {
+    position: 'relative',
+    left: '89%',
+    bottom: '94%',
+  },
+  headerTop: {
+    display: 'flex',
+    flexWrap: 'nowrap',
+    height: '55%',
+    width: '100%',
+    paddingVertical: 5,
+  },
   horizontalCardStrip: horizontalCardStrip,
   padCard: {
     width: windowWidth,
@@ -150,7 +171,6 @@ const styles = StyleSheet.create({
     color: 'white',
     marginVertical: 0,
     paddingVertical: 0,
-    fontWeight: 'bold',
     textAlign: 'center',
   },
   flexStart: {
