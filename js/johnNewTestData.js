@@ -1,97 +1,20 @@
-const dummyData = [
+const testData = [
   {
-    "restaurantId": "4ad43881f964a52075e720e3",
-    "name": "Nitty Gritty Restaurant & Bar",
-    "distance": 855,
-    "lat": 43.071879363581864,
-    "long": -89.39568670715576,
-    "categoryId": "4bf58dd8d48988d116941735",
-    "categoryShortName": "Bar",
+    "restaurantId": "5081a3b2d63e3e73d4338d30",
+    "name": "University Book Store Coffee Cart",
+    "distance": 1224,
+    "lat": 43.0748912126272,
+    "long": -89.39759731292725,
+    "categoryId": "4bf58dd8d48988d1e0931735",
+    "categoryShortName": "Coffee Shop",
     "price": {
       "tier": 1,
       "message": "Cheap",
       "currency": "$"
     },
-    "rating": 7.8,
-    "phone": "6082512521",
-    "menu": false
-  },
-  {
-    "restaurantId": "4aea28ebf964a520deb921e3",
-    "name": "Dotty Dumpling's Dowry",
-    "distance": 973,
-    "lat": 43.07298458901576,
-    "long": -89.39588621087248,
-    "categoryId": "4bf58dd8d48988d16c941735",
-    "categoryShortName": "Burgers",
-    "price": {
-      "tier": 2,
-      "message": "Moderate",
-      "currency": "$"
-    },
-    "rating": 9.1,
-    "phone": "6082590000",
-    "menu": [
-      {
-        "name": "Fish Fry",
-        "description": "Two six-ounce fillets of hand-battered walleye served with a side of french fries, coleslaw and our Homemade Tartar Sauce",
-        "price": "13.95"
-      },
-      {
-        "name": "Grand Daddy",
-        "description": "A hearty sized Kobe beef patty topped with sharp aged Cheddar cheese, smoked bacon, pickled red onions and Homemade English Garlic Sauce",
-        "price": "11.59"
-      },
-      {
-        "name": "Salmon Fillet",
-        "description": "On a Kaiser roll with our Homemade Cucumber Dill Sauce",
-        "price": "10.99"
-      },
-      {
-        "name": "Sample Basket",
-        "description": "Includes all of the deep-fried goodies listed below to please everyone. Served with a side of Homemade Ranch and English Garlic Sauce",
-        "price": "10.59"
-      },
-      {
-        "name": "Bison Burger*",
-        "description": "Bison has less fat and more protein than beef! Top it with your favorite burger toppings to make it super special",
-        "price": "10.59"
-      }
-    ]
-  },
-  {
-    "restaurantId": "5596dacf498ef8cc220fb07f",
-    "name": "Hopcat",
-    "distance": 1121,
-    "lat": 43.075062115179996,
-    "long": -89.39157820920616,
-    "categoryId": "4bf58dd8d48988d11b941735",
-    "categoryShortName": "Pub",
-    "price": {
-      "tier": 2,
-      "message": "Moderate",
-      "currency": "$"
-    },
-    "rating": 8.7,
-    "phone": "6088071361",
-    "menu": []
-  },
-  {
-    "restaurantId": "55c17479498ec2a4ccb2a112",
-    "name": "Colectivo Coffee",
-    "distance": 1147,
-    "lat": 43.074743679226295,
-    "long": -89.39562416312101,
-    "categoryId": "4bf58dd8d48988d1e0931735",
-    "categoryShortName": "Coffee Shop",
-    "price": {
-      "tier": 2,
-      "message": "Moderate",
-      "currency": "$"
-    },
-    "rating": 8.7,
-    "phone": "6087091911",
-    "menu": false
+    "rating": 0,
+    "menu": false,
+    "savorScore": "92"
   },
   {
     "restaurantId": "4b4f582ff964a520420227e3",
@@ -134,7 +57,44 @@ const dummyData = [
         "description": "A ¼ pound 100% beef patty, slivered onions, ketchup, mustard on a toasted sesame seed bun.",
         "price": false
       }
-    ]
+    ],
+    "savorScore": "87"
+  },
+  {
+    "restaurantId": "4ad43881f964a52075e720e3",
+    "name": "Nitty Gritty Restaurant & Bar",
+    "distance": 855,
+    "lat": 43.071879363581864,
+    "long": -89.39568670715576,
+    "categoryId": "4bf58dd8d48988d116941735",
+    "categoryShortName": "Bar",
+    "price": {
+      "tier": 1,
+      "message": "Cheap",
+      "currency": "$"
+    },
+    "rating": 7.8,
+    "phone": "6082512521",
+    "menu": false,
+    "savorScore": "85"
+  },
+  {
+    "restaurantId": "4b665819f964a5209f1e2be3",
+    "name": "Starbucks",
+    "distance": 1196,
+    "lat": 43.07389817,
+    "long": -89.38273627,
+    "categoryId": "4bf58dd8d48988d1e0931735",
+    "categoryShortName": "Coffee Shop",
+    "price": {
+      "tier": 1,
+      "message": "Cheap",
+      "currency": "$"
+    },
+    "rating": 8,
+    "phone": "6082505020",
+    "menu": false,
+    "savorScore": "82"
   },
   {
     "restaurantId": "4b3a7807f964a520116825e3",
@@ -177,40 +137,88 @@ const dummyData = [
         "description": false,
         "price": "13.50"
       }
-    ]
+    ],
+    "savorScore": "80"
   },
   {
-    "restaurantId": "4b665819f964a5209f1e2be3",
-    "name": "Starbucks",
-    "distance": 1196,
-    "lat": 43.07389817,
-    "long": -89.38273627,
+    "restaurantId": "4aea28ebf964a520deb921e3",
+    "name": "Dotty Dumpling's Dowry",
+    "distance": 973,
+    "lat": 43.07298458901576,
+    "long": -89.39588621087248,
+    "categoryId": "4bf58dd8d48988d16c941735",
+    "categoryShortName": "Burgers",
+    "price": {
+      "tier": 2,
+      "message": "Moderate",
+      "currency": "$"
+    },
+    "rating": 9.1,
+    "phone": "6082590000",
+    "menu": [
+      {
+        "name": "Fish Fry",
+        "description": "Two six-ounce fillets of hand-battered walleye served with a side of french fries, coleslaw and our Homemade Tartar Sauce",
+        "price": "13.95"
+      },
+      {
+        "name": "Grand Daddy",
+        "description": "A hearty sized Kobe beef patty topped with sharp aged Cheddar cheese, smoked bacon, pickled red onions and Homemade English Garlic Sauce",
+        "price": "11.59"
+      },
+      {
+        "name": "Salmon Fillet",
+        "description": "On a Kaiser roll with our Homemade Cucumber Dill Sauce",
+        "price": "10.99"
+      },
+      {
+        "name": "Sample Basket",
+        "description": "Includes all of the deep-fried goodies listed below to please everyone. Served with a side of Homemade Ranch and English Garlic Sauce",
+        "price": "10.59"
+      },
+      {
+        "name": "Bison Burger*",
+        "description": "Bison has less fat and more protein than beef! Top it with your favorite burger toppings to make it super special",
+        "price": "10.59"
+      }
+    ],
+    "savorScore": "70"
+  },
+  {
+    "restaurantId": "55c17479498ec2a4ccb2a112",
+    "name": "Colectivo Coffee",
+    "distance": 1147,
+    "lat": 43.074743679226295,
+    "long": -89.39562416312101,
     "categoryId": "4bf58dd8d48988d1e0931735",
     "categoryShortName": "Coffee Shop",
     "price": {
-      "tier": 1,
-      "message": "Cheap",
+      "tier": 2,
+      "message": "Moderate",
       "currency": "$"
     },
-    "rating": 8,
-    "phone": "6082505020",
-    "menu": false
+    "rating": 8.7,
+    "phone": "6087091911",
+    "menu": false,
+    "savorScore": "67"
   },
   {
-    "restaurantId": "5081a3b2d63e3e73d4338d30",
-    "name": "University Book Store Coffee Cart",
-    "distance": 1224,
-    "lat": 43.0748912126272,
-    "long": -89.39759731292725,
-    "categoryId": "4bf58dd8d48988d1e0931735",
-    "categoryShortName": "Coffee Shop",
+    "restaurantId": "4d686a320a25b60c55821790",
+    "name": "Great Dane Pub & Brewing Company",
+    "distance": 1381,
+    "lat": 43.07468710955784,
+    "long": -89.3803908048707,
+    "categoryId": "50327c8591d4c4b30a586d5d",
+    "categoryShortName": "Brewery",
     "price": {
-      "tier": 1,
-      "message": "Cheap",
+      "tier": 2,
+      "message": "Moderate",
       "currency": "$"
     },
-    "rating": 0,
-    "menu": false
+    "rating": 8.8,
+    "phone": "6084429000",
+    "menu": false,
+    "savorScore": "67"
   },
   {
     "restaurantId": "4c24b64bb012b713988a0893",
@@ -253,7 +261,8 @@ const dummyData = [
         "description": "Chocolate chip, Sassy Cow milk, baked to order (please allow 10 minutes) (M to GF)",
         "price": "6.00"
       }
-    ]
+    ],
+    "savorScore": "67"
   },
   {
     "restaurantId": "515ddf3de4b068af64c1468c",
@@ -270,24 +279,26 @@ const dummyData = [
     },
     "rating": 8.8,
     "phone": "6082550474",
-    "menu": false
+    "menu": false,
+    "savorScore": "67"
   },
   {
-    "restaurantId": "4d686a320a25b60c55821790",
-    "name": "Great Dane Pub & Brewing Company",
-    "distance": 1381,
-    "lat": 43.07468710955784,
-    "long": -89.3803908048707,
-    "categoryId": "50327c8591d4c4b30a586d5d",
-    "categoryShortName": "Brewery",
+    "restaurantId": "5596dacf498ef8cc220fb07f",
+    "name": "Hopcat",
+    "distance": 1121,
+    "lat": 43.075062115179996,
+    "long": -89.39157820920616,
+    "categoryId": "4bf58dd8d48988d11b941735",
+    "categoryShortName": "Pub",
     "price": {
       "tier": 2,
       "message": "Moderate",
       "currency": "$"
     },
-    "rating": 8.8,
-    "phone": "6084429000",
-    "menu": false
+    "rating": 8.7,
+    "phone": "6088071361",
+    "menu": [],
+    "savorScore": "67"
   },
   {
     "restaurantId": "4afcc582f964a520bc2522e3",
@@ -304,7 +315,8 @@ const dummyData = [
     },
     "rating": 9.1,
     "phone": "6083104545",
-    "menu": false
+    "menu": false,
+    "savorScore": "67"
   },
   {
     "restaurantId": "5914f620c4df1d6ddc02a361",
@@ -321,7 +333,8 @@ const dummyData = [
     },
     "rating": 8.8,
     "phone": "6084550663",
-    "menu": false
+    "menu": false,
+    "savorScore": "67"
   },
   {
     "restaurantId": "52869069498e3289da675b02",
@@ -338,24 +351,8 @@ const dummyData = [
     },
     "rating": 5.8,
     "phone": "6088073978",
-    "menu": false
-  },
-  {
-    "restaurantId": "56218518498ed6af88a19b46",
-    "name": "Café Hollander",
-    "distance": 5184,
-    "lat": 43.07320209335286,
-    "long": -89.45375822123673,
-    "categoryId": "4bf58dd8d48988d155941735",
-    "categoryShortName": "Gastropub",
-    "price": {
-      "tier": 3,
-      "message": "Expensive",
-      "currency": "$"
-    },
-    "rating": 8.6,
-    "phone": "6082373168",
-    "menu": false
+    "menu": false,
+    "savorScore": "65"
   },
   {
     "restaurantId": "4bbf538e30c99c743ef75411",
@@ -398,58 +395,8 @@ const dummyData = [
         "description": "A flavorful muffin with blueberries, yogurt and honey.",
         "price": false
       }
-    ]
-  },
-  {
-    "restaurantId": "4b743e7df964a5207fcf2de3",
-    "name": "Starbucks",
-    "distance": 9081,
-    "lat": 43.05893389,
-    "long": -89.50234572,
-    "categoryId": "4bf58dd8d48988d1e0931735",
-    "categoryShortName": "Coffee Shop",
-    "price": {
-      "tier": 1,
-      "message": "Cheap",
-      "currency": "$"
-    },
-    "rating": 7.4,
-    "phone": "6088293646",
-    "menu": false
-  },
-  {
-    "restaurantId": "54806dfb498e67f98a869485",
-    "name": "Chick-fil-A",
-    "distance": 9175,
-    "lat": 43.058116,
-    "long": -89.503426,
-    "categoryId": "4bf58dd8d48988d16e941735",
-    "categoryShortName": "Fast Food",
-    "price": {
-      "tier": 1,
-      "message": "Cheap",
-      "currency": "$"
-    },
-    "rating": 8.4,
-    "phone": "6088334344",
-    "menu": false
-  },
-  {
-    "restaurantId": "4ecc30f9775b4671dc78ebc7",
-    "name": "Starbucks",
-    "distance": 9275,
-    "lat": 43.125614,
-    "long": -89.31271,
-    "categoryId": "4bf58dd8d48988d1e0931735",
-    "categoryShortName": "Coffee Shop",
-    "price": {
-      "tier": 1,
-      "message": "Cheap",
-      "currency": "$"
-    },
-    "rating": 8.4,
-    "phone": "6082444013",
-    "menu": false
+    ],
+    "savorScore": "52"
   },
   {
     "restaurantId": "56f03d38498eb3c16b03e9c2",
@@ -466,73 +413,79 @@ const dummyData = [
     },
     "rating": 6.5,
     "phone": "6082038024",
-    "menu": false
+    "menu": false,
+    "savorScore": "37"
+  },
+  {
+    "restaurantId": "4b743e7df964a5207fcf2de3",
+    "name": "Starbucks",
+    "distance": 9081,
+    "lat": 43.05893389,
+    "long": -89.50234572,
+    "categoryId": "4bf58dd8d48988d1e0931735",
+    "categoryShortName": "Coffee Shop",
+    "price": {
+      "tier": 1,
+      "message": "Cheap",
+      "currency": "$"
+    },
+    "rating": 7.4,
+    "phone": "6088293646",
+    "menu": false,
+    "savorScore": "36"
+  },
+  {
+    "restaurantId": "54806dfb498e67f98a869485",
+    "name": "Chick-fil-A",
+    "distance": 9175,
+    "lat": 43.058116,
+    "long": -89.503426,
+    "categoryId": "4bf58dd8d48988d16e941735",
+    "categoryShortName": "Fast Food",
+    "price": {
+      "tier": 1,
+      "message": "Cheap",
+      "currency": "$"
+    },
+    "rating": 8.4,
+    "phone": "6088334344",
+    "menu": false,
+    "savorScore": "34"
+  },
+  {
+    "restaurantId": "4ecc30f9775b4671dc78ebc7",
+    "name": "Starbucks",
+    "distance": 9275,
+    "lat": 43.125614,
+    "long": -89.31271,
+    "categoryId": "4bf58dd8d48988d1e0931735",
+    "categoryShortName": "Coffee Shop",
+    "price": {
+      "tier": 1,
+      "message": "Cheap",
+      "currency": "$"
+    },
+    "rating": 8.4,
+    "phone": "6082444013",
+    "menu": false,
+    "savorScore": "34"
+  },
+  {
+    "restaurantId": "56218518498ed6af88a19b46",
+    "name": "Café Hollander",
+    "distance": 5184,
+    "lat": 43.07320209335286,
+    "long": -89.45375822123673,
+    "categoryId": "4bf58dd8d48988d155941735",
+    "categoryShortName": "Gastropub",
+    "price": {
+      "tier": 3,
+      "message": "Expensive",
+      "currency": "$"
+    },
+    "rating": 8.6,
+    "phone": "6082373168",
+    "menu": false,
+    "savorScore": "31"
   }
 ]
-
-
-
-const dummyUserData = {
-  "categories" : {
-    "4bf58dd8d48988d10f941735" : 0.5,
-    "4bf58dd8d48988d145941735" : 0.5,
-    "4bf58dd8d48988d149941735" : 0.5,
-    "4bf58dd8d48988d14e941735" : 0,
-    "4bf58dd8d48988d1ca941735" : 0,
-    "4bf58dd8d48988d1d2941735" : 0.5,
-    "4d4b7105d754a06374d81259" : 0,
-    "4eb1bfa43b7b52c0e1adc2e8" : 0.5
-  },
-  "distance" : 1000,
-  "priceTier" : 1,
-  "rating" : 1,
-  "weights" : {
-    "categories" : 0.7,
-    "priceRange" : 0.9,
-    "range" : 0.5,
-    "rating" : 0.3
-  }
-}
-
-const rateVenues = (venues, userData) => {
-  const calculatePriceWeighted = (venue, userData) => {
-      const venuePriceOutOfTen = 10 - venue.price.tier * 2.5
-      const preferredPriceOutOfTen = 10 - userData.priceTier * 2.5 
-      const difference = Math.abs( venuePriceOutOfTen - preferredPriceOutOfTen )
-      const differenceOutOfTen = 10 - difference
-      const weightedTotal = differenceOutOfTen * userData.weights.priceRange 
-      return weightedTotal
-  }
-  const calculateRangeWeighted = (venue, userData, searchRange) => {
-      const tensInt = 10 / searchRange
-      const rangeOutOfTen = 10 - venue.distance * tensInt
-      const weightedTotal =  Math.ceil(rangeOutOfTen) * userData.weights.range
-      return weightedTotal
-  } 
-  const calculateRatingWeighted = (venue, userData) => {
-      const difference = Math.abs(venue.rating - userData.rating)
-      const differenceOutOfTen = 10 - difference
-      const weightedTotal = differenceOutOfTen * userData.weights.rating
-      return weightedTotal
-  }
-  const calculateSavor = (venue, userData) => {
-      const priceScore = calculatePriceWeighted(venue, userData)
-      const rangeScore = calculateRangeWeighted(venue, userData, 5000)
-      const ratingScore = calculateRatingWeighted(venue, userData)
-      const savorScore = (((priceScore + rangeScore + ratingScore) / (userData.weights.priceRange + userData.weights.range + userData.weights.rating)) * 10).toFixed()
-      return savorScore
-  }
-  const addScore = (venues, userData) => {
-      const keyedVenues = []
-      venues.forEach(venue => { 
-          const venueWithScore = venue
-          venueWithScore.savorScore = calculateSavor(venue, userData)
-          keyedVenues.push(venueWithScore)
-      })
-      return keyedVenues.sort((a, b) => b.savorScore - a.savorScore)
-  }
-  return addScore(venues, userData)
-}
-
-const test = rateVenues(dummyData, dummyUserData);
-console.log(JSON.stringify(test, null, 2));
