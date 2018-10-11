@@ -78,9 +78,8 @@ class Main extends Component {
             'https://us-central1-hangry-1e919.cloudfunctions.net/returnVenues?'
         output += `lat=${lat}&long=${long}&`
         for (let weight in userData.weights) {
-            if (userData.weights[weight]) {
+                console.log(weight);
                 output += `${weight}=${userData.weights[weight]}&`
-            }
         }
         output += `listOfCategories=`
         for (let category in userData.categories) {

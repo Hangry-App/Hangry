@@ -11,9 +11,6 @@ exports.returnVenues = functions.https.onRequest(async (req, res) => {
         `${req.query.listOfCategories}`,
         10
     )
-    console.log('--------------------------------');
-    console.log(foundVenues);
-    console.log('--------------------------------');
     const ratedVenues = rateVenues(
         foundVenues, {
             weights: {
@@ -47,8 +44,7 @@ exports.returnVenues = functions.https.onRequest(async (req, res) => {
             priceTier: req.query.priceTier,
             rating: req.query.ratingPref,
             distance: req.query.distance,
-        }, req.query.distance
-    );
+        });
     console.log('--------------------------------');
     console.log(ratedVenues);
     console.log('--------------------------------');
