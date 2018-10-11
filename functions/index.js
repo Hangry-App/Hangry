@@ -186,8 +186,7 @@ function () {
         const priceScore = calculatePriceWeighted(venue, userData);
         const rangeScore = calculateRangeWeighted(venue, userData, userData.distance);
         const ratingScore = calculateRatingWeighted(venue, userData);
-        console.log(priceScore + rangeScore + ratingScore);
-        const savorScore = (priceScore + rangeScore + ratingScore).toFixed(2);
+        const savorScore = Math.floor((priceScore + rangeScore + ratingScore) / (userData.weights.rating + userData.weights.priceRange + userData.weights.range));
         return savorScore;
       };
 
