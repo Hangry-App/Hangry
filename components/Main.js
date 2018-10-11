@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import {
     View,
     StyleSheet,
-    Text,
     Platform,
     TouchableWithoutFeedback,
 } from 'react-native'
@@ -95,6 +94,11 @@ class Main extends Component {
         console.log('Output')
         console.log(output)
         return output
+    }
+
+    generateUrl = () => {
+      const name = this.state.restaurant.item.name.split(' ').join('%');
+      return `https://www.google.com/maps/search/?api=1&query=${name}`
     }
 
     getRestaurants = async userData => {
@@ -195,6 +199,7 @@ class Main extends Component {
                 )}
                 {this.state.recommendedRestaurants.length ? (
                     <Cards
+                        getURL={this.generateUrl}
                         restaurants={this.state.recommendedRestaurants}
                         update={this.updateCurrentRestaurant}
                         offset={this.offsetMap}
