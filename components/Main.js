@@ -4,8 +4,6 @@ import {
     StyleSheet,
     Platform,
     TouchableWithoutFeedback,
-    Linking,
-    Button
 } from 'react-native'
 import { Constants, Location, Permissions, MapView } from 'expo'
 import * as firebase from 'firebase'

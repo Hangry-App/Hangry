@@ -96,7 +96,7 @@ class Cards extends Component {
               <View style={styles.row}>
                 <Text style={styles.rating}>{generateRating(item)}</Text>
                 <Text style={styles.rating}>{generatePrice(item)}</Text>
-                <Text style={styles.rating}>Savor Score: 100</Text>
+                <Text style={styles.rating}>Savor Score: {item.savorScore}</Text>
               </View>
             </View>
             {/*END OF CARD HEADER*/}
