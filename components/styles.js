@@ -35,6 +35,8 @@ export const boldWhite = {
   paddingVertical: 0,
   color: colors.white,
   textAlign: 'center',
+  marginHorizontal: 0,
+  paddingHorizontal: 0,
 };
 
 export const boldBlue = {
@@ -95,7 +97,6 @@ export const restaurantCard = {
   backgroundColor: '#fff',
   borderRadius: 4,
   height: 200,
-  // height: 400,
   width: '100%',
   marginVertical: 15,
   alignItems: 'center',
@@ -111,12 +112,13 @@ export const horizontalCardStrip = {
 };
 
 export const row = {
+  paddingHorizontal: '10%',
   display: 'flex',
   width: '100%',
-  // paddingHorizontal: 135,
   flexDirection: 'row',
   alignItems: 'center',
   justifyContent: 'space-around',
+  marginBottom: 5,
 };
 
 export const price = {
