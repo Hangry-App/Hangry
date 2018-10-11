@@ -145,7 +145,6 @@ exports.returnVenues = functions.https.onRequest(async (req, res) => {
         const priceScore = calculatePriceWeighted(venue, userData)
         const rangeScore = calculateRangeWeighted(venue, userData, userData.distance)
         const ratingScore = calculateRatingWeighted(venue, userData)
-        console.log(priceScore + rangeScore + ratingScore);
         const savorScore = (priceScore + rangeScore + ratingScore).toFixed(2)
         return savorScore
     }
